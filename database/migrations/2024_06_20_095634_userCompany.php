@@ -11,12 +11,6 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('detailLokasi', function (Blueprint $table) {
-            $table->id();
-            $table->string('namaLokasi');
-            $table->timestamps();
-        });
-
         Schema::create('kategoriPekerjaan', function (Blueprint $table) {
             $table->id();
             $table->string('namaKategoriPekerjaan');
@@ -25,7 +19,9 @@ return new class extends Migration
 
         Schema::create('usercompany', function (Blueprint $table) {
             $table->id();
-            $table->foreign('id')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedBigInteger('fkusercompany');
+            $table->foreign('fkusercompany')->references('id')->on('users')->onDelete('cascade');
+            $table->binary('foto_profil_company')->nullable();
             $table->text('deskripsi_perusahaan');
             $table->string('nomor_telepon',12);
             $table->year('tahun_berdiri');
@@ -35,13 +31,14 @@ return new class extends Migration
 
         Schema::create('detail_alamat_perusahaan', function (Blueprint $table) {
             $table->id();
-            $table->foreign('id')->references('id')->on('usercompany')->onDelete('cascade');
-            $table->string('Alamat detail');
-            $table->string('provinsi');
-            $table->string('kota_kabupaten');
-            $table->string('kecamatan');
-            $table->string('kelurahan');
-            $table->string('kode_pos');
+            $table->unsignedBigInteger('fkusercompany');
+            $table->foreign('fkusercompany')->references('id')->on('usercompany')->onDelete('cascade');
+            $table->string('Alamat_detail')->nullable();
+            $table->string('provinsi')->nullable();
+            $table->string('kota_kabupaten')->nullable();
+            $table->string('kecamatan')->nullable();
+            $table->string('kelurahan')->nullable();
+            $table->string('kode_pos')->nullable();
             $table->timestamps(); 
         });
 

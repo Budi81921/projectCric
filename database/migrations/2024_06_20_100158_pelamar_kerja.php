@@ -11,11 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pelamarKerja', function (Blueprint $table) {
+        Schema::create('detail_lowongan', function (Blueprint $table) {
             $table->id();
-            $table->foreign('id','fklowongankerja')->references('id')->on('lowonganKerja');
-            $table->foreign('id','fkusercandidate')->references('id')->on('userCandidate');
+            $table->unsignedBigInteger('fklowongankerja');
+            $table->foreign('fklowongankerja')->references('id')->on('lowonganKerja');
+            $table->unsignedBigInteger('fkusercandidate');
+            $table->foreign('fkusercandidate')->references('id')->on('userCandidate');
             $table->set('status',['diterima','proses','ditolak']);
+            $table->timestamps();
         });
     }
 

@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\candidateProfileController;
+use App\Http\Controllers\loginController;
+use App\Http\Controllers\registrationController;
+use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +17,39 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+
+Route::group(['middleware'=>'guest'],function(){
+    
+    //home
+    Route::get('/', function () {
+        return view('html.n_home');
+    });
+
+    //registrasi user candidate
+    Route::controller(registrationController::class)->group(function(){
+        Route::get("/registrationCandidate","index");
+        Route::post("/registrationCandidate","registrationCandidate");
+    });
+
+    //login candidate
+    Route::controller(loginController::class)->group(function(){
+        Route::get("/loginCandidate","index")->name('login.index');
+        Route::post("/loginCandidate","authentication")->name('login.process');
+    });
 });
+
+
+Route::group(['middleware'=>'auth'],function(){
+    Route::controller(candidateProfileController::class)->group(function(){
+        Route::get("/profile","index")->name('profile.index');
+        Route::post("/profile/update","updateProfileCandidate")->name('update.profile.candidate');
+    });
+
+    //logout
+    Route::get('/logout', [LoginController::class, 'logoutCandidate'])->name('logout');
+
+});
+
+
+

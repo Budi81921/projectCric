@@ -13,13 +13,14 @@ return new class extends Migration
     {
         Schema::create('userCandidate', function (Blueprint $table) {
             $table->id();
-            $table->foreign('id')->references('id')->on('users')->onDelete('cascade');
-            $table->dateTime('tanggal_lahir');
-            $table->string('nomor_handphone',12);
-            $table->string('alamat');
-            $table->enum('gender',['laki-laki','perempuan']);
-            $table->string('universitas');
-            $table->string('gelar');
+            $table->unsignedBigInteger('fkidusercandidate');
+            $table->foreign('fkidusercandidate')->references('id')->on('users')->onDelete('cascade');
+            $table->dateTime('tanggal_lahir')->nullable();
+            $table->string('nomor_handphone',12)->nullable();
+            $table->string('alamat')->nullable();
+            $table->enum('gender',['pria','wanita'])->nullable();
+            $table->string('universitas')->nullable();
+            $table->string('gelar')->nullable();
             $table->timestamps();
         });
     }

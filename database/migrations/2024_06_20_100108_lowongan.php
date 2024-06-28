@@ -13,15 +13,17 @@ return new class extends Migration
     {
         Schema::create('lowonganKerja', function (Blueprint $table) {
             $table->id();
-            $table->foreign('id','fkusercompany')->references('id')->on('userCompany')->onDelete('cascade');
-            $table->string('divisiPekerjaan');
-            $table->string('deskripsiPekerjaan');
-            $table->foreign('id','fkdetailLokasi')->references('id')->on('detailLokasi')->onDelete('cascade');
+            $table->unsignedBigInteger('fkusercompany');
+            $table->foreign('fkusercompany')->references('id')->on('userCompany')->onDelete('cascade');
+            $table->string('title_lowongan');
+            $table->string('deskripsiPekerjaan',255);
+            $table->string('kota_lowongan')->nullable();
+            $table->unsignedBigInteger('fkKategoriPekerjaan');
             $table->foreign('id','fkKategoriPekerjaan')->references('id',)->on('kategoriPekerjaan')->onDelete('cascade');
-            $table->string('kualifikasi');
+            $table->string('kualifikasi',255);
             $table->set('tipePekerjaan',['hybrid','WFO','WFH']);
-            $table->string('universitas');
-            $table->string('gelar');
+            $table->string('pendidikan');
+            $table->string('pengalaman');
             $table->timestamps();
         });
     }
