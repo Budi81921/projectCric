@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profil Pelamar - Biodata</title>
-    <link rel="stylesheet" href="../CSS/profilpelamar-previewbiodata.css">
+    <title>Profil Pelamar - Resume</title>
+    <link rel="stylesheet" href="../CSS/profilpelamar-previewresume.css">
     <link rel="stylesheet" href="../CSS BOOTSTRAP/bootstrap.css">
     <script src="../JS/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -74,8 +74,8 @@
     <!--SIDEBAR-->
       <div class="sidebar">
         <nav class="nav flex-column">
-          <a class="nav-link active" aria-current="page"  href="../HTML/profilpelamar-previewbiodata.html"><i class="bi bi-person-fill-gear"></i>Biodata</a>
-          <a class="nav-link" href="../HTML/profilpelamar-previewresume.html"><i class="bi bi-person-vcard-fill"></i>Resume</a>
+          <a class="nav-link"  href="../HTML/profilpelamar-previewbiodata.html"><i class="bi bi-person-fill-gear"></i>Biodata</a>
+          <a class="nav-link active" aria-current="page" href="../HTML/profilpelamar-previewresume.html"><i class="bi bi-person-vcard-fill"></i>Resume</a>
           <a class="nav-link" href="../HTML/profilpelamar-joblist.html"><i class="bi bi-clipboard-fill"></i>Job List</a>
           <a class="nav-link" data-bs-toggle="modal" data-bs-target="#logoutModal"><i class="bi bi-box-arrow-right"></i>Log out</a>
           <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
@@ -100,64 +100,34 @@
     </div> 
     <!--END SIDEBAR-->
 
-  <!--BIODATA-->
-    <div class="biodata">
-      <div class="judul">
-        <h3>Biodata</h3>
+    <!-- PREVIEW RESUME-->
+      <div class="resume">
+        <div class="judul">
+          <h3>Resume</h3>
+        </div>
+        <div class="isiresume"> <!--Deskripsi diri-->
+            <p>Deskripsi Diri</p>
+            <div class="label">
+                <p>Saya merupakan alumni dari Universitas Al Azhar Indonesia angkatan 2021. Selama berkuliah saya memiliki minat dalam bidang Data Science dan telah melakukan beberapa project mengenai Data Science.</p>
+            </div>
+        </div>
+        <div class="isiresume"> <!--CV-->
+            <p>CV</p>
+            <div class="label">
+                <p>CV_Alexandra.pdf</p>
+            </div>
+        </div>
+        <div class="isiresume"> <!--Portfolio-->
+            <p>Portfolio</p>
+            <div class="label">
+                <p>Portfolio_Alexandra.pdf</p>
+            </div>
+        </div>
+            <a class="edit" href="../HTML/profilpelamar-editresume.html"><button type="submit" class="btn btn-primary">EDIT</button></a> <!--INI BUTTON SIMOAN-->
       </div>
-      <div class="isibiodata">
-        <p>Nama Lengkap</p>
-        <div class="label">
-            <p>Alexandra</p>
-        </div>
-      </div> 
-      <div class="isibiodata">
-        <p>Tanggal Lahir</p>
-        <div class="label">
-            <p>13 Mei 2003</p>
-        </div>
-      </div> 
-      <div class="isibiodata">
-        <p>Alamat</p>
-        <div class="label">
-            <p>Jl. Kebayoran Lama</p>
-        </div>
-      </div> 
-      <div class="isibiodata">
-        <p>Nomor Handphone</p>
-        <div class="label">
-            <p>0124345644</p>
-        </div>
-      </div> 
-      <div class="isibiodata">
-        <p>Email</p>
-        <div class="label">
-            <p>Alexandra@gmail.com</p>
-        </div>
-      </div> 
-      <div class="isibiodata">
-        <p>Jenis Kelamin</p>
-        <div class="label">
-            <p>Wanita</p>
-        </div>
-      </div> 
-      <div class="isibiodata">
-        <p>Universitas</p>
-        <div class="label">
-            <p>Universitas Al-Azhar Indonesia</p>
-        </div>
-      </div> 
-      <div class="isibiodata">
-        <p>Gelar</p>
-        <div class="label">
-            <p>S.Kom</p>
-        </div>
-      </div> 
-        <a class="edit" href="../HTML/profilpelamar-editbiodata.html"><button type="submit" class="btn btn-primary" id="button">EDIT</button></a>
     </div>
-  </div>
-<!-- END BIODATA-->
-
+  <!-- END PREVIEW RESUME-->
+  
   <!-- Footer -->
   <div class="footer">
     <div class="box1">
@@ -215,6 +185,14 @@
     </div>
   </div>
   <!-- End Footer -->
+
+  <!--SCRIPT LOGOUT-->
+  <script>
+    document.getElementById('confirmLogout').addEventListener('click', function() {
+        window.location.href = "#";
+    });
+  </script>
+  <!--END SCRIPT LOGOUT-->
 
 </body>
 </html>

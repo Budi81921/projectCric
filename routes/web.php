@@ -1,8 +1,11 @@
 <?php
 
 use App\Http\Controllers\candidateProfileController;
-use App\Http\Controllers\homecandidateController;
+
+use App\Http\Controllers\HomeController;
+
 use App\Http\Controllers\loginController;
+use App\Http\Controllers\lowonganController;
 use App\Http\Controllers\registrationController;
 use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Support\Facades\Route;
@@ -21,11 +24,11 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::group(['middleware'=>'guest'],function(){
-    
+
     //home
-    Route::get('/', function () {
-        return view('html.n_home');
-    });
+    Route::get('/', [HomeController::class, 'nonregis']);
+
+
 
     //registrasi user candidate
     Route::controller(registrationController::class)->group(function(){
@@ -43,7 +46,6 @@ Route::group(['middleware'=>'guest'],function(){
 
 Route::group(['middleware'=>'auth'],function(){
     //home regis kandidat
-    Route::get('/homecandidate', [homecandidateController::class,'index'])->name('homecandidate.index');
 
     //profile kandidat
     Route::controller(candidateProfileController::class)->group(function(){
@@ -51,10 +53,12 @@ Route::group(['middleware'=>'auth'],function(){
         Route::post("/profile/update","updateProfileCandidate")->name('update.profile.candidate');
     });
 
+    Route::get('/home', [HomeController::class, 'regis'])->name('homeregis');
+
     //logout
     Route::get('/logout', [LoginController::class, 'logoutCandidate'])->name('logout');
 
 });
 
-
+Route::get('/lowongan', [lowonganController::class, 'index'])->name('lowongan');
 

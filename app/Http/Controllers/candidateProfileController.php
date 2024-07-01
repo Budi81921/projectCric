@@ -16,7 +16,7 @@ class candidateProfileController extends Controller
         $usercandidate = userCandidateModel::find('id');
 
 
-        return view('biodataKandidat.profilpelamar-editbiodata',compact('id','candidateProfile','usercandidate'));
+        return view('profile.editbiodata',compact('id','candidateProfile','usercandidate'));
     }
     public function updateProfileCandidate(Request $request){
 
@@ -26,10 +26,10 @@ class candidateProfileController extends Controller
             'gender'=>'required',
             'universitas'=>'required'
         ]);
-        $usercandidate = userCandidateModel::find('id'); 
+        $usercandidate = userCandidateModel::find('id');
         $usercandidate->update([
-            
+
         ]);
-       
+
     }
 }
