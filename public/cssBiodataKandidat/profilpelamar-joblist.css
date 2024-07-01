@@ -449,6 +449,22 @@
     cursor: pointer;
     color: #a30404;
 }
+#button {
+    border-color:  rgba(0, 0, 0, 0.5);
+    font-size: 15px;
+    background-color: #F5DD00;
+}
+
+#button:hover{
+    background-color: #e7d423;
+    border-color: black;
+    color: black;
+}
+
+#button:active {
+    background: #e7d423;
+}
+
 /*END JOBLIST*/
 
 /* Footer */

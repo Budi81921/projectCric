@@ -15,7 +15,9 @@
 
 <body>
 
+  <!-- NAVIGASI BAR -->
   @include('layout.navbar')
+  <!-- END NAVIGASI BAR -->
 
   <!-- Section1 -->
   <div id="section1" class="carousel1">
@@ -116,9 +118,8 @@
   </div>
   <!-- End Section 4 -->
 
-  <!-- Footer -->
   @include('layout.footer')
-  <!-- End Footer -->
+
 
 </body>
 

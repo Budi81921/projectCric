@@ -278,12 +278,24 @@
     padding: 20px;
     color: rgba(0, 0, 0, 0.6);
 }
-.btn.btn-primary {
+#button {
     height: 40px;
     width: 429px;
     border-color:  rgba(0, 0, 0, 0.5);
     font-size: 15px;
+    background-color: #F5DD00;
 }
+
+#button:hover{
+    background-color: #e7d423;
+    border-color: black;
+    color: black;
+}
+
+#button:active {
+    background: #e7d423;
+}
+
 /*END BIODATA*/
 
 /* Footer */

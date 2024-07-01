@@ -15,49 +15,7 @@
 
 <body>
 
-  <!-- NAVIGASI BAR -->
-  <nav class="navbar navbar-expand-lg" id="myNavbar">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/">
-        <img src="../img/logo.png" alt="logo" class="navbar-logo" width="60px">UCareer</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="../html/n_lowongan.html">Lowongan Kerja</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Perusahaan</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Tentang Kami
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">UAI</a></li>
-              <li><a class="dropdown-item" href="#">CRIC DSFE UAI</a></li>
-            </ul>
-          </li>
-        </ul>
-
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="../html/register.html">Daftar</a>
-          </li>
-          <li class="login-button">
-            <button class="btn btn-outline-warning" href="#">MASUK</button>
-          </li>
-        </ul>
-        </form>
-      </div>
-    </div>
-  </nav>
-  <!-- END NAVIGASI BAR -->
-
+  @include('layout.navbar')
   <!-- Section -->
   <div class="card-register">
     <div class="text1">
@@ -71,6 +29,7 @@
         <div class="mb-3">
           <label for="fullName" class="form-label">Nama Lengkap</label>
           <input name="fullName"type="text" class="form-control" id="fullName" placeholder="Nama lengkap">
+        
         </div>
         <div class="mb-3">
           <label for="email" class="form-label">Email</label>
@@ -96,7 +55,7 @@
 
       <div class="shortcut">
         <p class="card-text" style="transform: rotate(0);">
-          Sudah mempunyai akun? <a href="#" class="text-primary">Masuk</a>
+          Sudah mempunyai akun? <a href="/" class="text-primary">Masuk</a>
         </p>
         <p class="register-company">
           <a href="#" class="text-primary">Daftar sebagai Perusahaan</a>

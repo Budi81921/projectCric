@@ -16,7 +16,7 @@ class lowonganSeeder extends Seeder
         for ($i = 0; $i <= 5; $i++) {
             DB::table("kategoriPekerjaan")
             ->insert([
-                'namaKategoriPekerjaan'=>'pekerjaan$i',
+                'namaKategoriPekerjaan'=>"pekerjaan$i",
             ]);
         }
 

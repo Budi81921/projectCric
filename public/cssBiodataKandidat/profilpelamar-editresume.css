@@ -268,12 +268,24 @@
     align-items: center;
     padding-bottom: 20px;
 }
-.btn.btn-primary {
+#button {
     height: 40px;
     width: 429px;
     border-color:  rgba(0, 0, 0, 0.5);
     font-size: 15px;
+    background-color: #F5DD00;
 }
+
+#button:hover{
+    background-color: #e7d423;
+    border-color: black;
+    color: black;
+}
+
+#button:active {
+    background: #e7d423;
+}
+
 
 /*RESUME*/
 

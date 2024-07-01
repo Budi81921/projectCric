@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\candidateProfileController;
+use App\Http\Controllers\homecandidateController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\registrationController;
 use Illuminate\Routing\Controllers\Middleware;
@@ -41,6 +42,10 @@ Route::group(['middleware'=>'guest'],function(){
 
 
 Route::group(['middleware'=>'auth'],function(){
+    //home regis kandidat
+    Route::get('/homecandidate', [homecandidateController::class,'index'])->name('homecandidate.index');
+
+    //profile kandidat
     Route::controller(candidateProfileController::class)->group(function(){
         Route::get("/profile","index")->name('profile.index');
         Route::post("/profile/update","updateProfileCandidate")->name('update.profile.candidate');

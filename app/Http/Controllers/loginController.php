@@ -23,7 +23,7 @@ class loginController extends Controller
         ];
         if($validator->passes()){
             if(Auth::attempt($loginInfo)){
-                return redirect('/profile');
+                return redirect('/homecandidate');
             }else {
                 return redirect()->back()->withErrors('email or password invalid');
             }
