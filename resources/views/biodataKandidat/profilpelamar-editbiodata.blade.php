@@ -22,36 +22,37 @@
     <div class="judul">
       <h3>Biodata</h3>
     </div>
-    <form id="resumeForm">
+    <form id="resumeForm" method="POST" action="/profile/update">
+      @csrf
       <div class="mb-3">
         <label for="formGroupExampleInput" class="form-label">Nama Lengkap</label>
-        <input type="text" class="form-control" id="validationDefault01" value="{{ $id->nama_lengkap}}" required>
+        <input name="nama_lengkap"type="text" class="form-control" id="validationDefault01" value="{{ $id->nama_lengkap}}" required>
       </div>
       <div class="mb-3">
         <label for="tanggalInput" class="form-label">Tanggal Lahir</label>
-        <input type="date" class="form-control" id="validationDefault01" name="tanggal"value="{{ $candidateProfile->tangal_lahir}}" required>
+        <input type="date" class="form-control" id="validationDefault01" name="tanggal_lahir" value="{{ $candidateProfile->tangal_lahir}}" required>
       </div>
       <div class="mb-3">
         <label for="formGroupExampleInput" class="form-label">Alamat</label>
-        <input type="text" class="form-control" id="validationDefault01" value="{{ $candidateProfile->alamat}}" required>
+        <input name="alamat" type="text" class="form-control" id="validationDefault01" value="{{ $candidateProfile->alamat}}" required>
       </div>
       <div class="mb-3">
         <label for="phoneNumber" class="form-label">Nomor Handphone</label>
-        <input type="tel" class="form-control" id="phoneNumber" pattern="[0-9]{10,15}" value="{{ $candidateProfile->nomor_handphone }}" required>
+        <input name="nomor_handphone"type="tel" class="form-control" id="phoneNumber" pattern="[0-9]{10,15}" value="{{ $candidateProfile->nomor_handphone }}" required>
       </div>
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Email</label>
-        <input type="email" class="form-control" id="validationDefault01" value="{{ $id->email }}" aria-describedby="emailHelp"required>
+        <input name="email" type="email" class="form-control" id="validationDefault01" value="{{ $id->email }}" aria-describedby="emailHelp"required>
       </div>
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Jenis Kelamin</label>
       <div class="jeniskelamin">
         <div class="form-check">
-          <input type="radio" class="form-check-input" id="validationFormCheck2" name="radio-stacked" value="Pria" {{ $candidateProfile->gender == 'pria' ? 'checked' : '' }} required>
+          <input name="checkbox" type="radio" class="form-check-input" id="validationFormCheck2" name="radio-stacked" value="Pria" {{ $candidateProfile->gender == 'pria' ? 'checked' : '' }} required>
           <label class="form-check-label" for="validationFormCheck2">Pria</label>
         </div>
         <div class="form-check mb-3">
-          <input type="radio" class="form-check-input" id="validationFormCheck3" name="radio-stacked" value="Wanita" {{ $candidateProfile->gender == 'wanita' ? 'checked' : '' }} required>
+          <input name="checkbox" type="radio" class="form-check-input" id="validationFormCheck3" name="radio-stacked" value="Wanita" {{ $candidateProfile->gender == 'wanita' ? 'checked' : '' }} required>
           <label class="form-check-label" for="validationFormCheck3">Wanita</label>
           <div class="invalid-feedback">Pilih Jenis Kelamin Anda</div>
         </div>
@@ -59,11 +60,11 @@
     </div>
     <div class="mb-3">
       <label for="formGroupExampleInput" class="form-label">Universitas</label>
-      <input type="text" class="form-control" id="validationDefault01" value="{{ $candidateProfile->universitas }}" required>
+      <input name="universitas" type="text" class="form-control" id="validationDefault01" value="{{ $candidateProfile->universitas }}" required>
     </div>
     <div class="mb-3">
       <label for="formGroupExampleInput" class="form-label">Gelar</label>
-      <input type="text" class="form-control" id="validationDefault01" value="{{ $candidateProfile->gelar }}" required>
+      <input name="gelar" type="text" class="form-control" id="validationDefault01" value="{{ $candidateProfile->gelar }}" required>
     </div>
     <div class="simpan">
       <button type="submit" class="btn btn-primary" id="button">SIMPAN</button>

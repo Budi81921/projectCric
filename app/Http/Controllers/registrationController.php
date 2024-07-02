@@ -14,7 +14,7 @@ class registrationController extends Controller
 
     //show registration page
     public function index(){
-        return view('html.register');
+        return view('home.register');
     }
 
     //show process registration

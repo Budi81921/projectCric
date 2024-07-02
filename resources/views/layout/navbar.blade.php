@@ -15,8 +15,7 @@
 </head>
 
 @auth()
-
-      <!-- NAVIGASI BAR -->
+  <!-- NAVIGASI BAR -->
   <nav class="navbar navbar-expand-lg" id="myNavbar">
     <div class="container-fluid">
       <a class="navbar-brand" href="/">
@@ -49,15 +48,17 @@
               <a href="#"><i class="bi bi-bookmark-fill"></i></a>
             </div>
             <div class="akun">
-              <li class="nav-item">
-                <i class="bi bi-person-fill"></i>
-                <a class="nav-link" href="/profile">{{ Auth::user()->nama_lengkap }}</a>
-              </li>
+                <a href="/profile">
+                    <i class="bi bi-person-fill"></i>
+                    <h6>{{ Auth::user()->nama_lengkap }}</h6>
+                </a>
             </div>
         </div>
       </div>
     </div>
   </nav>
+  <!-- END NAVIGASI BAR -->
+
   <!-- END NAVIGASI BAR -->
 @endauth
 @guest

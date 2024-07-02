@@ -24,7 +24,7 @@ Route::group(['middleware'=>'guest'],function(){
     
     //home
     Route::get('/', function () {
-        return view('html.n_home');
+        return view('home.homenonregis');
     });
 
     //registrasi user candidate

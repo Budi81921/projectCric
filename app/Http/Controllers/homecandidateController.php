@@ -8,6 +8,6 @@ use Illuminate\Support\Facades\Auth;
 class homecandidateController extends Controller
 {
     public function index(){
-        return view('html.homecandidate');
+        return view('home.homecandidate');
     }
 }
