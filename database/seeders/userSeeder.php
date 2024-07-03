@@ -123,22 +123,52 @@ class userSeeder extends Seeder
         DB::table("detail_alamat_perusahaan")
         ->insert([	
             'fkusercompany'	=> 1,
+            'Alamat_detail' =>"Jakarta Selatan",
+            'provinsi'=>"DKI Jakarta",
+            'kota_kabupaten'=>"Jakarta Selatan",
+            'kecamatan'=>"KBY",
+            'kelurahan'=>"Selong",
+            'kode_pos'=>"1111",
         ]);
         DB::table("detail_alamat_perusahaan")
         ->insert([	
             'fkusercompany'	=> 2,
+            'Alamat_detail' =>"Jakarta barat",
+            'provinsi'=>"DKI Jakarta",
+            'kota_kabupaten'=>"Jakarta Selatan",
+            'kecamatan'=>"Pulo gadung",
+            'kelurahan'=>"binjay",
+            'kode_pos'=>"1111",
         ]);
         DB::table("detail_alamat_perusahaan")
         ->insert([	
             'fkusercompany'	=> 3,
+            'Alamat_detail' =>"jalan berkat",
+            'provinsi'=>"Jawa Barat",
+            'kota_kabupaten'=>"Bekasi",
+            'kecamatan'=>"rawa ribung",
+            'kelurahan'=>"galaxy",
+            'kode_pos'=>"1111",
         ]);
         DB::table("detail_alamat_perusahaan")
         ->insert([	
             'fkusercompany'	=> 4,
+            'Alamat_detail' =>"jalan berkat",
+            'provinsi'=>"Jawa Barat",
+            'kota_kabupaten'=>"Bekasi",
+            'kecamatan'=>"rawa ribung",
+            'kelurahan'=>"galaxy",
+            'kode_pos'=>"1111",
         ]);
         DB::table("detail_alamat_perusahaan")
         ->insert([	
             'fkusercompany'	=> 5,
+            'Alamat_detail' =>"jalan berkat",
+            'provinsi'=>"Jawa Barat",
+            'kota_kabupaten'=>"Bekasi",
+            'kecamatan'=>"rawa ribung",
+            'kelurahan'=>"galaxy",
+            'kode_pos'=>"1111",
         ]);
       
     }

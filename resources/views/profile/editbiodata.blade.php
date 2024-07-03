@@ -32,7 +32,7 @@
       </div>
       <div class="mb-3">
         <label for="tanggalInput" class="form-label">Tanggal Lahir</label>
-        <input type="date"  class="form-control" id="validationDefault01" name="tanggal_lahir" value="{{ $candidateProfile->nama_lengkap }}" required>
+        <input type="date"  class="form-control" id="validationDefault01" name="tanggal_lahir" value="{{ $candidateProfile->tanggal_lahir }}" required>
       </div>
       <div class="mb-3">
         <label for="formGroupExampleInput" class="form-label">Alamat</label>

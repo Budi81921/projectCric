@@ -31,12 +31,12 @@
             </div>
           </div>
           <div class="mb-3">
-            <label for="formFileMultiple" class="form-label">CV</label>
+            <label for="formFileMultiple" class="form-label">CV : {{ $candidateProfile->cv }}</label>
             <input value="{{ $candidateProfile->cv }}"name="cv" type="file" class="form-control" id="fileInput" aria-label="file example" required>
             <div class="invalid-feedback">Mohon masukan file yang sesuai.</div>
           </div>
           <div class="mb-3">
-            <label for="formFileMultiple" class="form-label">Portfolio</label>
+            <label for="formFileMultiple" class="form-label">Portfolio : {{ $candidateProfile->portofolio }}</label>
             <input value="{{ $candidateProfile->portofolio }}" name="portofolio" type="file" class="form-control" id="fileInput" aaria-label="file example" required>
             <div class="invalid-feedback">Mohon masukan file yang sesuai.</div>
           </div>

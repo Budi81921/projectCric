@@ -27,7 +27,8 @@ class lowonganSeeder extends Seeder
             'deskripsiPekerjaan'=>	'Lorem ipsum dolor sit amet, ',
             'fkKategoriPekerjaan'	=> 1,
             'kualifikasi'	=> '1. dapat menggunakan python',
-            'tipePekerjaan'	=> 'WFO',
+            'lokasi'	=> 'WFO',
+            'tipePekerjaan'=>'Freelance',
             'pendidikan'	=> 'S1',
             'pengalaman'=>'1 tahun'
         ]);
@@ -38,7 +39,8 @@ class lowonganSeeder extends Seeder
             'deskripsiPekerjaan'=>	'Lorem ipsum dolor sit amet,',
             'fkKategoriPekerjaan'	=> 2,
             'kualifikasi'	=> '1. dapat menggunakan python',
-            'tipePekerjaan'	=> 'WFO',
+            'lokasi'	=> 'WFO',
+            'tipePekerjaan'=>'Freelance',
             'pendidikan'	=> 'S1',
             'pengalaman'=>'1 tahun'
         ]);
@@ -49,7 +51,8 @@ class lowonganSeeder extends Seeder
             'deskripsiPekerjaan'=>	'Lorem ipsum dolor sit amet,',
             'fkKategoriPekerjaan'	=> 3,
             'kualifikasi'	=> '1. dapat menggunakan python',
-            'tipePekerjaan'	=> 'WFO',
+            'lokasi'	=> 'WFO',
+            'tipePekerjaan'=>'Freelance',
             'pendidikan'	=> 'S1',
             'pengalaman'=>'1 tahun'
         ]);
@@ -60,7 +63,8 @@ class lowonganSeeder extends Seeder
             'deskripsiPekerjaan'=>	'Lorem ipsum dolor sit amet,',
             'fkKategoriPekerjaan'	=> 4,
             'kualifikasi'	=> '1. dapat menggunakan python',
-            'tipePekerjaan'	=> 'WFO',
+            'lokasi'	=> 'WFO',
+            'tipePekerjaan'=>'Freelance',
             'pendidikan'	=> 'S1',
             'pengalaman'=>'1 tahun'
         ]);
@@ -71,7 +75,8 @@ class lowonganSeeder extends Seeder
             'deskripsiPekerjaan'=>	'Lorem ipsum dolor sit amet, ',
             'fkKategoriPekerjaan'	=> 5,
             'kualifikasi'	=> '1. dapat menggunakan python',
-            'tipePekerjaan'	=> 'WFO',
+            'lokasi'	=> 'WFO',
+            'tipePekerjaan'=>'Freelance',
             'pendidikan'	=> 'S1',
             'pengalaman'=>'1 tahun'
         ]); 

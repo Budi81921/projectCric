@@ -17,11 +17,11 @@ return new class extends Migration
             $table->foreign('fkusercompany')->references('id')->on('userCompany')->onDelete('cascade');
             $table->string('title_lowongan');
             $table->string('deskripsiPekerjaan',255);
-            $table->string('kota_lowongan')->nullable();
+            $table->enum('tipePekerjaan',['Full_Time','Freelance','Parti_Time','Internship'])->nullable();
             $table->unsignedBigInteger('fkKategoriPekerjaan');
             $table->foreign('id','fkKategoriPekerjaan')->references('id',)->on('kategoriPekerjaan')->onDelete('cascade');
             $table->string('kualifikasi',255);
-            $table->set('tipePekerjaan',['hybrid','WFO','WFH']);
+            $table->enum('lokasi',['Hybrid','WFO','WFH']);
             $table->string('pendidikan');
             $table->string('pengalaman');
             $table->timestamps();

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('fkidusercandidate');
             $table->foreign('fkidusercandidate')->references('id')->on('users')->onDelete('cascade');
-            $table->dateTime('tanggal_lahir')->nullable();
+            $table->date('tanggal_lahir')->nullable();
             $table->string('nomor_handphone',12)->nullable();
             $table->string('alamat')->nullable();
             $table->enum('gender',['pria','wanita'])->nullable();
