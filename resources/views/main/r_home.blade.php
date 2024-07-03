@@ -15,7 +15,9 @@
 
 <body>
 
+  <!-- NAVIGASI BAR -->
   @include('layout.navbar')
+  <!-- END NAVIGASI BAR -->
 
   <!-- Section1 -->
   <div id="section1" class="carousel1">
@@ -56,19 +58,12 @@
 
     <div class="container-sm">
       <div class="category d-flex justify-content-center flex-wrap">
-        <button type="button" class="btn" href="#">Kategori 1</button>
-        <button type="button" class="btn" href="#">Kategori 2</button>
-        <button type="button" class="btn" href="#">Kategori 3</button>
-        <button type="button" class="btn" href="#">Kategori 4</button>
-        <button type="button" class="btn" href="#">Kategori 5</button>
+        @foreach ($lowongan as $lowongan )
+        <button type="button" class="btn" href="#">{{$lowongan->title_lowongan}}</button>
+        @endforeach
+
       </div>
-      <div class="category d-flex justify-content-center flex-wrap">
-        <button type="button" class="btn" href="#">Kategori 6</button>
-        <button type="button" class="btn" href="#">Kategori 7</button>
-        <button type="button" class="btn" href="#">Kategori 8</button>
-        <button type="button" class="btn" href="#">Kategori 9</button>
-        <button type="button" class="btn" href="#">Kategori 10</button>
-      </div>
+
       <div class="more-info d-flex justify-content-center">
         <button type="button" class="btn btn-link" href="#">tampilkan lebih banyak</button>
       </div>
@@ -116,9 +111,8 @@
   </div>
   <!-- End Section 4 -->
 
-  <!-- Footer -->
   @include('layout.footer')
-  <!-- End Footer -->
+
 
 </body>
 

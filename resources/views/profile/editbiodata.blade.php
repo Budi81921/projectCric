@@ -12,12 +12,14 @@
 <body>
   
   <!-- NAVIGASI BAR -->
-  @include('layout.navbar')
+  @include("layout.navbar")
+  <!-- END NAVIGASI BAR -->
 
-  <!-- sidebar -->
+
+  <!--SIDEBAR-->
   @include('layout.sidebarprofilecandidate')
+  <!--END SIDEBAR-->
 
-  <!-- EDIT BIODATA-->
   <div class="biodata">
     <div class="judul">
       <h3>Biodata</h3>
@@ -26,33 +28,33 @@
       @csrf
       <div class="mb-3">
         <label for="formGroupExampleInput" class="form-label">Nama Lengkap</label>
-        <input name="nama_lengkap"type="text" class="form-control" id="validationDefault01" value="{{ $id->nama_lengkap}}" required>
+        <input type="text" class="form-control" id="validationDefault01" name="nama_lengkap" value="{{ $id->nama_lengkap }}" required>
       </div>
       <div class="mb-3">
         <label for="tanggalInput" class="form-label">Tanggal Lahir</label>
-        <input type="date" class="form-control" id="validationDefault01" name="tanggal_lahir" value="{{ $candidateProfile->tangal_lahir}}" required>
+        <input type="date"  class="form-control" id="validationDefault01" name="tanggal_lahir" value="{{ $candidateProfile->nama_lengkap }}" required>
       </div>
       <div class="mb-3">
         <label for="formGroupExampleInput" class="form-label">Alamat</label>
-        <input name="alamat" type="text" class="form-control" id="validationDefault01" value="{{ $candidateProfile->alamat}}" required>
+        <input type="text" class="form-control" id="validationDefault01" name="alamat" value="{{ $candidateProfile->alamat }}" required>
       </div>
       <div class="mb-3">
         <label for="phoneNumber" class="form-label">Nomor Handphone</label>
-        <input name="nomor_handphone"type="tel" class="form-control" id="phoneNumber" pattern="[0-9]{10,15}" value="{{ $candidateProfile->nomor_handphone }}" required>
+        <input type="tel" class="form-control" id="phoneNumber" pattern="[0-9]{10,15}" name="nomor_handphone" value="{{ $candidateProfile->nomor_handphone }}" required>
       </div>
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Email</label>
-        <input name="email" type="email" class="form-control" id="validationDefault01" value="{{ $id->email }}" aria-describedby="emailHelp"required>
+        <input type="email" class="form-control" id="validationDefault01" aria-describedby="emailHelp" name="email" value="{{ $id->email }}" required>
       </div>
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Jenis Kelamin</label>
       <div class="jeniskelamin">
         <div class="form-check">
-          <input name="checkbox" type="radio" class="form-check-input" id="validationFormCheck2" name="radio-stacked" value="Pria" {{ $candidateProfile->gender == 'pria' ? 'checked' : '' }} required>
+          <input type="radio" class="form-check-input" value="Pria" {{ $candidateProfile->gender == 'pria' ? 'checked' : '' }} id="validationFormCheck2" name="checkbox" required>
           <label class="form-check-label" for="validationFormCheck2">Pria</label>
         </div>
         <div class="form-check mb-3">
-          <input name="checkbox" type="radio" class="form-check-input" id="validationFormCheck3" name="radio-stacked" value="Wanita" {{ $candidateProfile->gender == 'wanita' ? 'checked' : '' }} required>
+          <input type="radio" class="form-check-input" value="Wanita" {{ $candidateProfile->gender == 'wanita' ? 'checked' : '' }} id="validationFormCheck3" name="checkbox" required>
           <label class="form-check-label" for="validationFormCheck3">Wanita</label>
           <div class="invalid-feedback">Pilih Jenis Kelamin Anda</div>
         </div>
@@ -60,11 +62,11 @@
     </div>
     <div class="mb-3">
       <label for="formGroupExampleInput" class="form-label">Universitas</label>
-      <input name="universitas" type="text" class="form-control" id="validationDefault01" value="{{ $candidateProfile->universitas }}" required>
+      <input type="text" class="form-control" id="validationDefault01" name="universitas" value="{{ $candidateProfile->universitas }}"required>
     </div>
     <div class="mb-3">
       <label for="formGroupExampleInput" class="form-label">Gelar</label>
-      <input name="gelar" type="text" class="form-control" id="validationDefault01" value="{{ $candidateProfile->gelar }}" required>
+      <input type="text" class="form-control" id="validationDefault01" name="gelar" value="{{ $candidateProfile->gelar }}" required>
     </div>
     <div class="simpan">
       <button type="submit" class="btn btn-primary" id="button">SIMPAN</button>
@@ -74,7 +76,18 @@
 </div>
   <!-- EDIT BIODATA-->
 
- @include('layout.footer')
+
+  <!-- Footer -->
+    @include('layout.footer')
+  <!-- End Footer -->
+
+  <!--SCRIPT LOGOUT-->
+  <script>
+    document.getElementById('confirmLogout').addEventListener('click', function() {
+        window.location.href = "#";
+    });
+  </script>
+  <!--END SCRIPT LOGOUT-->
 
 </body>
 </html>

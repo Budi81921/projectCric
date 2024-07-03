@@ -21,6 +21,9 @@ return new class extends Migration
             $table->enum('gender',['pria','wanita'])->nullable();
             $table->string('universitas')->nullable();
             $table->string('gelar')->nullable();
+            $table->string('deskripsi')->nullable();
+            $table->string('cv')->nullable();
+            $table->string('portofolio')->nullable();
             $table->timestamps();
         });
     }

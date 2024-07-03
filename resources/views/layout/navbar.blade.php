@@ -18,7 +18,7 @@
   <!-- NAVIGASI BAR -->
   <nav class="navbar navbar-expand-lg" id="myNavbar">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/">
+      <a class="navbar-brand" href="/home">
         <img src="/img/logo.png" alt="logo" class="navbar-logo">UCareer</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -57,8 +57,6 @@
       </div>
     </div>
   </nav>
-  <!-- END NAVIGASI BAR -->
-
   <!-- END NAVIGASI BAR -->
 @endauth
 @guest

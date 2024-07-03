@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profil Pelamar - Job List</title>
-    <link rel="stylesheet" href="../CSS/profilpelamar-joblist.css">
+    <title>Profil Pelamar - Resume</title>
+    <link rel="stylesheet" href="../CSS/profilpelamar-previewresume.css">
     <link rel="stylesheet" href="../CSS BOOTSTRAP/bootstrap.css">
     <script src="../JS/bootstrap.bundle.min.js"></script>
-    <script src="../JS/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
@@ -56,7 +55,6 @@
   </nav>
   <!-- END NAVIGASI BAR -->
 
-
   <!-- BIODATA SINGKAT-->
   <div class="profilpelamar">
     <div class="sidebarbiodata">
@@ -77,8 +75,8 @@
       <div class="sidebar">
         <nav class="nav flex-column">
           <a class="nav-link"  href="../HTML/profilpelamar-previewbiodata.html"><i class="bi bi-person-fill-gear"></i>Biodata</a>
-          <a class="nav-link" href="../HTML/profilpelamar-previewresume.html"><i class="bi bi-person-vcard-fill"></i>Resume</a>
-          <a class="nav-link active" aria-current="page" href="../HTML/profilpelamar-joblist.html"><i class="bi bi-clipboard-fill"></i>Job List</a>
+          <a class="nav-link active" aria-current="page" href="../HTML/profilpelamar-previewresume.html"><i class="bi bi-person-vcard-fill"></i>Resume</a>
+          <a class="nav-link" href="../HTML/profilpelamar-joblist.html"><i class="bi bi-clipboard-fill"></i>Job List</a>
           <a class="nav-link" data-bs-toggle="modal" data-bs-target="#logoutModal"><i class="bi bi-box-arrow-right"></i>Log out</a>
           <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
@@ -102,100 +100,33 @@
     </div> 
     <!--END SIDEBAR-->
 
-    <!-- JOBLIST -->
-      <div class="joblist">
+    <!-- PREVIEW RESUME-->
+      <div class="resume">
         <div class="judul">
-          <h3>List Lamaran Pekerjaan</h3>
+          <h3>Resume</h3>
         </div>
-        <div class="judultabel">
-            <div class="namajob">
-                <h6>Nama Pekerjaan</h6>
-            </div>
-            <div class="tanggal">
-                <h6>Tanggal Melamar</h6>
-            </div>
-            <div class="status">
-                <h6>Status</h6>
+        <div class="isiresume"> <!--Deskripsi diri-->
+            <p>Deskripsi Diri</p>
+            <div class="label">
+                <p>Saya merupakan alumni dari Universitas Al Azhar Indonesia angkatan 2021. Selama berkuliah saya memiliki minat dalam bidang Data Science dan telah melakukan beberapa project mengenai Data Science.</p>
             </div>
         </div>
-        <div class="job1">
-          <div class="perusahaan">
-            <div class="logocompany"> <img src="../IMAGE/logo_circ-removebg-preview.png" alt="logo perusahaan"></div>
-            <div class="detail">
-              <ul>
-                <li class="posisi">Data Analyst</li>
-                <li class="namaperusahaan">CRIC DSFE UAI</li>
-                <li class="alamat">Jakarta Selatan</li>
-              </ul>
+        <div class="isiresume"> <!--CV-->
+            <p>CV</p>
+            <div class="label">
+                <p>CV_Alexandra.pdf</p>
             </div>
-          </div>
-          <div class="tanggal-lamar">
-            <p>03 Mei 2024</p>
-          </div>
-          <div class="pending">
-            <p>Pending</p>
-          </div>
         </div>
-        <div class="job2">
-          <div class="perusahaan">
-            <div class="logocompany"> <img src="../IMAGE/logo_circ-removebg-preview.png" alt="logo perusahaan"></div>
-            <div class="detail">
-              <ul>
-                <li class="posisi">Web Developer</li>
-                <li class="namaperusahaan">CRIC DSFE UAI</li>
-                <li class="alamat">Jakarta Selatan</li>
-              </ul>
+        <div class="isiresume"> <!--Portfolio-->
+            <p>Portfolio</p>
+            <div class="label">
+                <p>Portfolio_Alexandra.pdf</p>
             </div>
-          </div>
-          <div class="tanggal-lamar">
-            <p>03 Mei 2024</p>
-          </div>
-          <div class="ditolak">
-            <p>Ditolak</p>
-          </div>
         </div>
-        <div class="job3">
-          <div class="perusahaan">
-            <div class="logocompany"> <img src="../IMAGE/logo_circ-removebg-preview.png" alt="logo perusahaan"></div>
-            <div class="detail">
-              <ul>
-                <li class="posisi">UI/UX Design</li>
-                <li class="namaperusahaan">CRIC DSFE UAI</li>
-                <li class="alamat">Jakarta Selatan</li>
-              </ul>
-            </div>
-          </div>
-          <div class="tanggal-lamar">
-            <p>03 Mei 2024</p>
-          </div>
-          <div class="terima">
-            <div class="diterima">
-              <p>Diterima</p>
-            </div>
-            <div class="info">
-              <i class="bi bi-exclamation-circle" data-bs-toggle="modal" data-bs-target="#staticBackdrop"></i>
-            </div>
-            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Pemberitahuan</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    Selamat, Anda diterima untuk bekerja di Perusahaan CRIC DSFE UAI pada posisi UI/UX Design. <br> Untuk informasi lebih lanjut Anda akan dihubungi melalui Email untuk melakukan sesi wawancara, Terimakasih!
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="button" data-bs-dismiss="modal">Mengerti</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+            <a class="edit" href="../HTML/profilpelamar-editresume.html"><button type="submit" class="btn btn-primary">EDIT</button></a> <!--INI BUTTON SIMOAN-->
       </div>
     </div>
-  <!-- END EDIT JOBLIST-->
+  <!-- END PREVIEW RESUME-->
   
   <!-- Footer -->
   <div class="footer">
@@ -254,6 +185,14 @@
     </div>
   </div>
   <!-- End Footer -->
+
+  <!--SCRIPT LOGOUT-->
+  <script>
+    document.getElementById('confirmLogout').addEventListener('click', function() {
+        window.location.href = "#";
+    });
+  </script>
+  <!--END SCRIPT LOGOUT-->
 
 </body>
 </html>

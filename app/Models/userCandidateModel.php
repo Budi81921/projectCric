@@ -17,7 +17,10 @@ class userCandidateModel extends Model
         'alamat',
         'gender',
         'universitas',
-        'gelar'
+        'gelar',
+        'deskripsi',
+        'cv',
+        'portofolio'
     ];
 
     public function users(){

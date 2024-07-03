@@ -4,8 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\userCandidateModel;
+use Illuminate\Contracts\Cache\Store;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class candidateProfileController extends Controller
@@ -14,7 +18,9 @@ class candidateProfileController extends Controller
         $id  = Auth::user();
         $candidateProfile= $id->candidate;
         $usercandidate = userCandidateModel::find('id');
-        return view('biodataKandidat.profilpelamar-editbiodata',compact('id','candidateProfile','usercandidate'));
+
+
+        return view('profile.editbiodata',compact('id','candidateProfile','usercandidate'));
     }
     public function updateProfileCandidate(Request $request){
         $id = Auth::user();
@@ -49,5 +55,66 @@ class candidateProfileController extends Controller
         ]);
 
         return redirect()->back()->with('success', 'Profile updated successfully');
+    }
+    public function indexResume(){
+        $id  = Auth::user();
+        $candidateProfile= $id->candidate;
+        $usercandidate = userCandidateModel::find('id');
+
+        return view('profile.editresume', compact('id','candidateProfile','usercandidate'));
+    }
+    public function updateResume(Request $request){
+        $id = Auth::user();
+        $candidateProfile = $id->candidate;
+        $usercandidate = userCandidateModel::find($candidateProfile->id);
+
+        $this->validate($request, [
+            'deskripsi' => 'required|string',
+            'cv' => 'required|file|mimes:pdf',
+            'portofolio' => 'required|file'
+        ]);
+
+        
+
+        if (!$candidateProfile) {
+            return redirect()->back()->with('error', 'Candidate profile not found.');
+        }
+    
+        
+    
+        // Handle file uploads
+        if ($request->hasFile('cv') && $request->file('cv')->isValid()) {
+            $cv = $request->file('cv');
+            $cvName = $cv->getClientOriginalName();
+            Storage::delete("public/userCandidate/{$usercandidate->id}/cv/" . $usercandidate->cv);
+            
+            $cv->storeAs("public/userCandidate/{$usercandidate->id}/cv", $cvName);
+
+        } else {
+            return redirect()->back()->with('error', 'Invalid CV file.');
+        }
+    
+        if ($request->hasFile('portofolio') && $request->file('portofolio')->isValid()) {
+            $portofolio = $request->file('portofolio');
+            $portofolioName = $portofolio->getClientOriginalName();
+            Storage::delete("public/userCandidate/{$usercandidate->id}/portofolio/" . $usercandidate->portofolio);
+
+            $portofolio->storeAs("public/userCandidate/{$usercandidate->id}/portofolio", $portofolioName);
+        } else {
+            return redirect()->back()->with('error', 'Invalid portofolio file.');
+        }
+       
+        // Update the candidate profile with the new information
+        $usercandidate->update([
+            'deskripsi' => $request->deskripsi,
+            'cv' => $cvName,
+            'portofolio' => $portofolioName
+        ]);
+
+    
+        return redirect()->back()->with('success', 'Profile updated successfully');
+    }
+    public function indexJobList(){
+        return view('profile.joblist');
     }
 }

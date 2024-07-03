@@ -14,7 +14,7 @@ class registrationController extends Controller
 
     //show registration page
     public function index(){
-        return view('home.register');
+        return view('main.register');
     }
 
     //show process registration
@@ -25,7 +25,7 @@ class registrationController extends Controller
             'password'=>'required|min:8|max:20|same:confirmPassword|string',
             'confirmPassword'=>'required|string'
         ]);
-        
+
         if($validator->passes()){
             $users =  new User();
             $users->nama_lengkap = $request->fullName;
@@ -43,5 +43,5 @@ class registrationController extends Controller
             return redirect()->back();
         }
     }
-    
+
 }

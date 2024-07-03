@@ -30,9 +30,9 @@
     <!--SIDEBAR-->
       <div class="sidebar">
         <nav class="nav flex-column">
-          <a class="nav-link active" aria-current="page"  href="../HTML/profilpelamar-previewbiodata.html"><i class="bi bi-person-fill-gear"></i>Biodata</a>
-          <a class="nav-link" href="../HTML/profilpelamar-previewresume.html"><i class="bi bi-person-vcard-fill"></i>Resume</a>
-          <a class="nav-link" href="../HTML/profilpelamar-joblist.html"><i class="bi bi-clipboard-fill"></i>Job List</a>
+          <a class="nav-link active" aria-current="page"  href="/profile"><i class="bi bi-person-fill-gear"></i>Biodata</a>
+          <a class="nav-link" href="/profile/resume"><i class="bi bi-person-vcard-fill"></i>Resume</a>
+          <a class="nav-link" href="/profile/joblist"><i class="bi bi-clipboard-fill"></i>Job List</a>
           <a class="nav-link" data-bs-toggle="modal" data-bs-target="#logoutModal"><i class="bi bi-box-arrow-right"></i>Log out</a>
           <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
