@@ -15,8 +15,8 @@
 }
 
 .navbar-brand:hover {
-    text-decoration: none; 
-    color: white; 
+    text-decoration: none;
+    color: white;
 }
 
 .navbar-brand{
@@ -36,30 +36,63 @@
     font-size: 18px;
 }
 
-.login-button .btn {
-    font-size: 18px; 
-    color: black;
-    font-weight: 500;
-    background-color: #F5DD00;
-    padding-left: 20px;
-    padding-right: 20px;
+.akun {
+    border: 1px solid;
+    width: 190px;
+    list-style: none;
+    font-size: 20px;
+    display: flex;
+    border-radius: 10px;
+    border-color: white;
+    color: white;
+}
+.akun li{
+    display: flex;
+    align-items: center;
+}
+.akun li a {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.nav-item i {
+    border: 1px solid;
+    width: 52px;
+    height: 47px;
+    text-align: center;
+    font-size: 30px;
+    background-color: white;
+    color: #004080;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.wishlist {
+    font-size: 35px;
+}
+.wishlist a {
+    padding-right: 15px;
+    color: white;
+}
+.wishlist a:hover {
+    padding-right: 15px;
+    color: #F5DD00;
 }
 /* END NAVIGASI BAR */
 
 /* TOGGLER */
 .navbar-toggler {
-    border: none; 
-    outline: none; 
-    padding: 0.25rem 0.5rem; 
-    background-color: transparent; 
+    border: none;
+    outline: none;
+    padding: 0.25rem 0.5rem;
+    background-color: transparent;
     cursor: pointer;
 }
-  
+
 .navbar-toggler .navbar-toggler-icon {
     width: 1.5em;
-    height: 1.5em; 
-    background-color: #004080; 
-    border-radius: 3px; 
+    height: 1.5em;
+    background-color: #004080;
+    border-radius: 3px;
 }
 
   @media (max-width: 991.98px) {
@@ -70,94 +103,17 @@
       width: 100%;
       padding-left: 50px;
       padding-bottom: 30px;
-      background-color: #17599A; 
-      z-index: 1000; 
-      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1); 
-      display: none; 
+      background-color: #17599A;
+      z-index: 1000;
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+      display: none;
     }
-  
+
     .navbar-collapse.show {
       display: block; /* Tampilkan menu ketika tombol diklik */
     }
   }
 /* END TOGGLER */
-
-/* POP UP LOGIN */
-.modal-header {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.modal-header h3 {
-    margin-bottom: 10px;
-}
-
-.modal-header p, .modal-header a{
-    font-size: 16px;
-    letter-spacing: 1px;
-    font-weight: 500;
-}
-
-a {
-    text-decoration: none;
-}
-.modal-header a:hover {
-    text-decoration: underline;
-}
-
-.modal-body {
-    padding-left: 40px;
-    padding-right: 40px;
-}
-
-.modal-body input {
-    display: block;
-    padding: 15px;
-    border: none;
-    border: 1px solid black;
-    font-family: sans-serif;
-    font-size: 16px;
-    width: 100%;
-    height: 60px;
-    margin-left: 0;
-}
-
-.error-message {
-    color: red;
-    font-size: 14px;
-}
-
-.btn-primary.btn{
-    color: black;
-    width: 100%;
-    height: 60px;
-    background-color: #F5DD00;
-    border-radius: 5px;
-    font-size: 16px;
-    border: 1px solid black;
-    cursor: pointer;
-    margin-top: 15px;
-}
-
-.btn-primary.btn:hover {
-    background-color: rgb(231, 173, 47);
-}
-
-.modal-body p {
-    padding-top: 15px;
-    font-size: 15px;
-    text-align: center;
-}
-
-.text-primary {
-    padding-left: 5px;
-}
-
-.text-primary:hover {
-    text-decoration: underline;
-}
-/* END POP UP LOGIN */
 
 .job-view {
     display: flex;
@@ -187,7 +143,7 @@ a {
 
 .form-select {
     width: 430px;
-    padding: 20px; 
+    padding: 20px;
     height: 65px;
     margin-right: 10px;
     background-color: #d8e4f3;
@@ -205,9 +161,9 @@ a {
 }
 
 .btn.btn-outline-success:hover {
-    background-color: #004080; 
-    color: #ffffff; 
-    border-color: #004080; 
+    background-color: #004080;
+    color: #ffffff;
+    border-color: #004080;
 }
 
 /* Searching */
@@ -257,8 +213,8 @@ a {
 
 .btn.btn-secondary.dropdown-toggle:hover {
     background-color: #17599A;
-    color: white; 
-    border-color: #000000; 
+    color: white;
+    border-color: #000000;
 }
 /* End Filter */
 
@@ -313,19 +269,19 @@ a {
     scrollbar-color: #bbbbbb #f1f1f1;
 }
 .left-job::-webkit-scrollbar {
-    width: 8px; 
+    width: 8px;
 }
 
 .left-job::-webkit-scrollbar-thumb {
-    background-color: #bbbbbb; 
-    border-radius: 10px; 
+    background-color: #bbbbbb;
+    border-radius: 10px;
 }
 
 .left-job::-webkit-scrollbar-track {
-    background-color: #f1f1f1; 
-    border-radius: 10px; 
-    margin-top: 20px; 
-    margin-bottom: 20px; 
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .job-box {
@@ -350,9 +306,9 @@ a {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: border-color 0.3s ease, transform 0.3s ease; 
+    transition: border-color 0.3s ease, transform 0.3s ease;
     border-radius: 16px;
-    border: 1px solid transparent; 
+    border: 1px solid transparent;
     width: 362px;
     height: 254px;
 }
@@ -364,7 +320,7 @@ a {
 
 .btn-job:active {
     border-color: #004080;
-    border-width: 2px solid; 
+    border-width: 2px solid;
 }
 .company-img {
     padding-right: 15px;
@@ -487,7 +443,7 @@ a {
     text-align: center;
     width: 100%;
     transition: border-color 0.3s;
-    box-sizing: border-box; 
+    box-sizing: border-box;
     height: 60px;
 }
 
@@ -524,28 +480,21 @@ a {
     user-select: none;
 }
 
-.bookmark.active i.bi-bookmark-fill {
-    color: #004080; /* Warna saat aktif */
+.bookmarked {
+    color: blue; /* Atur warna sesuai keinginan Anda */
 }
 
-.bookmark i, .bookmark1 i {
+
+.bookmark i {
     font-size: 24px;
-    color: #666; /* Warna default */
+    color: #666;
     vertical-align: middle;
-    transition: color 0.3s; /* Transisi warna untuk efek halus */
+    transition: color 0.3s;
 }
 
-/* CSS untuk bookmark aktif */
-.bookmark.active i, .simpan.active i {
-    color: #004080; /* Warna saat aktif */
-}
-
-.bookmark:hover i, .simpan:hover i {
-    color: #004080; /* Warna saat dihover */
-}
-/* Focused state */
-.bookmark:focus i, .simpan:focus i {
-    color: #004080; /* Ganti dengan warna biru yang Anda inginkan */
+.bookmark i:hover {
+    color: #004080;
+    border: none;
 }
 
 /* RIGHT JOB */
@@ -564,7 +513,28 @@ a {
     border-radius: 15px;
     border: 1px solid #00000033;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f5f5f5;
 }
+
+.viewdetails-before {
+    display: flex;
+    flex-direction: column; /* Mengatur arah menjadi horizontal (baris) */
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    padding-bottom: 20px;
+}
+
+.viewdetails-before img {
+    margin-top: 20px;
+    border-radius: 40px;
+}
+.viewdetails-before i {
+    font-size: 30px;
+    margin-right: 20px;
+}
+
+/*
 .judul-lowongan {
     display: flex;
     width: 100%;
@@ -636,12 +606,7 @@ a {
     font-weight: 500;
 }
 .simpan:hover {
-    background-color: #00408083;
-    border: 1px solid #004080;
-}
-.simpan:active {
-    background-color: #00408083;
-    border: 1px solid #004080;
+    background-color: #f3f3f3;
 }
 #apply1:hover {
     background-color: rgb(255, 177, 10);
@@ -656,7 +621,7 @@ a {
     align-items: center;
     background-color: white;
     color: black;
-    border-radius: 10px; 
+    border-radius: 10px;
     font-weight: 500;
     cursor: pointer;
 }
@@ -686,7 +651,7 @@ a {
 .deskripsi-pekerjaan li, .kualifikasi li {
     font-size: 14px;
 }
-
+*/
 /* END DETAIL LOWONGAN */
 
 /* End Lowongan */
@@ -735,16 +700,16 @@ a {
     width: 100%;
     height: auto;
     background-color: #00264B;
-    justify-content: space-between; 
+    justify-content: space-between;
     align-items: flex-start;
-    margin: 0 auto; 
+    margin: 0 auto;
     z-index: 1;
     position: relative;
 }
 
 .box2 {
     background-color: #F5DD00;
-    position: absolute; 
+    position: absolute;
     width: 100%;
     height: 25px;
     z-index: 0;
@@ -762,7 +727,7 @@ a {
 }
 
 .part1, .part2, .part3 {
-    flex: 1; 
+    flex: 1;
     margin: 20px;
 }
 
@@ -785,7 +750,7 @@ a {
 }
 
 .part2 {
-    padding-top: 70px;  
+    padding-top: 70px;
     color: white;
     display: flex;
     flex-direction: column;
@@ -801,9 +766,9 @@ a {
     margin-bottom: 10px;
     font-weight: 200;
 }
-  
+
 .contact-info i {
-    margin-right: 15px; 
+    margin-right: 15px;
     color: #7EB2E5;
     margin-top: -15px;
     font-size: 20px;
@@ -812,14 +777,14 @@ a {
 .part3 {
     box-sizing: border-box;
     display: flex;
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
     padding-top: 150px;
     margin-right: 0;
 }
 
 .part3 a {
-    text-decoration: none; 
+    text-decoration: none;
     color: #00264B;
     margin: 0 10px;
 }
@@ -835,8 +800,8 @@ a {
 /* Horizontal Line */
 .horizontal-line {
     width: 90%;
-    height: 1px; 
-    background-color: #ffffff; 
+    height: 1px;
+    background-color: #ffffff;
     margin: 0 auto;
 }
 
@@ -850,7 +815,7 @@ a {
 }
 
 .footer-image {
-    align-self: flex-start; 
+    align-self: flex-start;
     margin-left: 65px;
 }
 
@@ -859,15 +824,15 @@ a {
 }
 
 .footer-image .ucareer-text {
-    color: #ffffff; 
+    color: #ffffff;
     padding-left: 10px;
 }
 
 .watermark {
-    text-align: center; 
+    text-align: center;
     align-self: center;
-    color: #ffffff; 
-    align-self: flex-end; 
+    color: #ffffff;
+    align-self: flex-end;
     margin-right: 65px;
 }
 /* End Footer */

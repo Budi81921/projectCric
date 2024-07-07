@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\lowonganController;
 use App\Http\Controllers\registrationController;
+use App\Http\Controllers\WishlistController;
 use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Support\Facades\Route;
 
@@ -54,8 +55,15 @@ Route::group(['middleware'=>'auth'],function(){
         Route::get("/profile/resume","indexResume")->name('profile.index.resume');
         Route::post("/profile/resume/update","updateResume")->name('update.profile.resume.candidate');
         Route::get("/profile/joblist","indexJobList")->name('profile.index.joblist');
-    
+
     });
+    // web.php
+
+    Route::post('/wishlist/toggle/{id}', [WishlistController::class, 'toggleBookmark'])->name('wishlist.toggleBookmark');
+    Route::post('/wishlist/add/{id}', [WishlistController::class, 'addToWishlist'])->name('wishlist.add');
+    Route::get('/wishlist', [WishlistController::class, 'viewWishlist'])->name('wishlist.view');
+    Route::get('/wishlist/remove/{id}', [WishlistController::class, 'removeFromWishlist'])->name('wishlist.remove');
+
 
     Route::get('/home', [HomeController::class, 'regis'])->name('homeregis');
 
@@ -65,4 +73,5 @@ Route::group(['middleware'=>'auth'],function(){
 });
 
 Route::get('/lowongan', [lowonganController::class, 'index'])->name('lowongan');
+Route::get('/lowongan/search', [lowonganController::class, 'search'])->name('search');
 

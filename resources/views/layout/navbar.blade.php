@@ -28,7 +28,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="#">Lowongan Kerja</a>
+            <a class="nav-link" aria-current="page" href="/lowongan">Lowongan Kerja</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Perusahaan</a>
@@ -45,7 +45,7 @@
         </ul>
           <div class="navbar-nav">
             <div class="wishlist">
-              <a href="#"><i class="bi bi-bookmark-fill"></i></a>
+              <a href="/wishlist"><i class="bi bi-bookmark-fill"></i></a>
             </div>
             <div class="akun">
                 <a href="/profile">
@@ -72,7 +72,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="../html/n_lowongan.html">Lowongan Kerja</a>
+          <a class="nav-link" aria-current="page" href="/lowongan">Lowongan Kerja</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Perusahaan</a>
@@ -124,10 +124,10 @@
                                  function validatePassword() {
                                       // Ambil nilai password dari input
                                       const passwordInput = document.getElementById('inputPassword').value;
-                                      
+
                                       // Simpan password yang benar (contoh)
                                       const correctPassword = 'password123'; // Seharusnya disimpan di backend atau tempat penyimpanan yang aman
-                                      
+
                                       // Periksa apakah password yang dimasukkan sesuai atau tidak
                                       if (passwordInput !== correctPassword) {
                                           const errorMessage = document.getElementById('password-error-message');
@@ -138,13 +138,13 @@
                                           const errorMessage = document.getElementById('password-error-message');
                                           errorMessage.textContent = '';
                                           document.getElementById('inputPassword').classList.remove('is-invalid');
-                                          
+
                                           // Lakukan aksi login jika password benar
                                           alert('Login berhasil!');
                                           // Di sini Anda bisa redirect ke halaman selanjutnya atau melakukan aksi yang sesuai
                                       }
                                   }
-                              </script>   
+                              </script>
                           </form>
                           <p>Apakah anda belum mempunyai akun?<a href="../html/register.html" class="text-primary">Daftar di sini</a></p>
                       </div>

@@ -436,10 +436,6 @@ a {
 }
 
 /* POP UP APPLY */
-#modal-content-apply {
-    padding: 20px;
-    width: 550px;
-}
 #exampleModal-apply.modal-body {
     display: flex;
     flex-direction: column;
@@ -447,26 +443,25 @@ a {
     justify-content: center;
 }
 #modal-body-apply {
-    padding-bottom: 30px;
+    padding-bottom: 40px;
 }
 #exampleModal-apply.modal-dialog{
     width: 100%;
 }
 #modal-head-apply {
-    position: relative;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 #modal-head-apply h1{
-    flex-grow: 1;
-    text-align: center;
     margin: 0;
+    text-align: center;
+    flex: 1;
 }
-#btn-close-apply {
-    position: absolute;
-    top: 40%;
-    right: 20px;
+.btn-close-apply {
+    width: 50px;
+    height: 50px;
+    
 }
 .mb-3 {
     display: flex;
@@ -501,19 +496,11 @@ a {
     justify-content: center;
     align-items: center;
     margin-top: 25px;
-    margin-left: 130px;
+    margin-left: 105px;
     width: 200px;
     height: 50px;
     border-radius: 10px;
     font-weight: 500;
-    background-color: #F5DD00;
-    color: #000000;
-    border-color: #000000;
-
-}
-
-#lamar-btn:hover {
-    background-color: rgb(255, 177, 10);
 }
 /* END POP UP APPLY */
 
@@ -524,28 +511,16 @@ a {
     user-select: none;
 }
 
-.bookmark.active i.bi-bookmark-fill {
-    color: #004080; /* Warna saat aktif */
-}
-
-.bookmark i, .bookmark1 i {
+.bookmark i {
     font-size: 24px;
-    color: #666; /* Warna default */
+    color: #666;
     vertical-align: middle;
-    transition: color 0.3s; /* Transisi warna untuk efek halus */
+    transition: color 0.3s; 
 }
 
-/* CSS untuk bookmark aktif */
-.bookmark.active i, .simpan.active i {
-    color: #004080; /* Warna saat aktif */
-}
-
-.bookmark:hover i, .simpan:hover i {
-    color: #004080; /* Warna saat dihover */
-}
-/* Focused state */
-.bookmark:focus i, .simpan:focus i {
-    color: #004080; /* Ganti dengan warna biru yang Anda inginkan */
+.bookmark i:hover {
+    color: #004080; 
+    border: none;  
 }
 
 /* RIGHT JOB */
@@ -564,7 +539,28 @@ a {
     border-radius: 15px;
     border: 1px solid #00000033;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f5f5f5;
 }
+
+.viewdetails-before {
+    display: flex;
+    flex-direction: column; /* Mengatur arah menjadi horizontal (baris) */
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    padding-bottom: 20px;
+}
+
+.viewdetails-before img {
+    margin-top: 20px;
+    border-radius: 40px;
+}
+.viewdetails-before i {
+    font-size: 30px;
+    margin-right: 20px; 
+}
+
+/*
 .judul-lowongan {
     display: flex;
     width: 100%;
@@ -636,12 +632,7 @@ a {
     font-weight: 500;
 }
 .simpan:hover {
-    background-color: #00408083;
-    border: 1px solid #004080;
-}
-.simpan:active {
-    background-color: #00408083;
-    border: 1px solid #004080;
+    background-color: #f3f3f3;
 }
 #apply1:hover {
     background-color: rgb(255, 177, 10);
@@ -686,7 +677,7 @@ a {
 .deskripsi-pekerjaan li, .kualifikasi li {
     font-size: 14px;
 }
-
+*/
 /* END DETAIL LOWONGAN */
 
 /* End Lowongan */
