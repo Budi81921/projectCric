@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('userCandidate', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('fkidusercandidate');
+            $table->string('fotoProfilCandidate')->nullable();
             $table->foreign('fkidusercandidate')->references('id')->on('users')->onDelete('cascade');
             $table->date('tanggal_lahir')->nullable();
             $table->string('nomor_handphone',12)->nullable();

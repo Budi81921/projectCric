@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\lowonganController;
+use App\Http\Controllers\perusahaan\registerPerusahaanController;
 use App\Http\Controllers\registrationController;
 use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Support\Facades\Route;
@@ -28,12 +29,16 @@ Route::group(['middleware'=>'guest'],function(){
     //home
     Route::get('/', [HomeController::class, 'nonregis']);
 
-
-
     //registrasi user candidate
     Route::controller(registrationController::class)->group(function(){
         Route::get("/registrationCandidate","index");
         Route::post("/registrationCandidate","registrationCandidate");
+    });
+
+     //registrasi user candidate
+    Route::controller(registerPerusahaanController::class)->group(function(){
+        Route::get("/registrasi/perusahaan","index");
+        Route::post("/registrasi/perusahaan/create","registrationCandidate");
     });
 
     //login candidate

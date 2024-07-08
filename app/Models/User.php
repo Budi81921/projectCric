@@ -20,9 +20,13 @@ class User extends Authenticatable
         'nama_lengkap',
         'email',
         'password',
+        'role'
     ];
     public function candidate():HasOne{
         return $this->hasOne(userCandidateModel::class,"fkidusercandidate","id");
+    }
+    public function company():HasOne{
+        return $this->hasOne(userCompanyModels::class,"fkusercompany","id");
     }
    
 }

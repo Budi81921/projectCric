@@ -12,14 +12,20 @@ class userCompanyModels extends Model
     use HasFactory;
     protected $table = 'usercompany';
     protected $primaryKey='id';
-    public function users(){
-        return $this->belongsTo(User::class,'fkidusercandidate','id');
+    protected $fillable = [
+        'foto_profil_company',
+        'deskripsi_perusahaan',
+        'nomor_telepon',
+        'tahun_berdiri',
+    ];
+    public function user(){
+        return $this->belongsTo(User::class,'fkusercompany','id');
     }
     public function lowongan():HasMany{
-        return $this->hasMany(Lowongan::class,'fkidusercompany','id');
+        return $this->hasMany(Lowongan::class,'fkusercompany','id');
     }
     public function detailalamat():HasOne{
-        return $this->hasOne(Lowongan::class,'fkidusercandidate','id');
+        return $this->hasOne(Lowongan::class,'fkidusercompany','id');
     }
 
 }

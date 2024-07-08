@@ -5,10 +5,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>UCAREER</title>
-  <link href="css-bootstrap/bootstrap.css" rel="stylesheet" type="text/css">
-  <link href="css/register.css" rel="stylesheet">
-  <script src="js-bootstrap/bootstrap.bundle.min.js"></script>
-  <script src="js-bootstrap/validation.js"></script>
+  <link href="/css-bootstrap/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="/css/register.css" rel="stylesheet">
+  <script src="/js-bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="/js-bootstrap/validation.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
 </head>
@@ -19,16 +19,16 @@
   <!-- Section -->
   <div class="card-register">
     <div class="text1">
-      <h1>Yuk buat profilmu sebagai Pelamar!</h1>
+      <h1>Yuk buat profilmu sebagai Perusahaan!</h1>
       <h4>Daftar dengan email terverifikasi</h4>
     </div>
 
     <div class="box-register">
-      <form class="form-register" method="POST" action="/registrationCandidate">
+      <form class="form-register" method="POST" action="/registrasi/perusahaan/create">
         @csrf
         <div class="mb-3">
-          <label for="fullName" class="form-label">Nama Lengkap</label>
-          <input name="fullName"type="text" class="form-control" id="fullName" placeholder="Nama lengkap">
+          <label for="fullName" class="form-label">Nama Perusahaan</label>
+          <input name="fullName"type="text" class="form-control" id="fullName" placeholder="Nama Perusahaan">
         
         </div>
         <div class="mb-3">
@@ -58,7 +58,7 @@
           Sudah mempunyai akun? <a href="/" class="text-primary">Masuk</a>
         </p>
         <p class="register-company">
-          <a href="/registrasi/perusahaan" class="text-primary">Daftar sebagai Perusahaan</a>
+          <a href="/registrationCandidate" class="text-primary">Daftar sebagai Candidate</a>
         </p>
       </div>
     </div>

@@ -12,7 +12,7 @@ class detail_lowongan extends Model
     protected $primaryKey='id';
 
     public function userCandidate(){
-        return $this->belongstoMany(userCandidateModel::class,'fkidusercandidate','id');
+        return $this->belongstoMany(userCandidateModel::class,'fkusercandidate','id');
     }
     public function lowongan(){
         return $this->belongstoMany(Lowongan::class,'fklowongankerja','id');

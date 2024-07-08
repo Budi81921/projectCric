@@ -13,6 +13,7 @@ class userCandidateModel extends Model
     protected $table = 'usercandidate';
     protected $primaryKey='id';
     protected $fillable = [
+        'fotoProfilCandidate',
         'tanggal_lahir',
         'nomor_handphone',
         'alamat',
@@ -28,7 +29,7 @@ class userCandidateModel extends Model
         return $this->belongsTo(User::class,'fkidusercandidate','id');
     }
     public function detailLowongan():HasMany{
-        return $this->hasMany(detail_lowongan::class,'fkidusercandidate','id');
+        return $this->hasMany(detail_lowongan::class,'fkusercandidate','id');
     }
 
 }

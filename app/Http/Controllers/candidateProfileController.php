@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\detail_lowongan;
+use App\Models\Lowongan;
 use App\Models\User;
 use App\Models\userCandidateModel;
+use App\Models\userCompanyModels;
 use Illuminate\Contracts\Cache\Store;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
@@ -17,15 +21,18 @@ class candidateProfileController extends Controller
     public function index(){
         $id  = Auth::user();
         $candidateProfile= $id->candidate;
-        $usercandidate = userCandidateModel::find('id');
+        $usercandidate = userCandidateModel::find($candidateProfile->id);
+        // $fotoProfileCandidateUrl = Storage::url("public/userCandidate/{$candidateProfile->id}/fotoProfileCandidate/" . $candidateProfile->fotoProfilCandidate);
 
-
+        
+    
         return view('profile.editbiodata',compact('id','candidateProfile','usercandidate'));
     }
     public function updateProfileCandidate(Request $request){
         $id = Auth::user();
 
         $this->validate($request, [
+            // 'fotoProfileCandidate'=>'mimes:png,jpg,jpeg',
             'nama_lengkap' => 'required|string',
             'tanggal_lahir' => 'required|date',
             'alamat' => 'required|string',
@@ -35,10 +42,20 @@ class candidateProfileController extends Controller
             'nomor_handphone' => 'required|string',
             'gelar' => 'required|string',
         ]);
+
         $user=User::find($id->id);
-       
         $candidateProfile = $id->candidate;
         $usercandidate = userCandidateModel::find($candidateProfile->id); 
+
+        // if ($request->hasFile('fotoProfileCandidate')) {
+        //     $fotoProfileCandidate = $request->file('fotoProfileCandidate');
+        //     $fotoProfileCandidateName = $fotoProfileCandidate->getClientOriginalName();
+        //     Storage::delete("public/userCandidate/{$usercandidate->id}/fotoProfileCandidate/" . $usercandidate->fotoProfilCandidate);
+        //     $fotoProfileCandidate->storeAs("public/userCandidate/{$usercandidate->id}/fotoProfileCandidate", $fotoProfileCandidateName);
+        //     Log::info("File uploaded: " . $fotoProfileCandidateName);
+        // } else {
+        //     return redirect()->back()->with('error', 'Invalid CV file.');
+        // }
 
         $user->update([
             'nama_lengkap' => $request->nama_lengkap,
@@ -46,6 +63,7 @@ class candidateProfileController extends Controller
         ]);
 
         $usercandidate->update([
+            // 'fotoProfilCandidate'=>$fotoProfileCandidateName,
             'tanggal_lahir' => $request->tanggal_lahir,
             'alamat' => $request->alamat,
             'gender' => $request->checkbox,
@@ -115,6 +133,22 @@ class candidateProfileController extends Controller
         return redirect()->back()->with('success', 'Profile updated successfully');
     }
     public function indexJobList(){
-        return view('profile.joblist');
+       // Fetch the first user company and user candidate
+        $userCompany = UserCompanyModels::first();
+        $userCandidate = UserCandidateModel::first();
+
+        // Check if the user candidate exists and fetch the related detail lowongan
+        $detailLowonganCandidate = $userCandidate ? $userCandidate->detailLowongan : null;
+
+        // Fetch the lowongan related to the user company
+        $lowonganCompany = $userCompany ? $userCompany->lowongan : null;
+
+        $detailLowongan = [
+            'detailLowonganCandidate' => $detailLowonganCandidate,
+            'lowonganCompany' => $lowonganCompany
+        ];
+
+        return view('profile.joblist', compact('detailLowongan'));
+
     }
 }

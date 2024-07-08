@@ -36,24 +36,28 @@
                 <h6>Status</h6>
             </div>
         </div>
+
+        @foreach ($detailLowongan['lowonganCompany'] as $lowongan)
         <div class="job1">
           <div class="perusahaan">
             <div class="logocompany"> <img src="/img/logo_circ-removebg-preview.png" alt="logo perusahaan"></div>
             <div class="detail">
               <ul>
-                <li class="posisi">Data Analyst</li>
-                <li class="namaperusahaan">CRIC DSFE UAI</li>
-                <li class="alamat">Jakarta Selatan</li>
+                <li class="posisi">{{ $lowongan->title_lowongan }}</li>
+                <li class="namaperusahaan">{{ $lowongan->userCompany->user->nama_lengkap }}</li>
+                <li class="alamat">{{ $lowongan->userCompany->detailAlamat->kota_kabupaten }}</li>
               </ul>
             </div>
           </div>
           <div class="tanggal-lamar">
-            <p>03 Mei 2024</p>
+            <p>{{ $lowongan->created_at }}</p>
           </div>
           <div class="pending">
-            <p>Pending</p>
+            <p>{{ $lowongan->status }}</p>
           </div>
         </div>
+        @endforeach
+        
         <div class="job2">
           <div class="perusahaan">
             <div class="logocompany"> <img src="../IMAGE/logo_circ-removebg-preview.png" alt="logo perusahaan"></div>

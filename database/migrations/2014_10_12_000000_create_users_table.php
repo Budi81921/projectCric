@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('nama_lengkap');
             $table->string('email')->unique();
             $table->string('password')->nullable(false);
+            $table->enum('role',['candidate','company'])->default('candidate');
             $table->rememberToken();
             $table->timestamps();
         });

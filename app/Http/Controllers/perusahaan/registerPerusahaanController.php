@@ -1,24 +1,21 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\perusahaan;
 
+use App\Http\Controllers\Controller;
 use App\Models\User;
-use App\Models\userCandidateModel;
+use App\Models\userCompanyModels;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Hash;
 
-class registrationController extends Controller
+class registerPerusahaanController extends Controller
 {
-
-    //show registration page
     public function index(){
-        return view('main.register');
+        return view('perusahaan.register_perusahaan');
     }
-
-    //show process registration
-    public function registrationCandidate(Request $request){
+    public function registrationPerusahaan(Request $request){
         $validator= Validator::make($request->all(),[
             'fullName'=>'required|string',
             'email'=>'required|email|unique:users,email',
@@ -31,11 +28,11 @@ class registrationController extends Controller
             $users->nama_lengkap = $request->fullName;
             $users->email = $request->email;
             $users->password = Hash::make($request->password);
-            $users->role='candidate';
+            $users->role= company;
             $users->save();
-            $usercandidate= new userCandidateModel();
-            $usercandidate->fkidusercandidate= $users->id;
-            $usercandidate->save();
+            $usercompany= new userCompanyModels();
+            $usercompany->fkusercompany = $users->id;
+            $usercompany->save();
             $message= $validator->getMessageBag();
             Log::info($message->toJson(JSON_PRETTY_PRINT));
             return redirect('/');
@@ -44,5 +41,4 @@ class registrationController extends Controller
             return redirect()->back();
         }
     }
-
 }

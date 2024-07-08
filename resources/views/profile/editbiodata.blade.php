@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/cssBiodataKandidat/profilpelamar-editbiodata.css">
     <link rel="stylesheet" href="/css-bootstrap/bootstrap.css">
     <script src="/js-bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
@@ -24,54 +25,80 @@
     <div class="judul">
       <h3>Biodata</h3>
     </div>
-    <form id="resumeForm" method="POST" action="/profile/update">
+
+    <form id="resumeForm" method="POST" action="/profile/update" enctype="multipart/form-data">
       @csrf
+      <!-- EDIT PROFIL -->
+      {{-- <div class="foto-profil">
+        <div class="profile-pic-container">
+          <img id="profile-image" src="{{ $fotoProfileCandidateUrl }}"  class="foto-profil">
+          <input name="fotoProfileCandidate" type="file" id="profile-input">
+        </div>
+        <div class="button-editprofil">
+          <button class="btn btn-sm btn-outline-primary edit-photo-btn" id="button-edit" onclick="document.getElementById('profile-input').click()">Edit Foto</button>
+       </div>
+      </div> --}}
+  
+  
+    <!-- END EDIT PROFIL -->
+      <!-- END EDIT PROFIL -->
+
+
       <div class="mb-3">
         <label for="formGroupExampleInput" class="form-label">Nama Lengkap</label>
         <input type="text" class="form-control" id="validationDefault01" name="nama_lengkap" value="{{ $id->nama_lengkap }}" required>
       </div>
+
       <div class="mb-3">
         <label for="tanggalInput" class="form-label">Tanggal Lahir</label>
         <input type="date"  class="form-control" id="validationDefault01" name="tanggal_lahir" value="{{ $candidateProfile->tanggal_lahir }}" required>
       </div>
+
       <div class="mb-3">
         <label for="formGroupExampleInput" class="form-label">Alamat</label>
         <input type="text" class="form-control" id="validationDefault01" name="alamat" value="{{ $candidateProfile->alamat }}" required>
       </div>
+
       <div class="mb-3">
         <label for="phoneNumber" class="form-label">Nomor Handphone</label>
         <input type="tel" class="form-control" id="phoneNumber" pattern="[0-9]{10,15}" name="nomor_handphone" value="{{ $candidateProfile->nomor_handphone }}" required>
       </div>
+
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Email</label>
         <input type="email" class="form-control" id="validationDefault01" aria-describedby="emailHelp" name="email" value="{{ $id->email }}" required>
       </div>
+
       <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Jenis Kelamin</label>
-      <div class="jeniskelamin">
-        <div class="form-check">
-          <input type="radio" class="form-check-input" value="Pria" {{ $candidateProfile->gender == 'pria' ? 'checked' : '' }} id="validationFormCheck2" name="checkbox" required>
-          <label class="form-check-label" for="validationFormCheck2">Pria</label>
+          <label for="exampleInputEmail1" class="form-label">Jenis Kelamin</label>
+        <div class="jeniskelamin">
+          <div class="form-check">
+            <input type="radio" class="form-check-input" value="Pria" {{ $candidateProfile->gender == 'pria' ? 'checked' : '' }} id="validationFormCheck2" name="checkbox" required>
+            <label class="form-check-label" for="validationFormCheck2">Pria</label>
+          </div>
+          <div class="form-check mb-3">
+            <input type="radio" class="form-check-input" value="Wanita" {{ $candidateProfile->gender == 'wanita' ? 'checked' : '' }} id="validationFormCheck3" name="checkbox" required>
+            <label class="form-check-label" for="validationFormCheck3">Wanita</label>
+            <div class="invalid-feedback">Pilih Jenis Kelamin Anda</div>
+          </div>
         </div>
-        <div class="form-check mb-3">
-          <input type="radio" class="form-check-input" value="Wanita" {{ $candidateProfile->gender == 'wanita' ? 'checked' : '' }} id="validationFormCheck3" name="checkbox" required>
-          <label class="form-check-label" for="validationFormCheck3">Wanita</label>
-          <div class="invalid-feedback">Pilih Jenis Kelamin Anda</div>
-        </div>
-     </div>
-    </div>
+      </div>
+
     <div class="mb-3">
       <label for="formGroupExampleInput" class="form-label">Universitas</label>
       <input type="text" class="form-control" id="validationDefault01" name="universitas" value="{{ $candidateProfile->universitas }}"required>
     </div>
+
     <div class="mb-3">
       <label for="formGroupExampleInput" class="form-label">Gelar</label>
       <input type="text" class="form-control" id="validationDefault01" name="gelar" value="{{ $candidateProfile->gelar }}" required>
     </div>
+
     <div class="simpan">
       <button type="submit" class="btn btn-primary" id="button">SIMPAN</button>
     </div>
     </form>
+
   </div>
 </div>
   <!-- EDIT BIODATA-->
@@ -87,7 +114,28 @@
         window.location.href = "#";
     });
   </script>
+  
   <!--END SCRIPT LOGOUT-->
+
+  <script type="text/javascript">
+    // function loadProfileImage(event) {
+    //     const profileImage = document.getElementById('profile-image');
+    //     profileImage.src = URL.createObjectURL(event.target.files[0]);
+    //     profileImage.onload = function() {
+    //         URL.revokeObjectURL(profileImage.src); // release memory
+    //     }
+    // }
+    $(document).ready(function(){
+      $('#profile-input').change(function(e){
+        var reader = new FileReader();
+        reader.onload = function(e){
+          $('#profile-image').attr('src',e.target.result);
+        }
+        reader.readAsDataURL(e.target.files['0']);
+      });
+    });
+  </script>
+
 
 </body>
 </html>
