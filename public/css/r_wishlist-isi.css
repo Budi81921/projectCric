@@ -132,8 +132,8 @@
     color: #000000;
 }
 .wl-job {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     grid-gap: 20px;
 }
 .job-box {
@@ -242,6 +242,7 @@
     display: flex;
     justify-content: right;
     margin-top: 20px;
+    padding-bottom: 20px;
 }
 
 #apply {
