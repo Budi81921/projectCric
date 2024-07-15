@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\lowonganController;
+use App\Http\Controllers\main\listPerusahaanController;
 use App\Http\Controllers\perusahaan\companyProfileController;
 use App\Http\Controllers\perusahaan\loginPerusahaanController;
 use App\Http\Controllers\perusahaan\registerPerusahaanController;
@@ -45,9 +46,8 @@ Route::group(['middleware'=>['guest','preventBack']],function(){
     });
 
     //login candidate
-    Route::controller(loginController::class)->group(function(){
-        Route::get("/loginCandidate","index")->name('login.index');
-        Route::post("/loginCandidate","authentication")->name('login.process');
+    Route::controller(loginPerusahaanController::class)->group(function(){
+        Route::post("/login/perusahaan","loginCompany")->name('login.company');
     });
     Route::controller(loginController::class)->group(function(){
         Route::get("/loginCandidate","index")->name('login.index');
@@ -95,3 +95,6 @@ Route::group(['middleware'=>['auth','checkrole:company','preventBack']],function
 Route::get('/lowongan', [lowonganController::class, 'index'])->name('lowongan');
 Route::get('/lowongan/search', [lowonganController::class, 'search'])->name('search');
 
+Route::controller(listPerusahaanController::class)->group(function(){
+    Route::get("/listPerusahaan","index")->name('list.perusahaan');
+});

@@ -97,7 +97,7 @@
           <a class="nav-link" href="/registrationCandidate">Daftar</a>
         </li>
         <li class="login-button">
-          <button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">MASUK</button>
+          <button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">MASUK</button>
 
           <!-- POP UP LOGIN-->
           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
@@ -106,7 +106,7 @@
                       <div class="modal-header align-items-center">
                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           <h3 class="modal-title" id="exampleModalLabel1">MASUK</h3>
-                          <p>PELAMAR |<a href="#" class="text-primary" style="padding-left: 5px;">PERUSAHAAN</a></p>
+                          <p>PELAMAR |<a data-bs-toggle="modal" data-bs-target="#exampleModal2" class="text-primary" style="padding-left: 5px;">PERUSAHAAN</a></p>
                       </div>
                       <div class="modal-body">
                           <form method="POST" action="/loginCandidate" onsubmit="return validatePassword1()">
@@ -134,7 +134,46 @@
                   </div>
               </div>
           </div>
+
+          <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header align-items-center">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <h3 class="modal-title" id="exampleModalLabel1">MASUK</h3>
+                        <p>PELAMAR |<a href="#" class="text-primary" style="padding-left: 5px;">PERUSAHAAN</a></p>
+                    </div>
+                    <div class="modal-body">
+                        <form method="POST" action="/login/perusahaan" onsubmit="">
+                            @csrf
+                            <!-- Email input -->
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label">Email</label>
+                                <input name="email2" type="email" class="form-control @error('email2') is-invalid @enderror" id="exampleFormControlInput1" value="{{ old('email2') }}">
+                                @error('email2')
+                                  <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror 
+                            </div>
+                            <!-- password input -->
+                            <div class="mb-3">
+                                <label for="inputPassword1" class="form-label">Password</label>
+                                <input name="password2" type="password" id="inputPassword1" class="form-control @error('password2') is-invalid @enderror">
+                                @error('password2')
+                                  <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                              </div>
+                            <button type="submit" class="btn btn-primary">MASUK</button>
+                        </form>
+                        <p>Apakah anda belum mempunyai akun?<a href="../html/register.html" class="text-primary">Daftar di sini</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
           <!-- END POP UP LOGIN -->
+
+
+
+
         </li>
       </ul>
     </div>
