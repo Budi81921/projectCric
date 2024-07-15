@@ -20,7 +20,7 @@
                 @if(Auth::user()->candidate->fotoProfilCandidate === null)
                   <img src="/img/profil.png" alt="profil">
                 @else
-                    <div class="profil-navbar"><img src="{{ asset('storage/userCandidate/' . Auth::user()->candidate->id . '/fotoProfileCandidate/' . Auth::user()->candidate->fotoProfilCandidate) }}" alt="profil"></div>
+                  <img src="{{ asset('storage/userCandidate/' . Auth::user()->candidate->id . '/fotoProfileCandidate/' . Auth::user()->candidate->fotoProfilCandidate) }}" alt="profil">
                 @endif
                 
               </li>
@@ -67,8 +67,6 @@
         function setActiveLink() {
           var currentPath = window.location.pathname.split('/').pop(); // Get the current file name
           var navLinks = document.querySelectorAll('.nav-link');
-
-    
 
           navLinks.forEach(function(link) {
               if (link.getAttribute('href').includes(currentPath)) {

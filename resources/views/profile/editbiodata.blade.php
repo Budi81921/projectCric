@@ -158,26 +158,7 @@
   
   <!--END SCRIPT LOGOUT-->
 
-  <script type="text/javascript">
-    // function loadProfileImage(event) {
-    //     const profileImage = document.getElementById('profile-image');
-    //     profileImage.src = URL.createObjectURL(event.target.files[0]);
-    //     profileImage.onload = function() {
-    //         URL.revokeObjectURL(profileImage.src); // release memory
-    //     }
-    // }
-
-    $(document).ready(function(){
-      $('#profile-input').change(function(e){
-        var reader = new FileReader();
-        reader.onload = function(e){
-          $('#profile-image').attr('src',e.target.result);
-        }
-        reader.readAsDataURL(e.target.files['0']);
-      });
-    });
-  </script>
-
+  
 
 </body>
 </html>
