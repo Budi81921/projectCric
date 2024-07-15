@@ -424,6 +424,7 @@
     </div>
   <!-- END LOWONGAN SECTION -->
 @endauth
+
 @guest()
 <!doctype html>
 <html lang="en">
