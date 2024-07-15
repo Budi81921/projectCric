@@ -2,7 +2,7 @@
 
 /*BIODATA*/
     /*EDIT PROFIL*/
-    .foto-profil {
+    /* .foto-profil {
         display: flex;
         width: 100%;
     }
@@ -10,9 +10,9 @@
         margin-left: 30px;
         margin-top: 20px;
         border-radius: 50%;
-        background-color: #6baed6; /* Warna latar belakang untuk profil */
-        height: 150px; /* Tinggi gambar profil */
-        width: 150px; /* Lebar gambar profil */
+        background-color: #6baed6; 
+        height: 150px;
+        width: 150px; 
     }
     .profile-pic-container img {
         width: 100%;
@@ -42,7 +42,7 @@
         border: 1px solid;
     }
     
-        /*END EDIT PROFIL*/
+        END EDIT PROFIL */
         
     .biodata {
         width: 100%;

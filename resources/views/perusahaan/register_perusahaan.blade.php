@@ -28,28 +28,37 @@
         @csrf
         <div class="mb-3">
           <label for="fullName" class="form-label">Nama Perusahaan</label>
-          <input name="fullName"type="text" class="form-control" id="fullName" placeholder="Nama Perusahaan">
-        
+          <input name="company_name" type="text" class="form-control @error('company_name') is-invalid @enderror" id="fullName" placeholder="Nama Perusahaan" value="{{ old('company_name') }}">
+          @error('company_name')
+            <div class="invalid-feedback">{{ $message }}</div>
+          @enderror
         </div>
         <div class="mb-3">
           <label for="email" class="form-label">Email</label>
-          <input name ="email"type="email" class="form-control" id="email" placeholder="name@example.com">
-        
+          <input name="email" type="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="name@example.com" value="{{ old('email') }}">
+          @error('email')
+            <div class="invalid-feedback">{{ $message }}</div>
+          @enderror
         </div>
         <div class="mb-3">
           <label for="password" class="form-label">Password</label>
-          <input name="password"type="password" id="password" class="form-control" aria-describedby="passwordHelpBlock">
+          <input name="password" type="password" id="password" class="form-control @error('password') is-invalid @enderror" aria-describedby="passwordHelpBlock">
           <div id="passwordHelpBlock" class="form-text">
             Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
           </div>
+          @error('password')
+            <div class="invalid-feedback">{{ $message }}</div>
+          @enderror
         </div>
         <div class="mb-3">
           <label for="confirmPassword" class="form-label">Konfirmasi Password</label>
-          <input name="confirmPassword" type="password" id="confirmPassword" class="form-control" aria-describedby="passwordHelpBlock">
-        
+          <input name="confirmPassword" type="password" id="confirmPassword" class="form-control @error('confirmPassword') is-invalid @enderror" aria-describedby="passwordHelpBlock">
+          @error('confirmPassword')
+            <div class="invalid-feedback">{{ $message }}</div>
+          @enderror
         </div>
         <div class="mb-3">
-          <button type="submit" class="btn-register" onclick="validatePassword()">DAFTAR</button>
+          <button type="submit" class="btn-register">DAFTAR</button>
         </div>
       </form>
 

@@ -10,7 +10,12 @@ class Lowongan extends Model
 {
     protected $table = 'lowongankerja';
     protected $primaryKey = 'id';
-    public function detailLowongan():HasMany{
-        return $this->hasMany(detail_lowongan::class,'fklowongankerja','id');
+    public function detailLowongan(): HasMany {
+        return $this->hasMany(detail_lowongan::class, 'fklowongankerja', 'id');
+    }
+
+    public function company()
+    {
+        return $this->belongsTo(userCompanyModels::class,'fkusercompany','id');
     }
 }

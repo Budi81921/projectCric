@@ -46,8 +46,8 @@
     align-items: center;
 }
 
-.profil ul li i {
-    font-size: 50px;
+.profil ul li img {
+    width: 60px;
     margin-right: 10px;  
 }
 

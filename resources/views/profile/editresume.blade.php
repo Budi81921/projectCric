@@ -21,24 +21,45 @@
         <div class="judul">
           <h3>Resume</h3>
         </div>
+        
+        @if(session('success'))
+          <div class="alert alert-success">
+            {{ session('success') }}
+          </div>
+        @elseif(session('error'))
+          <div class="alert alert-danger">
+            {{ session('error') }}
+          </div>
+        @endif
+
         <form id="resumeForm" method="POST" action="/profile/resume/update" enctype="multipart/form-data"> <!--INI FORM BUAT ISI DATA-->
           @csrf
           <div class="mb-3">
             <label for="validationTextarea" class="form-label">Deskripsi Diri</label>
-            <textarea  name="deskripsi" class="form-control" id="validationTextarea" required>{{ $candidateProfile->deskripsi }}</textarea>
-            <div class="invalid-feedback">
-              Masukkan Deskripsi Diri Anda.
-            </div>
+            <textarea  name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror" id="validationTextarea" required>{{ $candidateProfile->deskripsi }}</textarea>
+            @error('deskripsi')
+              <div class="invalid-feedback">
+                {{ $message }}
+              </div>
+            @enderror
           </div>
           <div class="mb-3">
             <label for="formFileMultiple" class="form-label">CV : {{ $candidateProfile->cv }}</label>
-            <input value="{{ $candidateProfile->cv }}"name="cv" type="file" class="form-control" id="fileInput" aria-label="file example" required>
-            <div class="invalid-feedback">Mohon masukan file yang sesuai.</div>
+            <input name="cv" type="file" class="form-control @error('cv') is-invalid @enderror" id="fileInput" aria-label="file example" >
+            @error('cv')
+              <div class="invalid-feedback">
+                {{ $message }}
+              </div>
+            @enderror
           </div>
           <div class="mb-3">
             <label for="formFileMultiple" class="form-label">Portfolio : {{ $candidateProfile->portofolio }}</label>
-            <input value="{{ $candidateProfile->portofolio }}" name="portofolio" type="file" class="form-control" id="fileInput" aaria-label="file example" required>
-            <div class="invalid-feedback">Mohon masukan file yang sesuai.</div>
+            <input value="{{ $candidateProfile->portofolio }}" name="portofolio" type="file" class="form-control @error('portofolio') is-invalid @enderror" id="fileInput" aaria-label="file example" >
+            @error('portofolio')
+              <div class="invalid-feedback">
+                {{ $message }}
+              </div>
+            @enderror
           </div>
           <div class="simpan">
             <button type="submit" class="btn btn-primary" id="button">SIMPAN</button> <!--INI BUTTON SIMPAN YAA-->

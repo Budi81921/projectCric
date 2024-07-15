@@ -16,7 +16,14 @@
       <div class="biosingkat">
           <div class="profil">
             <ul>
-              <li><i class="bi bi-person-circle"></i></li>
+              <li>
+                @if(Auth::user()->candidate->fotoProfilCandidate === null)
+                  <img src="/img/profil.png" alt="profil">
+                @else
+                    <div class="profil-navbar"><img src="{{ asset('storage/userCandidate/' . Auth::user()->candidate->id . '/fotoProfileCandidate/' . Auth::user()->candidate->fotoProfilCandidate) }}" alt="profil"></div>
+                @endif
+                
+              </li>
               <li class="nama">{{ Auth::user()->nama_lengkap }}</li>
             </ul>
           </div>
@@ -30,7 +37,7 @@
     <!--SIDEBAR-->
       <div class="sidebar">
         <nav class="nav flex-column">
-          <a class="nav-link active" aria-current="page"  href="/profile"><i class="bi bi-person-fill-gear"></i>Biodata</a>
+          <a class="nav-link" href="/profile"><i class="bi bi-person-fill-gear"></i>Biodata</a>
           <a class="nav-link" href="/profile/resume"><i class="bi bi-person-vcard-fill"></i>Resume</a>
           <a class="nav-link" href="/profile/joblist"><i class="bi bi-clipboard-fill"></i>Job List</a>
           <a class="nav-link" data-bs-toggle="modal" data-bs-target="#logoutModal"><i class="bi bi-box-arrow-right"></i>Log out</a>
@@ -54,4 +61,28 @@
         </nav>
       </div>
     </div> 
+
+    <!--SCRIPT ACTIVE SIDEBAR-->
+    <script>
+        function setActiveLink() {
+          var currentPath = window.location.pathname.split('/').pop(); // Get the current file name
+          var navLinks = document.querySelectorAll('.nav-link');
+
+    
+
+          navLinks.forEach(function(link) {
+              if (link.getAttribute('href').includes(currentPath)) {
+                  link.classList.add('active');
+              } else {
+                  link.classList.remove('active');
+              }
+          });
+        }
+
+      window.onload = setActiveLink;
+  </script>
+ <!--END SCRIPT ACTIVE SIDEBAR-->
+
+
+   
   

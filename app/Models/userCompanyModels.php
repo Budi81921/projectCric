@@ -17,6 +17,7 @@ class userCompanyModels extends Model
         'deskripsi_perusahaan',
         'nomor_telepon',
         'tahun_berdiri',
+        'url'
     ];
     public function user(){
         return $this->belongsTo(User::class,'fkusercompany','id');
@@ -25,7 +26,7 @@ class userCompanyModels extends Model
         return $this->hasMany(Lowongan::class,'fkusercompany','id');
     }
     public function detailalamat():HasOne{
-        return $this->hasOne(Lowongan::class,'fkidusercompany','id');
+        return $this->hasOne(detailAlamatCompany::class,'fkusercompany','id');
     }
 
 }

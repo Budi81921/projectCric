@@ -1,0 +1,48 @@
+/* SIDEBAR */
+.sidebar {
+    width: 20%;
+    background-color: #0C2943;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.option-sidebar {
+    margin-bottom: 30px;
+}
+.nav-link.active {
+    background-color: #7EA5CD;
+    border-radius: 10px;
+}
+#opsi {
+    color: white;
+    font-size: 18px;
+    padding: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+#opsi i {
+    margin-right: 10px;
+}
+#opsi:hover {
+    background-color: #7EA5CD;
+    border-radius: 10px;
+}
+.logo-brand {
+    background-color: #17599A;
+    padding: 10px;
+    color:white;
+    margin: 30px;
+    margin-top: 30px;
+    margin-bottom: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.text-ucareer {
+    margin-left: 10px;
+    font-size: 20px;
+}
+.modal-footer a {
+    margin: 0px;
+}
+/*END SIDEBAR */

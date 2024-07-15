@@ -11,8 +11,18 @@ class detailAlamatCompany extends Model
     protected $table = 'detail_alamat_perusahaan';
     protected $primaryKey='id';
 
-    public function users(){
-        return $this->belongsTo(User::class,'fkidusercompany','id');
+    protected $fillable = [
+       'Alamat_detail',
+       'provinsi',
+       'kota_kabupaten',
+       'kecamatan',
+       'kelurahan',
+       'kode_pos'
+    ];
+    
+
+    public function usercompany(){
+        return $this->belongsTo(userCompanyModels::class,'fkidusercompany','id');
     }
 
 }

@@ -27,7 +27,7 @@
         </div>
         <div class="judultabel">
             <div class="namajob">
-                <h6>Nama Pekerjaan</h6>
+                <h6>Judul Job</h6>
             </div>
             <div class="tanggal">
                 <h6>Tanggal Melamar</h6>
@@ -37,66 +37,34 @@
             </div>
         </div>
 
-        @foreach ($detailLowongan['lowonganCompany'] as $lowongan)
+        @foreach ($jobs as $job)
         <div class="job1">
+
           <div class="perusahaan">
             <div class="logocompany"> <img src="/img/logo_circ-removebg-preview.png" alt="logo perusahaan"></div>
             <div class="detail">
               <ul>
-                <li class="posisi">{{ $lowongan->title_lowongan }}</li>
-                <li class="namaperusahaan">{{ $lowongan->userCompany->user->nama_lengkap }}</li>
-                <li class="alamat">{{ $lowongan->userCompany->detailAlamat->kota_kabupaten }}</li>
+                <li class="posisi">{{ $job->lowongan->title_lowongan }}</li>
+                <li class="namaperusahaan">{{ $job->lowongan->company->user->nama_lengkap }}</li>
+                <li class="alamat">{{ $job->lowongan->company->detailalamat->kota_kabupaten }}</li>
               </ul>
             </div>
           </div>
+
           <div class="tanggal-lamar">
-            <p>{{ $lowongan->created_at }}</p>
+            <p>{{ $job->created_at }}</p>
           </div>
-          <div class="pending">
-            <p>{{ $lowongan->status }}</p>
-          </div>
-        </div>
-        @endforeach
-        
-        <div class="job2">
-          <div class="perusahaan">
-            <div class="logocompany"> <img src="../IMAGE/logo_circ-removebg-preview.png" alt="logo perusahaan"></div>
-            <div class="detail">
-              <ul>
-                <li class="posisi">Web Developer</li>
-                <li class="namaperusahaan">CRIC DSFE UAI</li>
-                <li class="alamat">Jakarta Selatan</li>
-              </ul>
-            </div>
-          </div>
-          <div class="tanggal-lamar">
-            <p>03 Mei 2024</p>
-          </div>
-          <div class="ditolak">
-            <p>Ditolak</p>
-          </div>
-        </div>
-        <div class="job3">
-          <div class="perusahaan">
-            <div class="logocompany"> <img src="../IMAGE/logo_circ-removebg-preview.png" alt="logo perusahaan"></div>
-            <div class="detail">
-              <ul>
-                <li class="posisi">UI/UX Design</li>
-                <li class="namaperusahaan">CRIC DSFE UAI</li>
-                <li class="alamat">Jakarta Selatan</li>
-              </ul>
-            </div>
-          </div>
-          <div class="tanggal-lamar">
-            <p>03 Mei 2024</p>
-          </div>
-          <div class="terima">
+
+         
+          @if($job->status === 'diterima')
             <div class="diterima">
-              <p>Diterima</p>
+              <p>{{ $job->status }}</p>
             </div>
+            
             <div class="info">
               <i class="bi bi-exclamation-circle" data-bs-toggle="modal" data-bs-target="#staticBackdrop"></i>
             </div>
+
             <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                 <div class="modal-content">
@@ -113,10 +81,23 @@
                 </div>
               </div>
             </div>
-          </div>
+
+          @elseif($job->status === 'proses')
+            <div class="pending">
+              <p>{{ $job->status }}</p>
+            </div>
+
+          @elseif($job->status === 'ditolak')
+            <div class="ditolak">
+              <p>{{ $job->status }}</p>
+            </div>
+          @endif
+          
         </div>
+        @endforeach
       </div>
-    </div>
+        
+    </div>    
   <!-- END EDIT JOBLIST-->
   
   <!-- Footer -->

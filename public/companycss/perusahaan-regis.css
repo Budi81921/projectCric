@@ -1,0 +1,510 @@
+/* NAVIGASI BAR REGISTER*/
+#myNavbar{
+    background-color: #004080;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.40);
+    height: 95px;
+}
+
+#myNavbar .container-fluid {
+    margin-left: 40px;
+    margin-right: 40px;
+}
+.navbar-logo {
+    width: 50px;
+    margin-right: 10px;
+}
+
+.container-fluid a {
+    color: white;
+}
+
+.container-fluid a:hover{
+    color: #F5DD00;
+}
+
+.navbar-brand:hover {
+    text-decoration: none; 
+    color: white; 
+}
+
+.navbar-brand{
+    color: white;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    color: #F5DD00;
+}
+
+.navbar-nav {
+    padding: 0px;
+    display: flex;
+}
+.nav-item {
+    padding-right: 20px;
+}
+
+.nav-item a {
+    color: white;
+    font-size: 20px;
+}
+
+.akun {
+    width: 190px;
+}
+.akun a {
+    text-decoration: none;
+    border: 1px solid;
+    list-style: none;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    border-color: white;
+    color: white;
+}
+
+.akun a h6 {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 0px;
+    font-size: 20px;
+}
+
+.akun a i {
+    border: 1px solid;
+    width: 52px;
+    text-align: center;
+    font-size: 30px;
+    background-color: white;
+    color: #004080;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.akun a:hover {
+    background-color: #00264B;
+    border-color: #ffffff;
+    color: #ffffff;
+}
+
+.akun:hover i,
+.akun:hover h6 {
+    border-color: #004080;
+}
+
+.wishlist {
+    font-size: 35px;  
+}
+.wishlist a { 
+    padding-right: 15px;
+    color: white;
+}
+
+.dropdown-menu a {
+    color: black;
+    font-size: 15px;
+}
+/* END NAVIGASI BAR REGISTER */
+
+/* NAVIGASI BAR NON REGISTER*/
+#myNavbar{
+    background-color: #004080;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.40);
+    height: 95px;
+}
+
+#myNavbar .container-fluid {
+    margin-left: 40px;
+    margin-right: 40px;
+}
+.navbar-logo {
+    width: 50px;
+    margin-right: 10px;
+}
+
+.navbar-brand:hover {
+    text-decoration: none; 
+    color: white; 
+}
+
+.navbar-brand{
+    color: white;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    color: #F5DD00;
+}
+
+.nav-item {
+    padding-right: 20px;
+}
+
+.nav-link{
+    color: white;
+    font-size: 18px;
+}
+
+.login-button .btn {
+    font-size: 18px; 
+    color: black;
+    font-weight: 500;
+    background-color: #F5DD00;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+/* END NAVIGASI BAR NON REGISTER*/
+
+/* TOGGLER */
+.navbar-toggler {
+    border: none; 
+    outline: none; 
+    padding: 0.25rem 0.5rem; 
+    background-color: transparent; 
+    cursor: pointer;
+}
+  
+.navbar-toggler .navbar-toggler-icon {
+    width: 1.5em;
+    height: 1.5em; 
+    background-color: #004080; 
+    border-radius: 3px; 
+}
+
+  @media (max-width: 991.98px) {
+    .navbar-collapse {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      padding-left: 50px;
+      padding-bottom: 30px;
+      background-color: #17599A; 
+      z-index: 1000; 
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1); 
+      display: none; 
+    }
+  
+    .navbar-collapse.show {
+      display: block; /* Tampilkan menu ketika tombol diklik */
+    }
+  }
+/* END TOGGLER */
+
+.company-view {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+/* Searching */
+.searching-box {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.d-flex {
+    width: 100%;
+}
+
+.form-control.me-2 {
+    width: 100%;
+    height: 65px;
+    padding-left: 20px;
+    background-color: #d8e4f3;
+}
+
+.d-flex select {
+    width: 50%;
+    padding: 20px; 
+    height: 65px;
+    margin-right: 10px;
+    background-color: #d8e4f3;
+    
+}
+
+.btn.btn-outline-success {
+    width: 100px;
+    height: 65px;
+    font-size: 20px;
+    background-color: #17599A;
+    color: white;
+    border-color: #17599A;
+}
+
+.btn.btn-outline-success:hover {
+    background-color: #004080; 
+    color: #ffffff; 
+    border-color: #004080; 
+}
+
+/* Searching */
+
+/*SHOWING PAGE*/
+.breadcrumb{
+    margin-top: 10px;
+}
+
+.breadcrumb-item.active {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+/*END SHOWING PAGE*/
+
+/*CARD PERUSAHAAN*/
+.cardperusahaan {
+    margin-top: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+    gap: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card:hover {
+    border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.card-link {
+    text-decoration: none;
+}
+.card.w-50 {
+    width: 100%;
+    box-shadow: 0px 2px 2px rgba(158, 157, 157, 1);
+    border-radius: 5px;
+}
+
+.logo-perusahaan {
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.40);
+    margin-right: 10px;
+}
+.logo-perusahaan img{
+    width: 60px;
+}
+
+.card-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    
+}
+.perusahaan {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+}
+
+.info-perusahaan h5 {
+    font-size: 15px;
+}
+
+.info-perusahaan p {
+    font-size: 12px;
+}
+
+#button {
+    width:50%;
+    color: black;
+    font-size: 13px;
+    box-shadow: 0px 2px 2px rgba(158, 157, 157, 1);
+    border: 1px rgb(175, 174, 174);
+    border-radius: 5px;
+    background-color: #F5DD00;
+}
+#button:hover{
+    background-color: #e7d423;
+    border-color: black;
+    color: black;
+}
+
+/*END CARD PERUSAHAAN*/
+
+/*BUTTON SEBELUM DAN SESUDAH PAGE*/
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.page-item a {
+    padding: 7px 14px;
+    margin-top: 15px;
+    margin-right: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f0f0f0;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.page-item a:hover {
+    background-color: #17599A;
+    color: #fff;
+}
+
+.page-item a:active {
+    background-color: #17599A;
+    color: #fff;
+    border-color: #111d25;
+}
+/*END BUTTON SEBELUM DAN SESUDAH PAGE*/
+
+/* Footer */
+.footer {
+    margin-top: 90px;
+    position: relative;
+}
+
+.box1 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    background-color: #00264B;
+    justify-content: space-between; 
+    align-items: flex-start;
+    margin: 0 auto; 
+    z-index: 1;
+    position: relative;
+}
+
+.box2 {
+    background-color: #F5DD00;
+    position: absolute; 
+    width: 100%;
+    height: 25px;
+    z-index: 0;
+}
+
+.information {
+    padding-left: 50px;
+    padding-right: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    position: relative;
+    margin: 0 auto;
+}
+
+.part1, .part2, .part3 {
+    flex: 1; 
+    margin: 20px;
+}
+
+.part1 {
+    padding-top: 70px;
+    color: white;
+    max-width: 330px;
+}
+
+.part1 h4 {
+    padding-bottom: 20px;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.part1 a{
+    text-decoration: none;
+    color: white;
+    font-weight: 200;
+}
+
+.part2 {
+    padding-top: 70px;  
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+.part2 h4 {
+    padding-bottom: 20px;
+    font-weight: 400;
+    font-size: 20px;
+}
+.contact-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-weight: 200;
+}
+  
+.contact-info i {
+    margin-right: 15px; 
+    color: #7EB2E5;
+    margin-top: -15px;
+    font-size: 20px;
+}
+
+.part3 {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    padding-top: 150px;
+    margin-right: 0;
+}
+
+.part3 a {
+    text-decoration: none; 
+    color: #00264B;
+    margin: 0 10px;
+}
+
+.part3 i{
+    display: flex;
+    background-color: #7EB2E5;
+    padding: 18px;
+    border-radius: 50px;
+    font-size: 30px;
+}
+
+
+/* Horizontal Line */
+.horizontal-line {
+    width: 90%;
+    height: 1px; 
+    background-color: #ffffff; 
+    margin: 0 auto;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.footer-image {
+    align-self: flex-start; 
+    margin-left: 65px;
+}
+
+.footer-image img {
+    width: 45px;
+}
+
+.footer-image .ucareer-text {
+    color: #ffffff; 
+    padding-left: 10px;
+}
+
+.watermark {
+    text-align: center; 
+    align-self: center;
+    color: #ffffff; 
+    align-self: flex-end; 
+    margin-right: 65px;
+}
+/* End Footer */

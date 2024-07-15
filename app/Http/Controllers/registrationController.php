@@ -26,7 +26,12 @@ class registrationController extends Controller
             'confirmPassword'=>'required|string'
         ]);
 
-        if($validator->passes()){
+        if($validator->fails()){
+            Log::info('Registration failed due to validation errors.', ['errors' => $validator->errors()]);
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        try{
             $users =  new User();
             $users->nama_lengkap = $request->fullName;
             $users->email = $request->email;
@@ -36,12 +41,12 @@ class registrationController extends Controller
             $usercandidate= new userCandidateModel();
             $usercandidate->fkidusercandidate= $users->id;
             $usercandidate->save();
-            $message= $validator->getMessageBag();
-            Log::info($message->toJson(JSON_PRETTY_PRINT));
-            return redirect('/');
-        } else{
-            Log::info('gagal regis');
-            return redirect()->back();
+            Log::info('candidate registration successful.', ['user_id' => $users->id]);
+            return redirect('/')->with('success', 'Registration successful!');
+        } catch (\Exception $e){
+            Log::error('Registration failed due to server error.', ['error' => $e->getMessage()]);
+            return redirect()->back()->with('error', 'Registration failed. Please try again later.');
+        
         }
     }
 

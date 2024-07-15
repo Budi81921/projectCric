@@ -21,7 +21,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('fkusercompany');
             $table->foreign('fkusercompany')->references('id')->on('users')->onDelete('cascade');
-            $table->binary('foto_profil_company')->nullable();
+            $table->string('foto_profil_company')->nullable();
             $table->text('deskripsi_perusahaan')->nullable();
             $table->string('nomor_telepon',12)->nullable();
             $table->year('tahun_berdiri')->nullable();
