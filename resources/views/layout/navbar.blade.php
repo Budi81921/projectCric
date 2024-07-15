@@ -6,14 +6,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>UCAREER</title>
-  <link href="/css-bootstrap/bootstrap.css" rel="stylesheet" type="text/css">
-  <link href="/css-bootstrap/bootstrap.min.css">
+  <link href="/css-bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
   <link href="/Layoutcss/navbar.css" rel="stylesheet">
   <script src="/js-bootstrap/bootstrap.bundle.min.js"></script>
-  <script src="/js-bootstrap/popper.min.js"></script>
-  <script src="/js-bootstrap/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
+  <script src="/js-bootstrap/bootstrap.bundle.min.js"></script>
 </head>
 
 @auth()
@@ -52,7 +49,7 @@
             <div class="akun">
                 <a href="/profile">
                   @if(Auth::user()->candidate->fotoProfilCandidate === null)
-                    <img src="../IMAGE/profil.png" alt="profil">
+                    <img src="/img/profil.png" alt="profil">
                   @else
                     <div class="profil-navbar"><img src="{{ asset('storage/userCandidate/' . Auth::user()->candidate->id . '/fotoProfileCandidate/' . Auth::user()->candidate->fotoProfilCandidate) }}" alt="profil"></div>
                   @endif
@@ -103,16 +100,13 @@
           <button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">MASUK</button>
 
           <!-- POP UP LOGIN-->
-          <div class="modal fade" id="exampleModalToggle" tabindex="-1" aria-labelledby="exampleModalToggleLabel" aria-hidden="true">
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
               <div class="modal-dialog">
                   <div class="modal-content">
                       <div class="modal-header align-items-center">
                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           <h3 class="modal-title" id="exampleModalLabel1">MASUK</h3>
-                          <p>
-                            <button data-bs-toggle="modal">PELAMAR</button>|
-                            <button class="text-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" style="padding-left: 5px;">PERUSAHAAN</button>
-                          </p>
+                          <p>PELAMAR |<a href="#" class="text-primary" style="padding-left: 5px;">PERUSAHAAN</a></p>
                       </div>
                       <div class="modal-body">
                           <form method="POST" action="/loginCandidate" onsubmit="return validatePassword1()">
@@ -140,76 +134,6 @@
                   </div>
               </div>
           </div>
-
-          <div class="modal fade" id="exampleModalToggle2" tabindex="-1" aria-labelledby="exampleModalToggleLabel2" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header align-items-center">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        <h3 class="modal-title" id="exampleModalLabel2">MASUK</h3>
-                        <p>
-                          <button class="text-primary" data-bs-toggle="modal" data-bs-target="#exampleModalToggle" >PELAMAR</button>|
-                          <button style="padding-left: 5px;" data-bs-toggle="modal">PERUSAHAAN</button>
-                        </p>
-                    </div>
-                    <div class="modal-body">
-                        <form method="POST" action="/login/company" onsubmit="return validatePassword2()">
-                            @csrf
-                            <!-- Email input -->
-                            <div class="mb-3">
-                                <label for="exampleFormControlInput2" class="form-label">Email</label>
-                                <input name="email2" type="email" class="form-control" id="exampleFormControlInput2">
-                            </div>
-                            <!-- password input -->
-                            <div class="mb-3">
-                                <label for="inputPassword2" class="form-label">Password</label>
-                                <input name ="password2" type="password" id="inputPassword2" class="form-control">
-                                <div class="error-message" id="password-error-message2"></div>
-                            </div>
-                            <button type="submit" class="btn btn-primary">MASUK</button>
-                        </form>
-                        <p>Apakah anda belum mempunyai akun?<a href="../html/register.html" class="text-primary">Daftar di sini</a></p>
-                    </div>
-                </div>
-            </div>
-          </div>
-
-          <script>
-            function validatePassword1() {
-                const passwordInput = document.getElementById('inputPassword1').value;
-               
-        
-                if (passwordInput !== correctPassword) {
-                    const errorMessage = document.getElementById('password-error-message1');
-                    errorMessage.textContent = 'Password yang dimasukkan salah. Silakan coba lagi.';
-                    document.getElementById('inputPassword1').classList.add('is-invalid');
-                    return false; // Mencegah form dari submit
-                } else {
-                    const errorMessage = document.getElementById('password-error-message1');
-                    errorMessage.textContent = '';
-                    document.getElementById('inputPassword1').classList.remove('is-invalid');
-                    alert('Login berhasil!');
-                    return true; // Izinkan form untuk submit
-                }
-            }
-        
-            function validatePassword2() {
-                const passwordInput = document.getElementById('inputPassword2').value;
-        
-                if (passwordInput !== correctPassword) {
-                    const errorMessage = document.getElementById('password-error-message2');
-                    errorMessage.textContent = 'Password yang dimasukkan salah. Silakan coba lagi.';
-                    document.getElementById('inputPassword2').classList.add('is-invalid');
-                    return false; // Mencegah form dari submit
-                } else {
-                    const errorMessage = document.getElementById('password-error-message2');
-                    errorMessage.textContent = '';
-                    document.getElementById('inputPassword2').classList.remove('is-invalid');
-                    alert('Login berhasil!');
-                    return true; // Izinkan form untuk submit
-                }
-            }
-        </script>
           <!-- END POP UP LOGIN -->
         </li>
       </ul>
@@ -217,6 +141,8 @@
   </div>
 </nav>
 <!-- END NAVIGASI BAR -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/js-bootstrap/popper.min.js"></script>
 
 @endguest
 

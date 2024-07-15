@@ -1,120 +1,3 @@
-/* NAVIGASI BAR */
-#myNavbar{
-    background-color: #004080;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.40);
-    height: 95px;
-}
-
-#myNavbar .container-fluid {
-    margin-left: 40px;
-    margin-right: 40px;
-}
-.navbar-logo {
-    width: 50px;
-    margin-right: 10px;
-}
-
-.navbar-brand:hover {
-    text-decoration: none; 
-    color: white; 
-}
-
-.navbar-brand{
-    color: white;
-}
-
-.navbar-nav .nav-item .nav-link:hover {
-    color: #F5DD00;
-}
-
-.nav-item {
-    padding-right: 20px;
-}
-
-.nav-link{
-    color: white;
-    font-size: 18px;
-}
-
-.akun {
-    border: 1px solid;
-    width: 190px;
-    list-style: none;
-    font-size: 20px;
-    display: flex;
-    border-radius: 10px;
-    border-color: white;
-    color: white;
-}
-.akun li{
-    display: flex;
-    align-items: center;
-}
-.akun li a {
-    margin-left: 20px;
-    margin-right: 20px;
-}
-
-.nav-item i {
-    border: 1px solid;
-    width: 52px;
-    height: 47px;
-    text-align: center;
-    font-size: 30px;
-    background-color: white;
-    color: #004080;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-}
-.wishlist {
-    font-size: 35px;  
-}
-.wishlist a { 
-    padding-right: 15px;
-    color: white;
-}
-.wishlist a:hover { 
-    padding-right: 15px;
-    color: #F5DD00;
-}
-/* END NAVIGASI BAR */
-
-/* TOGGLER */
-.navbar-toggler {
-    border: none; 
-    outline: none; 
-    padding: 0.25rem 0.5rem; 
-    background-color: transparent; 
-    cursor: pointer;
-}
-  
-.navbar-toggler .navbar-toggler-icon {
-    width: 1.5em;
-    height: 1.5em; 
-    background-color: #004080; 
-    border-radius: 3px; 
-}
-
-  @media (max-width: 991.98px) {
-    .navbar-collapse {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      width: 100%;
-      padding-left: 50px;
-      padding-bottom: 30px;
-      background-color: #17599A; 
-      z-index: 1000; 
-      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1); 
-      display: none; 
-    }
-  
-    .navbar-collapse.show {
-      display: block; /* Tampilkan menu ketika tombol diklik */
-    }
-  }
-/* END TOGGLER */
-
 .job-view {
     display: flex;
     justify-content: center;
@@ -473,24 +356,43 @@
 }
 /* END POP UP APPLY */
 
-.bookmark {
+form#bookmarkForm-2.bookmark {
+    background-color: transparent;
+    border: none;
+}
+.bookmark form {
     display: inline-block;
     cursor: pointer;
     padding-left: 15px;
     user-select: none;
+    background-color: transparent;
+    border: none;
+}
+.bookmark-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
 }
 
-.bookmark.active i.bi-bookmark-fill {
-    color: #004080; /* Warna saat aktif */
+.bookmark-button:focus {
+    outline: none 
 }
 
-.bookmark i, .bookmark1 i {
+.bookmark i {
     font-size: 24px;
-    color: #666; /* Warna default */
     vertical-align: middle;
-    transition: color 0.3s; /* Transisi warna untuk efek halus */
+    transition: color 0.3s;
 }
 
+.bookmark i:hover,
+.bookmark i:active {
+    color: #004080;
+}
+
+.bookmarked {
+    color: #004080;
+}
 /* CSS untuk bookmark aktif */
 .bookmark.active i, .simpan.active i {
     color: #004080; /* Warna saat aktif */
@@ -552,7 +454,7 @@
 }
 
 .info {
-    width: 100%;
+    width: 400px;
     padding-left: 30px;
 }
 
@@ -561,10 +463,13 @@
     margin-bottom: 20px;
     font-size: 18px;
 }
-.isi {
+.sub-isi {
+    list-style-type: none;
     display: flex;
-    width: 100%;
-    font-size: 14px;
+    margin-bottom: 10px;
+}
+.isi-informasi {
+    padding: 0;
 }
 .isi1{
     width: 100%;
@@ -576,9 +481,9 @@
 }
 
 .button {
-    width: 90%;
+    width: 60%;
 }
-.lamar a {
+#apply1 {
     width: 150px;
     height: 50px;
     border: 1px solid;

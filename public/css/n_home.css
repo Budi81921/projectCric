@@ -1,4 +1,163 @@
+/* NAVIGASI BAR */
+#myNavbar{
+    background-color: #004080;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.40);
+    height: 95px;
+}
 
+#myNavbar .container-fluid {
+    margin-left: 40px;
+    margin-right: 40px;
+}
+.navbar-logo {
+    width: 50px;
+    margin-right: 10px;
+}
+
+.navbar-brand:hover {
+    text-decoration: none; 
+    color: white; 
+}
+
+.navbar-brand{
+    color: white;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    color: #F5DD00;
+}
+
+.nav-item {
+    padding-right: 20px;
+}
+
+.nav-link{
+    color: white;
+    font-size: 18px;
+}
+
+.login-button .btn {
+    font-size: 18px; 
+    color: black;
+    font-weight: 500;
+    background-color: #F5DD00;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+/* END NAVIGASI BAR */
+
+/* TOGGLER */
+.navbar-toggler {
+    border: none; 
+    outline: none; 
+    padding: 0.25rem 0.5rem; 
+    background-color: transparent; 
+    cursor: pointer;
+}
+  
+.navbar-toggler .navbar-toggler-icon {
+    width: 1.5em;
+    height: 1.5em; 
+    background-color: #004080; 
+    border-radius: 3px; 
+}
+
+  @media (max-width: 991.98px) {
+    .navbar-collapse {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      padding-left: 50px;
+      padding-bottom: 30px;
+      background-color: #17599A; 
+      z-index: 1000; 
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1); 
+      display: none; 
+    }
+  
+    .navbar-collapse.show {
+      display: block; /* Tampilkan menu ketika tombol diklik */
+    }
+  }
+/* END TOGGLER */
+
+/* POP UP LOGIN */
+.modal-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.modal-header h3 {
+    margin-bottom: 10px;
+}
+
+.modal-header p, .modal-header a{
+    font-size: 16px;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+a {
+    text-decoration: none;
+}
+.modal-header a:hover {
+    text-decoration: underline;
+}
+
+.modal-body {
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.modal-body input {
+    display: block;
+    padding: 15px;
+    border: none;
+    border: 1px solid black;
+    font-family: sans-serif;
+    font-size: 16px;
+    width: 100%;
+    height: 60px;
+    margin-left: 0;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+}
+
+.btn-primary.btn{
+    color: black;
+    width: 100%;
+    height: 60px;
+    background-color: #F5DD00;
+    border-radius: 5px;
+    font-size: 16px;
+    border: 1px solid black;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.btn-primary.btn:hover {
+    background-color: rgb(231, 173, 47);
+}
+
+.modal-body p {
+    padding-top: 15px;
+    font-size: 15px;
+    text-align: center;
+}
+
+.text-primary {
+    padding-left: 5px;
+}
+
+.text-primary:hover {
+    text-decoration: underline;
+}
+/* END POP UP LOGIN */
 
 /* Section 1 */
 #myCarousel {
@@ -8,23 +167,23 @@
     padding-left: 60px;
     padding-right: 60px;
 }
-.form-control {
-    width: 600px;
+#form-control {
+    width: 500px;
     height: 60px;
     margin: 5px;
     font-size: 18px;
     padding-left: 20px;
 }
 
-.form-select {
-    width: 300px;
+#form-select {
+    width: 350px;
     height: 60px;
     margin: 5px;
     font-size: 18px;
     padding-left: 20px;
 }
 
-.btn-outline-success {
+#btn-search {
     width: 100px;
     height: 60px;
     margin: 5px;
@@ -34,7 +193,7 @@
     border-color: #17599A;
 }
 
-.btn.btn-outline-success:hover {
+#btn-search:hover {
     background-color: #004080; 
     color: #ffffff; 
     border-color: #004080; 
@@ -51,7 +210,7 @@
     text-align: center; 
   }
 
-.category .btn {
+.category-btn {
     margin-top: 30px;
     background-color: #EAEAEA;
     border-color: #0000005d;
@@ -62,7 +221,9 @@
     padding-right: 40px;
     font-size: 18px;
 }
-
+.category-btn:hover {
+    background-color: rgb(202, 202, 202);
+}
 .more-info {
     margin-top: 30px;
     font-size: 18px;
@@ -99,7 +260,7 @@
     padding-bottom: 70px;
 }
 
-.company .btn {
+.company-btn {
     margin-top: 30px;
     width: 120px;
     height: 110px;
@@ -109,6 +270,13 @@
     margin-left: 30px;
     padding-left: 10px;
     padding-right: 10px;
+}
+
+.company-btn:hover {
+    background-color: rgb(241, 241, 241);
+}
+.company-btn img{
+    padding: 20px;
 }
 /* End Section 3 */
 
