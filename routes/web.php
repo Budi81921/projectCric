@@ -55,6 +55,13 @@ Route::group(['middleware'=>['guest','preventBack']],function(){
     });
     
     Route::post('/login/company', [loginPerusahaanController::class, 'loginCompany'])->name('login.company');
+    
+    Route::controller(listPerusahaanController::class)->group(function(){
+        Route::get("/listPerusahaan","index")->name('list.perusahaan');
+        Route::get("/listPerusahaan/search","searchCompany")->name('list.search.perusahaan');
+        Route::get("/listPerusahaan/{id}","detailCompany")->name('list.detail.perusahaan');
+        Route::get("/listPerusahaan/detail/lowongan/{id}","detailCompanyLowongan")->name('list.detail.perusahaan');
+    });
 
 });
 
@@ -82,6 +89,14 @@ Route::group(['middleware'=>['auth','checkrole:candidate','preventBack']],functi
         //logout
     Route::get('/logout', [LoginController::class, 'logoutCandidate'])->name('logout');
 
+    Route::controller(listPerusahaanController::class)->group(function(){
+        Route::get("/listPerusahaan","index")->name('list.perusahaan');
+        Route::get("/listPerusahaan/search","searchCompany")->name('list.search.perusahaan');
+        Route::get("/listPerusahaan/{id}","detailCompany")->name('list.detail.perusahaan');
+        Route::get("/listPerusahaan/detail/lowongan/{id}","detailCompanyLowongan")->name('list.detail.perusahaan');
+    });
+
+
 });
 
 Route::group(['middleware'=>['auth','checkrole:company','preventBack']],function(){
@@ -97,4 +112,7 @@ Route::get('/lowongan/search', [lowonganController::class, 'search'])->name('sea
 
 Route::controller(listPerusahaanController::class)->group(function(){
     Route::get("/listPerusahaan","index")->name('list.perusahaan');
+    Route::get("/listPerusahaan/search","searchCompany")->name('list.search.perusahaan');
+    Route::get("/listPerusahaan/{id}","detailCompany")->name('list.detail.perusahaan');
+    Route::get("/listPerusahaan/detail/lowongan/{id}","detailCompanyLowongan")->name('list.detail.perusahaan');
 });

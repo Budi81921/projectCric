@@ -17,8 +17,9 @@
   <div class="company-view">
   <!-- SEARCHING -->
         <div class="searching-box">
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Cari Pekerjaan..." aria-label="Caripekerjaan...">
+            <form method="GET" action="/listPerusahaan/search" class="d-flex" role="search">
+                @csrf
+                <input name="search" class="form-control me-2" type="search" placeholder="Cari Pekerjaan..." aria-label="Caripekerjaan...">
                 <select class="form-select" aria-label="Default select example">
                     <option selected>Area/Kota</option>
                     <option value="1">One</option>
@@ -33,7 +34,7 @@
   <!--SHOWING PAGE-->
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item active" aria-current="page">Showing 1 - 15 of 20 results</li>
+            <li class="breadcrumb-item active" aria-current="page">Showing {{ $perusahaan->firstItem() }} - {{ $perusahaan->lastItem() }} of {{ $perusahaan->total() }} results</li>
           </ol>
         </nav>
   <!--END SHOWING PAGE-->
@@ -41,43 +42,22 @@
   <!--CARD-PERUSAHAAN-->
     <!--SECTION 1-->
           <div class="cardperusahaan">
-              <div class="card w-50">
-                <div class="card-body">
-                  <a class="perusahaan" href="../HTML/perusahaandetail-tentang-regis.html">
-                    <div class="logo-perusahaan"><img src="../IMAGE/logo_circ-removebg-preview.png" alt=""></div>
-                    <div class="info-perusahaan">
-                      <h5 class="card-title">CRIC DSFE UAI</h5>
-                      <p class="card-text"><i class="bi bi-geo-alt"></i>Jakarta Selatan</p>
-                    </div>
-                  </a>
-                  <a href="../HTML/perusahaandetail-lowongan-regis.html" class="btn btn-primary" id="button">6 Lowongan</a>
-                </div>
+            @foreach ($perusahaan as $company)
+            <div class="card w-50">
+              <div class="card-body">
+                <a class="perusahaan" href="{{ url('/listPerusahaan/' . encrypt($company->id)) }}">
+                  <div class="logo-perusahaan"><img src="/img/logo_circ-removebg-preview.png" alt=""></div>
+                  <div class="info-perusahaan">
+                    <h5 class="card-title">{{ $company->user->nama_lengkap }}</h5>
+                    <p class="card-text"><i class="bi bi-geo-alt"></i>{{ $company->detailalamat->kota_kabupaten }}</p>
+                  </div>
+                </a>
+                <a href="{{ url('/listPerusahaan/detail/lowongan/' . encrypt($company->id)) }}" class="btn btn-primary" id="button">{{ $company->lowongan->count() }} Lowongan</a>
               </div>
-              <div class="card w-50">
-                <div class="card-body">
-                  <a class="perusahaan" href="../HTML/perusahaandetail-tentang-regis.html">
-                    <div class="logo-perusahaan"><img src="../IMAGE/logo_circ-removebg-preview.png" alt=""></div>
-                    <div class="info-perusahaan">
-                      <h5 class="card-title">CRIC DSFE UAI</h5>
-                      <p class="card-text"><i class="bi bi-geo-alt"></i>Jakarta Selatan</p>
-                    </div>
-                  </a>
-                  <a href="../HTML/perusahaandetail-lowongan-regis.html" class="btn btn-primary" id="button">6 Lowongan</a>
-                </div>
-              </div>  
-              <div class="card w-50">
-                <div class="card-body">
-                  <a class="perusahaan" href="../HTML/perusahaandetail-tentang-regis.html">
-                    <div class="logo-perusahaan"><img src="../IMAGE/logo_circ-removebg-preview.png" alt=""></div>
-                    <div class="info-perusahaan">
-                      <h5 class="card-title">CRIC DSFE UAI</h5>
-                      <p class="card-text"><i class="bi bi-geo-alt"></i>Jakarta Selatan</p>
-                    </div>
-                  </a>
-                  <a href="../HTML/perusahaandetail-lowongan-regis.html" class="btn btn-primary" id="button">6 Lowongan</a>
-                </div>
-              </div>
+            </div>
+            @endforeach
               
+                    
           </div>
         
     
@@ -85,7 +65,8 @@
   <!--BUTTON SEBELUM DAN SESUDAH PAGE-->
           <nav aria-label="Page navigation example">
             <ul class="pagination">
-              <li class="page-item">
+              {{ $perusahaan->links() }}
+              {{-- <li class="page-item">
                 <a class="page-link" href="#" aria-label="Previous">
                   <span aria-hidden="true">&laquo;</span>
                 </a>
@@ -97,7 +78,7 @@
                 <a class="page-link" href="#" aria-label="Next">
                   <span aria-hidden="true">&raquo;</span>
                 </a>
-              </li>
+              </li> --}}
             </ul>
           </nav>
     </div>

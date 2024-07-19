@@ -31,7 +31,7 @@ class registerPerusahaanController extends Controller
 
         try{
             $users =  new User();
-            $users->nama_lengkap = $request->fullName;
+            $users->nama_lengkap = $request->company_name;
             $users->email = $request->email;
             $users->password = Hash::make($request->password);
             $users->role= 'company';

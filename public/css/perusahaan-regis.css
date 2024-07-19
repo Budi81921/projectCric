@@ -66,30 +66,31 @@
     padding-left: 50px;
     padding-right: 50px;
     gap: 20px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: left;
     align-items: center;
 }
 
 .card:hover {
-    background-color: #f0f0f0;
+    border: 1px solid rgba(0, 0, 0, 0.5);
 }
+
 .card-link {
     text-decoration: none;
 }
-.card.w-50 {
-    width: 100%;
+#card {
     box-shadow: 0px 2px 2px rgba(158, 157, 157, 1);
     border-radius: 5px;
 }
 
 .logo-perusahaan {
-    background-color: #17599A;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.40);
     margin-right: 10px;
 }
 .logo-perusahaan img{
-    width: 60px;
+    width: 50px;
 }
 
 .card-body {
@@ -97,6 +98,7 @@
     justify-content: center;
     align-items: center;
     margin: 0px;
+    width: 350px;
     
 }
 .perusahaan {
@@ -109,10 +111,6 @@
     color: black;
 }
 
-.perusahaan:hover{
-    color:#17599A;
-}
-
 .info-perusahaan h5 {
     font-size: 15px;
 }
@@ -123,6 +121,7 @@
 
 #button {
     width:50%;
+    color: black;
     font-size: 13px;
     box-shadow: 0px 2px 2px rgba(158, 157, 157, 1);
     border: 1px rgb(175, 174, 174);
@@ -134,9 +133,7 @@
     border-color: black;
     color: black;
 }
-#button:active {
-    background: #e7d423;
-}
+
 /*END CARD PERUSAHAAN*/
 
 /*BUTTON SEBELUM DAN SESUDAH PAGE*/
@@ -171,152 +168,3 @@
 }
 /*END BUTTON SEBELUM DAN SESUDAH PAGE*/
 
-/* Footer */
-.footer {
-    margin-top: 90px;
-    position: relative;
-}
-
-.box1 {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: auto;
-    background-color: #00264B;
-    justify-content: space-between; 
-    align-items: flex-start;
-    margin: 0 auto; 
-    z-index: 1;
-    position: relative;
-}
-
-.box2 {
-    background-color: #F5DD00;
-    position: absolute; 
-    width: 100%;
-    height: 25px;
-    z-index: 0;
-}
-
-.information {
-    padding-left: 50px;
-    padding-right: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    width: 100%;
-    position: relative;
-    margin: 0 auto;
-}
-
-.part1, .part2, .part3 {
-    flex: 1; 
-    margin: 20px;
-}
-
-.part1 {
-    padding-top: 70px;
-    color: white;
-    max-width: 330px;
-}
-
-.part1 h4 {
-    padding-bottom: 20px;
-    font-weight: 400;
-    font-size: 20px;
-}
-
-.part1 a{
-    text-decoration: none;
-    color: white;
-    font-weight: 200;
-}
-
-.part2 {
-    padding-top: 70px;  
-    color: white;
-    display: flex;
-    flex-direction: column;
-}
-.part2 h4 {
-    padding-bottom: 20px;
-    font-weight: 400;
-    font-size: 20px;
-}
-.contact-info {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-    font-weight: 200;
-}
-  
-.contact-info i {
-    margin-right: 15px; 
-    color: #7EB2E5;
-    margin-top: -15px;
-    font-size: 20px;
-}
-
-.part3 {
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    padding-top: 150px;
-    margin-right: 0;
-}
-
-.part3 a {
-    text-decoration: none; 
-    color: #00264B;
-    margin: 0 10px;
-}
-
-.part3 i{
-    display: flex;
-    background-color: #7EB2E5;
-    padding: 18px;
-    border-radius: 50px;
-    font-size: 30px;
-}
-
-
-/* Horizontal Line */
-.horizontal-line {
-    width: 90%;
-    height: 1px; 
-    background-color: #ffffff; 
-    margin: 0 auto;
-}
-
-.footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding-bottom: 20px;
-    padding-top: 20px;
-}
-
-.footer-image {
-    align-self: flex-start; 
-    margin-left: 65px;
-}
-
-.footer-image img {
-    width: 45px;
-}
-
-.footer-image .ucareer-text {
-    color: #ffffff; 
-    padding-left: 10px;
-}
-
-.watermark {
-    text-align: center; 
-    align-self: center;
-    color: #ffffff; 
-    align-self: flex-end; 
-    margin-right: 65px;
-}
-/* End Footer */

@@ -1,0 +1,172 @@
+/*PROFIL PERUSAHAAN*/
+.background-company {
+    width: 100%;
+    height: 300px;
+}
+.background-company img {
+    width: 100%;
+    height: 300px;
+}
+.profil-company {
+    width: 100%;
+    box-shadow: 0px 2px 2px rgba(158, 157, 157, 1);
+    border-bottom: 1px solid rgb(175, 174, 174);
+}
+.logo-profil {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 30px;
+    margin-top: 20px;
+    margin-left: 30px;
+}
+
+.nama {
+    margin-bottom: 5px;
+}
+.kota {
+    color: rgba(0, 0, 0, 0.7);
+}
+.kota i {
+    margin-right: 5px;
+}
+.logo {
+    width: 200px;
+    height: 100px;
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo img {
+    width: 100px;
+}
+.nama {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*BUTTON SPLIT PAGE*/
+.d-grid.gap-2.d-md-block {
+    display: flex;
+    justify-content: left;
+    margin-left: 30px;
+    margin-top: 50px;
+}
+
+.btn-hover-slide {
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+}
+
+#button {
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 20px;
+    background-color: #ffffff;
+    border: none;
+    border-radius:0%;
+    color: black;
+}
+#button:hover{
+    color: #004080;
+    border-bottom:1px solid #004080;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 0%;
+    background: white;
+}
+#button.active{
+    color: #004080;
+    border-bottom:1px solid #004080;
+    background-color: white;
+    background: white;
+}
+
+/* END BUTTON SPLIT PAGE*/
+
+/*KONTEN TENTANG*/
+.content-tentang {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+}
+
+.card {
+    margin-bottom: 30px;
+    height: auto;
+}
+
+#subjudul {
+    background-color: white;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-left: 0px;
+    padding-bottom: 5px;
+    font-size: 20px;
+}
+
+#body {
+    padding: 20px;
+    width: 100%;
+    border: none;
+    border-radius: 0;
+}
+.card1 {
+    width: 70%;
+    padding-right: 30px;
+}
+
+.card2{
+    width: 30%;
+    height: auto;
+}
+
+.informasi-perusahaan li {
+    list-style-type: none;
+    display: flex;
+    width: 100%;
+    margin-bottom: 10px;
+
+}
+.informasi-perusahaan {
+    padding-left: 0px ;
+    width: 100%;
+    margin-bottom: 0px;
+}
+
+.subinfo {
+    width: 100%;
+}
+.isi1 {
+    width: 100%;
+}
+.isi2 {
+    width: 100%;
+    display: flex;
+    text-align: right;
+    justify-content: right;
+    font-weight: bold;
+}
+
+.link-perusahaan {
+    text-align: center;
+    padding: 10px;
+    margin-top: 50px;
+    background-color: #00264B;
+    border-radius: 10px;
+}
+.link-perusahaan a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-style: italic;
+}
+.link-perusahaan:hover {
+    background-color:#004280;
+    transition: transform 0.8s ease-in-out;
+}
+/*END KONTEN TENTANG*/
+

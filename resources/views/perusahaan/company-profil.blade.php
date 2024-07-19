@@ -119,41 +119,29 @@
               </div>
               <div class="mb-3">
                 <label for="validationTextarea" class="form-label">Provinsi</label>
-                <select class="form-select" required aria-label="select example">
+                <select class="form-select" required aria-label="select example" id="provinsi" onclick="loadprovince()">
                   <option value="">Pilih Provinsi</option>
-                  <option value="1">Aceh</option>
-                  <option value="2">DKI Jakarta</option>
-                  <option value="3">Sumatera Barat</option>
                 </select>
                 <div class="invalid-feedback">Example invalid select feedback</div>
               </div>
               <div class="mb-3">
                 <label for="validationTextarea" class="form-label">Kabupaten/Kota</label>
-                <select class="form-select" required aria-label="select example">
+                <select class="form-select" required aria-label="select example" id="kabupaten_kota">
                   <option value="">Pilih Kabupaten/Kota</option>
-                  <option value="1">Aceh</option>
-                  <option value="2">DKI Jakarta</option>
-                  <option value="3">Sumatera Barat</option>
                 </select>
                 <div class="invalid-feedback">Example invalid select feedback</div>
               </div>
               <div class="mb-3">
                 <label for="validationTextarea" class="form-label">Kecamatan</label>
-                <select class="form-select" required aria-label="select example">
+                <select class="form-select" required aria-label="select example" id="kecamatan">
                   <option value="">Pilih Kecamatan</option>
-                  <option value="1">Aceh</option>
-                  <option value="2">DKI Jakarta</option>
-                  <option value="3">Sumatera Barat</option>
                 </select>
                 <div class="invalid-feedback">Example invalid select feedback</div>
               </div>
               <div class="mb-3">
                 <label for="validationTextarea" class="form-label">Kelurahan</label>
-                <select class="form-select" required aria-label="select example">
+                <select class="form-select" required aria-label="select example" id="kelurahan">
                   <option value="">Pilih Provinsi</option>
-                  <option value="1">Aceh</option>
-                  <option value="2">DKI Jakarta</option>
-                  <option value="3">Sumatera Barat</option>
                 </select>
                 <div class="invalid-feedback">Example invalid select feedback</div>
               </div>
@@ -176,6 +164,24 @@
   <!-- End Footer -->
 
   <script>
+    function loadprovince(){
+      let xhr = new XMLHttpRequest();
+      xhr.open(
+        "GET",
+        'https://emsifa.github.io/api-wilayah-indonesia/api/provinces.json'
+      );
+
+      xhr.onreadstatechange = function(){
+        if (xhr.readystate === 4 && xhr.status===200){
+          let provinsi = JSON.parse(xhr.responseText);
+          for (let i = 0; i < provinsi.length; i++){
+            console.log(provinsi[i]);
+          }
+        }
+      };
+      xhr.send();
+    }
+
     function loadCoverImage(event) {
         const coverImage = document.getElementById('cover-image');
         coverImage.src = URL.createObjectURL(event.target.files[0]);

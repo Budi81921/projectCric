@@ -30,7 +30,7 @@
             <a class="nav-link" aria-current="page" href="/lowongan">Lowongan Kerja</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Perusahaan</a>
+            <a class="nav-link" href="/listPerusahaan">Perusahaan</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -49,7 +49,7 @@
             <div class="akun">
                 <a href="/profile">
                   @if(Auth::user()->candidate->fotoProfilCandidate === null)
-                    <img src="/img/profil.png" alt="profil">
+                    <i class="bi bi-person-fill"></i>
                   @else
                     <div class="profil-navbar"><img src="{{ asset('storage/userCandidate/' . Auth::user()->candidate->id . '/fotoProfileCandidate/' . Auth::user()->candidate->fotoProfilCandidate) }}" alt="profil"></div>
                   @endif
@@ -79,7 +79,7 @@
           <a class="nav-link" aria-current="page" href="/lowongan">Lowongan Kerja</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Perusahaan</a>
+          <a class="nav-link" href="/listPerusahaan">Perusahaan</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
