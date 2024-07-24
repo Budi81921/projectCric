@@ -22,7 +22,10 @@ return new class extends Migration
             $table->unsignedBigInteger('fkusercompany');
             $table->foreign('fkusercompany')->references('id')->on('users')->onDelete('cascade');
             $table->string('foto_profil_company')->nullable();
+            $table->string('background_profil_company')->nullable();
             $table->text('deskripsi_perusahaan')->nullable();
+            $table->int('gaji_minimal')->nullable();
+            $table->int('gaji_maximal')->nullable();
             $table->string('nomor_telepon',12)->nullable();
             $table->year('tahun_berdiri')->nullable();
             $table->string('url')->nullable();

@@ -1,0 +1,167 @@
+
+
+/* LOWONGAN PERUSAHAAN*/
+.lowongan-company h5 {
+    margin: 20px;
+}
+.lowongan-box {
+    background-color: #E4F3FF;
+    padding: 20px;
+    margin: 20px;
+    padding-bottom: 100px;
+}
+.job-view {
+    padding: 20px;
+}
+a {
+    text-decoration: none;
+}
+.post-job {
+    display: inline-block;
+    width: 100%;
+    background-color: white;
+    border: 1px solid #0C2943;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+.post-job:hover {
+    background-color: #F5DD00;
+}
+.title-postjob {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+.title-postjob i {
+    font-size: 30px;
+}
+.title-postjob span{
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 13px;
+}
+
+/* JOB TABLE */
+.job-table-avail {
+    margin-top: 40px;
+    width: 100%;
+    overflow-x: auto;
+}
+.table-hover {
+    width: 100%; 
+    text-align: center;
+}
+.job-table-avail tbody tr td{
+    padding: 25px; 
+}
+.job-table-avail thead tr th {
+    background-color: #E4F3FF;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgb(170, 170, 170);
+}
+.job-avail h5, .job-avail p {
+    text-align: center;
+    margin: 0;
+}
+.numb-of-applicant h5 {
+    padding: 0;
+    margin-top: 15px;
+}
+.job-name-loc {
+    justify-content: left;
+    text-align: left;
+}
+.job-name-loc p {
+    padding: 0;
+    margin: 0;
+    font-size: 15px;
+    color: rgb(100, 100, 100);
+    margin-top: 5px;
+}
+.job-table-avail tbody tr{
+    border-bottom: 1px solid rgb(170, 170, 170);
+}
+
+.job-table-avail tbody tr.job-avail:hover .edit-job  {
+    background-color: white; 
+}
+.job-table-avail tbody tr.job-avail:hover .delete-job  {
+    background-color: white;
+}
+.job-table-avail tbody tr.job-avail:hover .job-name {
+    color: #17599A;
+}
+
+.edit-job {
+    text-decoration: none; 
+    color: inherit;
+    border-radius: 20px;
+    background-color: #E4F3FF;
+    padding: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    border: 0;
+    font-weight: 500;
+}
+.edit-job span {
+    margin-left: 5px;
+}
+
+.delete-job {
+    border-radius: 20px;
+    background-color: #E4F3FF;
+    padding: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    border: 0;
+    font-weight: 500;
+}
+.delete-job span {
+    margin-left: 5px;
+}
+
+/* POP UP DELETE */
+.modal-body h5, .modal-body p {
+    padding: 0;
+    text-align: center;
+}
+.modal-body h5 {
+    font-weight: 700;
+}
+.modal-body p {
+    margin-top: 8px;
+    font-size: 15px;
+}
+.modal-footer-del {
+    margin-top: 10px;
+}
+.modal-footer-del .btn {
+    margin-right: 40px; 
+}
+.modal-footer-del .btn:last-child {
+    margin-right: 0; 
+}
+#btn-delete, #btn-batal {
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 10px;
+    background-color: #17599A;
+    border: 0;
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+#btn-batal {
+    background-color: white;
+    color: black;
+}
+.custom-icon {
+    font-size: 48px;
+    color: #2F88FF;
+}
+/* END POP UP DELETE */
+/* END JOB TABLE */
+/* END LOWONGAN PERUSAHAAN */
+

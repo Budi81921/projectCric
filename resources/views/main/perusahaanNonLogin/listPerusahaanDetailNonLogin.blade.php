@@ -33,8 +33,8 @@
         </div>
       </div>
       <div class="button-page">
-        <a href="{{ url('/listPerusahaan/' . encrypt($perusahaan->id)) }}"><button class="btn btn-primary btn-hover-slide active" id="button" type="button">Tentang</button></a>
-        <a href="{{ url('/listPerusahaan/detail/lowongan/' . encrypt($perusahaan->id)) }}"><button class="btn btn-primary btn-hover-slide" id="button" type="button">Lowongan</button></a>
+        <a href="{{ url('/listPerusahaanNonLogin/' . encrypt($perusahaan->id)) }}"><button class="btn btn-primary btn-hover-slide active" id="button" type="button">Tentang</button></a>
+        <a href="{{ url('/listPerusahaanNonLogin/detail/lowongan/' . encrypt($perusahaan->id)) }}"><button class="btn btn-primary btn-hover-slide" id="button" type="button">Lowongan</button></a>
       </div>
     </div>
   <!--END PROFIL PERUSAHAAN  -->

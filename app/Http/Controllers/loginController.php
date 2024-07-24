@@ -31,7 +31,7 @@ class loginController extends Controller
         if($validator->passes()){
             if(Auth::attempt($loginInfo)){
                 $user = Auth::user();
-                if ($user->role == 'candidate') {
+                if ($user->role === 'candidate') {
                     Log::info('Login successful.', ['user_id' => $user->id]);
                     return redirect('/home');
                 } else {

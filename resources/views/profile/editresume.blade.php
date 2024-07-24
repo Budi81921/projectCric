@@ -44,7 +44,11 @@
             @enderror
           </div>
           <div class="mb-3">
-            <label for="formFileMultiple" class="form-label">CV : {{ $candidateProfile->cv }}</label>
+            <label for="formFileMultiple" class="form-label">CV :
+              @if($candidateProfile->cv ==! null)
+                <a href="{{ url('storage/userCandidate/' . Auth::user()->candidate->id . '/cv/' . Auth::user()->candidate->cv) }}" target="_blank">{{ $candidateProfile->cv }}</a>
+              @endif 
+              </label>
             <input name="cv" type="file" class="form-control @error('cv') is-invalid @enderror" id="fileInput" aria-label="file example" >
             @error('cv')
               <div class="invalid-feedback">
@@ -53,7 +57,11 @@
             @enderror
           </div>
           <div class="mb-3">
-            <label for="formFileMultiple" class="form-label">Portfolio : {{ $candidateProfile->portofolio }}</label>
+            <label for="formFileMultiple" class="form-label">Portfolio : 
+              @if($candidateProfile->portofolio ==! null)
+                <a href="{{ url('storage/userCandidate/' . Auth::user()->candidate->id . '/portofolio/' . Auth::user()->candidate->portofolio) }}" target="_blank">{{ $candidateProfile->cv }}</a>
+              @endif
+            </label>
             <input value="{{ $candidateProfile->portofolio }}" name="portofolio" type="file" class="form-control @error('portofolio') is-invalid @enderror" id="fileInput" aaria-label="file example" >
             @error('portofolio')
               <div class="invalid-feedback">

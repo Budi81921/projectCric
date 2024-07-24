@@ -10,6 +10,17 @@ class Lowongan extends Model
 {
     protected $table = 'lowongankerja';
     protected $primaryKey = 'id';
+    protected $fillable=[
+        'title_lowongan',
+        'deskripsiPerusahaan',
+        'tipePekerjaan',
+        'fkKategoriPekerjaan',
+        'kualifikasi',
+        'lokasi',
+        'pendidikan',
+        'pengalaman'
+    ];
+
     public function detailLowongan(): HasMany {
         return $this->hasMany(detail_lowongan::class, 'fklowongankerja', 'id');
     }
@@ -17,5 +28,9 @@ class Lowongan extends Model
     public function company()
     {
         return $this->belongsTo(userCompanyModels::class,'fkusercompany','id');
+    }
+    
+    public function kategoripekerjaan(){
+        return $this->belongsTo(kategoriPekeerjaanmodels::class,'fkKategoriPekerjaan','id');
     }
 }

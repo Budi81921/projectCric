@@ -11,6 +11,10 @@ class detail_lowongan extends Model
     protected $table='detail_lowongan';
     protected $primaryKey='id';
 
+    protected $fillable = [
+        'status'
+    ];
+
     public function userCandidate(){
         return $this->belongsTo(userCandidateModel::class,'fkusercandidate','id');
     }

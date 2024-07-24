@@ -17,7 +17,7 @@
   <div class="company-view">
   <!-- SEARCHING -->
         <div class="searching-box">
-            <form method="GET" action="/listPerusahaan/search" class="d-flex" role="search">
+            <form method="GET" action="/listPerusahaanNonLogin/search" class="d-flex" role="search">
                 @csrf
                 <input name="search" class="form-control me-2" type="search" placeholder="Cari Pekerjaan..." aria-label="Caripekerjaan...">
                 <select class="form-select" aria-label="Default select example">
@@ -45,14 +45,14 @@
             @foreach ($perusahaan as $company)
             <div class="card w-100">
               <div class="card-body">
-                <a class="perusahaan" href="{{ url('/listPerusahaan/' . encrypt($company->id)) }}">
+                <a class="perusahaan" href="{{ url('/listPerusahaanNonLogin/' . encrypt($company->id)) }}">
                   <div class="logo-perusahaan"><img src="/img/logo_circ-removebg-preview.png" alt=""></div>
                   <div class="info-perusahaan">
                     <h5 class="card-title">{{ $company->user->nama_lengkap }}</h5>
                     <p class="card-text"><i class="bi bi-geo-alt"></i>{{ $company->detailalamat->kota_kabupaten }}</p>
                   </div>
                 </a>
-                <a href="{{ url('/listPerusahaan/detail/lowongan/' . encrypt($company->id)) }}" class="btn btn-primary" id="button">{{ $company->lowongan->count() }} Lowongan</a>
+                <a href="{{ url('/listPerusahaanNonLogin/detail/lowongan/' . encrypt($company->id)) }}" class="btn btn-primary" id="button">{{ $company->lowongan->count() }} Lowongan</a>
               </div>
             </div>
             @endforeach

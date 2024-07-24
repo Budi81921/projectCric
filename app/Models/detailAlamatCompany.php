@@ -17,12 +17,16 @@ class detailAlamatCompany extends Model
        'kota_kabupaten',
        'kecamatan',
        'kelurahan',
-       'kode_pos'
+       'kode_pos',
+    //    'provinsi_id ',
+    //    'kabupaten_kota_id',
+    //    'kecamatan_id',
+    //    'kelurahan_id' 
     ];
     
 
     public function usercompany(){
-        return $this->belongsTo(userCompanyModels::class,'fkidusercompany','id');
+        return $this->belongsTo(userCompanyModels::class,'fkusercompany','id');
     }
 
 }

@@ -7,6 +7,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\lowonganController;
 use App\Http\Controllers\main\listPerusahaanController;
+use App\Http\Controllers\perusahaan\companyLowonganController;
+use App\Http\Controllers\perusahaan\companyPelamarController;
 use App\Http\Controllers\perusahaan\companyProfileController;
 use App\Http\Controllers\perusahaan\loginPerusahaanController;
 use App\Http\Controllers\perusahaan\registerPerusahaanController;
@@ -57,10 +59,10 @@ Route::group(['middleware'=>['guest','preventBack']],function(){
     Route::post('/login/company', [loginPerusahaanController::class, 'loginCompany'])->name('login.company');
     
     Route::controller(listPerusahaanController::class)->group(function(){
-        Route::get("/listPerusahaan","index")->name('list.perusahaan');
-        Route::get("/listPerusahaan/search","searchCompany")->name('list.search.perusahaan');
-        Route::get("/listPerusahaan/{id}","detailCompany")->name('list.detail.perusahaan');
-        Route::get("/listPerusahaan/detail/lowongan/{id}","detailCompanyLowongan")->name('list.detail.perusahaan');
+        Route::get("/listPerusahaanNonLogin","indexnonlogin")->name('list.perusahaan.nonlogin');
+        Route::get("/listPerusahaanNonLogin/search","searchCompanyNonLogin")->name('list.search.perusahaan.nonlogin');
+        Route::get("/listPerusahaanNonLogin/{id}","detailCompanyNonLogin")->name('list.detail.perusahaan.nonlogin');
+        Route::get("/listPerusahaanNonLogin/detail/lowongan/{id}","detailCompanyLowonganNonLogin")->name('list.detail.perusahaan.nonlogin');
     });
 
 });
@@ -102,17 +104,25 @@ Route::group(['middleware'=>['auth','checkrole:candidate','preventBack']],functi
 Route::group(['middleware'=>['auth','checkrole:company','preventBack']],function(){
     Route::controller(companyProfileController::class)->group(function(){
         Route::get("/company/profile","index")->name('company.index');
+        Route::post("/company/profile/update","updateProfileCompany")->name('company.profile.update');
         Route::get("/company/profile/logout","logOutCompany")->name('company.logout');
     });
+
+    Route::controller(companyLowonganController::class)->group(function(){
+        Route::get("/company/profile/lowongan","index")->name('company.lowongan.index');
+        Route::get("/company/profile/lowongan/create","createLowonganindex")->name('company.lowongan.create');
+        
+    });
+
+    Route::controller(companyPelamarController::class)->group(function(){
+        Route::get("/company/profile/pelamar","index")->name('company.pelamar.index');
+        Route::get("/company/profile/lowongan/changestatus","changeStatus")->name('company.pelamar.changestatus');
+        
+    });
+
 });
 
 
-Route::get('/lowongan', [lowonganController::class, 'index'])->name('lowongan');
+Route::get('/lowongan', [lowonganController::class, 'index'])->middleware('auth')->name('lowongan');
 Route::get('/lowongan/search', [lowonganController::class, 'search'])->name('search');
 
-Route::controller(listPerusahaanController::class)->group(function(){
-    Route::get("/listPerusahaan","index")->name('list.perusahaan');
-    Route::get("/listPerusahaan/search","searchCompany")->name('list.search.perusahaan');
-    Route::get("/listPerusahaan/{id}","detailCompany")->name('list.detail.perusahaan');
-    Route::get("/listPerusahaan/detail/lowongan/{id}","detailCompanyLowongan")->name('list.detail.perusahaan');
-});

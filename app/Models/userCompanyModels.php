@@ -14,17 +14,21 @@ class userCompanyModels extends Model
     protected $primaryKey='id';
     protected $fillable = [
         'foto_profil_company',
+        'background_profil_company',
         'deskripsi_perusahaan',
         'nomor_telepon',
         'tahun_berdiri',
-        'url'
+        'url',
+        
     ];
     public function user(){
         return $this->belongsTo(User::class,'fkusercompany','id');
     }
+
     public function lowongan():HasMany{
         return $this->hasMany(Lowongan::class,'fkusercompany','id');
     }
+    
     public function detailalamat():HasOne{
         return $this->hasOne(detailAlamatCompany::class,'fkusercompany','id');
     }

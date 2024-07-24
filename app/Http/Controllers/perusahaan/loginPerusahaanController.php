@@ -30,7 +30,7 @@ class loginPerusahaanController extends Controller
         if($validator->passes()){
             if(Auth::attempt($loginInfo)){
                 $user = Auth::user();
-                if ($user->role == 'company') {
+                if ($user->role === 'company') {
                     Log::info('Company login successful.', ['user_id' => $user->id]);
                     return redirect()->route('company.index');
                 } else {

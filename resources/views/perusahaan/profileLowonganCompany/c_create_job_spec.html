@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UCAREER For Employers</title>
+    <link rel="stylesheet" href="../css/c_create_job_spec.css">
+    <link href="../css-bootstrap/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="../css-bootstrap/bootstrap.min.css">
+    <script src="../js-bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="../js-bootstrap/create-lowongan.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+  <!--PEMISAH SIDEBAR DAN NAVBAR-->
+  <div class="lowongan-view">
+    <div class="sidebar">
+      <div class="logo-brand">
+        <img src="../img/logo.png" alt="logo" width="45px">
+        <span class="text-ucareer">UCareer</span>
+      </div>
+      <div class="option-sidebar">
+        <nav class="nav flex-column">
+          <a class="nav-link" id="opsi" href="#"><i class="bi bi-person-circle"></i>Profil</a>
+          <a class="nav-link active" id="opsi" aria-current="page" href="../html/c_lowongan.html"><i class="bi bi-bag-fill"></i>Lowongan</a>
+          <a class="nav-link" id="opsi" href="#"><i class="bi bi-clipboard2-check-fill"></i>Pelamar</a>
+          <a class="nav-link" id="opsi" data-bs-toggle="modal" data-bs-target="#logoutModal"><i class="bi bi-box-arrow-right"></i>Log out</a>
+          <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="logoutModalLabel">Logout</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Apakah kamu yakin ingin keluar?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                        <button type="button" class="btn btn-danger" id="confirmLogout">Logout</button>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <div class="right-view">
+      <div class="background">
+          <img src="../img/background-photo.jpeg" alt="background">
+          <div class="content-background">
+            <div class="jargon">
+                <h4>Find the Right Candidates for your Business</h4>
+                <p>Your success comes from Recruitment!</p>
+            </div>
+            <div class="company-akun">
+                <div class="icon-company">
+                    <i class="bi bi-buildings-fill"></i>
+                </div>
+                <div class="name-of-company">
+                    <p>CRIC DSFE</p>
+                </div>
+            </div>
+          </div>
+      </div>
+      <div class="c-lowongan-company">
+        <div class="judul-c">
+            <a href="../html/c_create_job_general.html" class="back-link">
+                <i class="bi bi-arrow-left"></i>
+            </a>
+            <h5> Buat Lowongan</h5>
+        </div>
+        <div class="c-lowongan-box">
+          <div class="c-job-view">
+            <div class="c-button">
+                <div class="general-info">
+                    <a href="../html/c_create_job_general.html">
+                        <h5>Umum</h5>
+                    </a>
+                </div>
+                <div class="specific-info">
+                    <a href="../html/c_create_job_spec.html">
+                        <h5>Informasi</h5>
+                    </a>
+                </div>
+            </div>
+            <div class="information-form">
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Kategori Pekerjaan</label>
+                    <input type="text" class="form-control" id="validationDefault01" required>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Tipe Pekerjaan</label>
+                    <select class="form-select" aria-label="Default select example" required>
+                        <option selected></option>
+                        <option value="1">Full Time</option>
+                        <option value="2">Part Time</option>
+                        <option value="3">Freelance</option>
+                        <option value="3">Internship</option>
+                        <div class="invalid-feedback">
+                            Masukkan Tipe Pekerjaan.
+                        </div>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Lokasi Kerja</label>
+                    <select class="form-select" aria-label="Default select example" required>
+                        <option selected></option>
+                        <option value="1">di Kantor</option>
+                        <option value="2">di Rumah</option>
+                        <option value="3">Hybrid</option>
+                        <div class="invalid-feedback">
+                            Masukkan Tipe Pekerjaan.
+                        </div>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Minimal Gaji</label>
+                    <input type="text" class="form-control" id="validationDefault01" required>
+                </div>
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Maksimal Gaji</label>
+                    <input type="text" class="form-control" id="validationDefault01" required>
+                </div>
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Pendidikan</label>
+                    <input type="text" class="form-control" id="validationDefault01" required>
+                </div>
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Pengalaman</label>
+                    <input type="text" class="form-control" id="validationDefault01" required>
+                </div>
+            </div>
+            <div class="information-save">
+                <button class="btn btn-primary" id="information-save-btn" type="submit">Simpan</button>
+                <div id="success-message" style="display: none; color: green; margin-top: 10px">Data berhasil disimpan!</div>
+                <a href="../html/c_preview_job.html" class="link-underline-primary">Preview</a>
+            </div>
+         </div>
+       </div>
+     </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="box1">
+
+      <!-- Information -->
+      <div class="information">
+        <div class="part1">
+          <h4>CRIC DSFE UAI</h4>
+          <p><a href="#">Lowongan Kerja</a></p>
+          <p><a href="#">Perusahaan</a></p>
+          <p><a href="#">Tentang Kami</a></p>
+          <p><a href="#">Profil</a></p>
+        </div>
+
+        <div class="part2">
+          <h4>REACH US!</h4>
+          <div class="contact-info">
+            <i class="bi bi-geo-alt-fill"></i>
+            <p>Ruang CRIC, lantai 2 Universitas Al-Azhar Indonesia </p>
+          </div>
+          <div class="contact-info">
+            <i class="bi bi-envelope-fill"></i>
+            <p>cric-dsfe@uai.ac.id</p>
+          </div>
+          <div class="contact-info">
+            <i class="bi bi-telephone-fill"></i>
+            <p>+62 8788731 6662</p>
+          </div>
+        </div>
+        
+        <div class="part3">
+          <a href="https://www.linkedin.com/company/cric-dsfe/" target="_blank" rel="noopener noreferrer">
+            <i class="bi bi-linkedin"></i>
+          </a>
+          <a href="https://www.instagram.com/cric.dsfe.uai/" target="_blank" rel="noopener noreferrer">
+            <i class="bi bi-instagram"></i>
+          </a>
+        </div>
+      </div>
+      <div class="box2"></div>
+
+      <!-- Horizontal Line -->
+      <div class="horizontal-line"></div>
+          
+      <!-- Image and Watermark -->
+      <div class="footer-bottom">
+        <div class="footer-image">
+            <img src="../img/logo.png" alt="logo">
+            <span class="ucareer-text">UCareer</span>
+        </div>
+        <div class="watermark">
+            <p>&copy; 2024 CRIC DSFE UAI. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Footer -->
+
+</body>
+</html>

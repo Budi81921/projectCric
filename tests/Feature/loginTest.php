@@ -17,8 +17,7 @@ class loginTest extends TestCase
             "password"=>"12345678"
         ])
         ->assertSeeText("sukses")
-        ->assertSessionHas('email','budi@gmail.com')
-        ;
+        ->assertSessionHas('email','budi@gmail.com');
        
     }
     
