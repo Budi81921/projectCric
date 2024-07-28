@@ -20,11 +20,11 @@
             <form method="GET" action="/listPerusahaan/search" class="d-flex" role="search">
                 @csrf
                 <input name="search" class="form-control me-2" type="search" placeholder="Cari Pekerjaan..." aria-label="Caripekerjaan...">
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Area/Kota</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                <select name="area_kota"class="form-select" aria-label="Default select example">
+                    <option value="" selected>Area/Kota</option>
+                    @foreach ($kotaKabupaten as $kota)
+                        <option value="{{ $kota->kota_kabupaten }}">{{ $kota->kota_kabupaten }}</option>
+                    @endforeach
                 </select>
                 <button class="btn btn-outline-success" type="submit">Cari</button>
               </form>
@@ -46,7 +46,11 @@
             <div class="card w-100">
               <div class="card-body">
                 <a class="perusahaan" href="{{ url('/listPerusahaan/' . encrypt($company->id)) }}">
-                  <div class="logo-perusahaan"><img src="/img/logo_circ-removebg-preview.png" alt=""></div>
+                  @if($company->foto_profil_company === null)
+                    <div class="logo-perusahaan"><img src="" alt=""></div>
+                  @else
+                    <div class="logo-perusahaan"><img src="{{ asset('storage/userCompany/' . $company->id . '/fotoProfileCompany/' . $company->foto_profil_company) }}" alt=""></div>
+                  @endif
                   <div class="info-perusahaan">
                     <h5 class="card-title">{{ $company->user->nama_lengkap }}</h5>
                     <p class="card-text"><i class="bi bi-geo-alt"></i>{{ $company->detailalamat->kota_kabupaten }}</p>

@@ -76,21 +76,15 @@
 
       <div class="container-sm">
         <div class="company d-flex justify-content-center flex-wrap">
-            <button type="button" class="company-btn" href="#">
-                <img src=".." alt="Company 1">
+          @foreach ($perusahaan->take(10) as $company)
+            <button type="button" class="company-btn" href="{{ url('/listPerusahaanNonLogin/' . encrypt($company->id)) }}">
+              @if($company->foto_profil_company === null)
+                  <img src="" alt=""></div>
+              @else
+                  <img src="{{ asset('storage/userCompany/' . $company->id . '/fotoProfileCompany/' . $company->foto_profil_company) }}" alt="">
+              @endif
             </button>
-            <button type="button" class="company-btn" href="#">
-                <img src=".." alt="Company 2">
-            </button>
-            <button type="button" class="company-btn" href="#">
-                <img src=".." alt="Company 3">
-            </button>
-            <button type="button" class="company-btn" href="#">
-                <img src=".." alt="Company 4">
-            </button>
-            <button type="button" class="company-btn" href="#">
-                <img src=".." alt="Company 5">
-            </button>
+          @endforeach
         </div>
         <div class="company d-flex justify-content-center flex-wrap">
             <button type="button" class="company-btn" href="#">

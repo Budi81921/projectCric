@@ -111,13 +111,17 @@ Route::group(['middleware'=>['auth','checkrole:company','preventBack']],function
     Route::controller(companyLowonganController::class)->group(function(){
         Route::get("/company/profile/lowongan","index")->name('company.lowongan.index');
         Route::get("/company/profile/lowongan/create","createLowonganindex")->name('company.lowongan.create');
-        
+        Route::post("/company/profile/lowongan/create/proses","createLowonganProses")->name('company.lowongan.proses');
+        Route::get("/company/profile/lowongan/edit/{id}","editLowonganindex")->name('company.lowongan.edit');
+        Route::post("/company/profile/lowongan/edit/proses/","editLowonganProses")->name('company.lowongan.edit.proses');
+        Route::delete("/company/profile/lowongan/delete/{id}","deleteLowongan")->name('company.lowongan.delete');
     });
 
     Route::controller(companyPelamarController::class)->group(function(){
         Route::get("/company/profile/pelamar","index")->name('company.pelamar.index');
         Route::get("/company/profile/lowongan/changestatus","changeStatus")->name('company.pelamar.changestatus');
-        
+        Route::put("/company/profile/lowongan/changestatus/proses","changeStatus")->name('company.pelamar.changestatus');
+        Route::get("/company/profile/detail/{id}","detailPelamar")->name('company.pelamar.detail');
     });
 
 });

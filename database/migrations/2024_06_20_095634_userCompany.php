@@ -24,9 +24,7 @@ return new class extends Migration
             $table->string('foto_profil_company')->nullable();
             $table->string('background_profil_company')->nullable();
             $table->text('deskripsi_perusahaan')->nullable();
-            $table->int('gaji_minimal')->nullable();
-            $table->int('gaji_maximal')->nullable();
-            $table->string('nomor_telepon',12)->nullable();
+            $table->string('nomor_telepon', 12)->nullable();
             $table->year('tahun_berdiri')->nullable();
             $table->string('url')->nullable();
             $table->timestamps();
@@ -42,9 +40,8 @@ return new class extends Migration
             $table->string('kecamatan')->nullable();
             $table->string('kelurahan')->nullable();
             $table->string('kode_pos')->nullable();
-            $table->timestamps(); 
+            $table->timestamps();
         });
-
       
     }
 

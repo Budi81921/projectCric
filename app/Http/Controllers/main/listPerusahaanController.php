@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\main;
 
 use App\Http\Controllers\Controller;
+use App\Models\detailAlamatCompany;
 use App\Models\Lowongan;
 use App\Models\userCompanyModels;
 use Illuminate\Http\Request;
@@ -13,25 +14,44 @@ class listPerusahaanController extends Controller
     public function index(){
         $perusahaan = userCompanyModels::with(['user', 'detailalamat','lowongan'])
                         ->paginate(5);
+        $kotaKabupaten = detailAlamatCompany::select('kota_kabupaten')->distinct()->get();
         return view('main.perusahaan.listPerusahaan',[
-            'perusahaan'=>$perusahaan
+            'perusahaan'=>$perusahaan,
+            'kotaKabupaten'=>$kotaKabupaten
         ]);
     }
 
     public function searchCompany(Request $request){
-        if ($request->has('search')) {
-            $perusahaan = userCompanyModels::whereHas('user', function($query) use ($request) {
-                                $query->where('nama_lengkap', 'LIKE', '%' . $request->search . '%');
-                            })
-                            ->with(['user', 'detailalamat', 'lowongan'])
-                            ->paginate(3);
-        } else {
-            $perusahaan = userCompanyModels::with(['user', 'detailalamat', 'lowongan'])
-                            ->paginate(3);
+        $kotaKabupaten = detailAlamatCompany::select('kota_kabupaten')->distinct()->get();
+    
+        $query = userCompanyModels::query();
+
+        // Apply filters based on the request
+        if ($request->has('search') && !empty($request->search) && $request->has('area_kota') && !empty($request->area_kota)) {
+            // Both search and area_kota are provided
+            $query->whereHas('user', function($query) use ($request) {
+                $query->where('nama_lengkap', 'LIKE', '%' . $request->search . '%');
+            })->whereHas('detailalamat', function($query) use ($request) {
+                $query->where('kota_kabupaten', $request->area_kota);
+            });
+        } elseif ($request->has('search') && !empty($request->search)) {
+            // Only search is provided
+            $query->whereHas('user', function($query) use ($request) {
+                $query->where('nama_lengkap', 'LIKE', '%' . $request->search . '%');
+            });
+        } elseif ($request->has('area_kota') && !empty($request->area_kota)) {
+            // Only area_kota is provided
+            $query->whereHas('detailalamat', function($query) use ($request) {
+                $query->where('kota_kabupaten', $request->area_kota);
+            });
         }
+        // Fetch results with pagination
+        $perusahaan = $query->with(['user', 'detailalamat', 'lowongan'])->paginate(5);
+
         
         return view('main.perusahaan.listPerusahaan', [
-            'perusahaan' => $perusahaan
+            'perusahaan' => $perusahaan,
+            'kotaKabupaten' => $kotaKabupaten // Kirim data kota/kabupaten ke view
         ]);
     }
 
@@ -47,8 +67,7 @@ class listPerusahaanController extends Controller
         }
     
         return view('main.perusahaan.listPerusahaanDetail',[
-            'perusahaan' => $perusahaan
-            
+            'perusahaan' => $perusahaan 
         ]);
 
     }
@@ -77,26 +96,45 @@ class listPerusahaanController extends Controller
 
     public function indexnonlogin(){
         $perusahaan = userCompanyModels::with(['user', 'detailalamat','lowongan'])
-                        ->paginate(5);
+        ->paginate(5);
+        $kotaKabupaten = detailAlamatCompany::select('kota_kabupaten')->distinct()->get();
         return view('main.perusahaanNonLogin.listPerusahaanNonLogin',[
-            'perusahaan'=>$perusahaan
+            'perusahaan'=>$perusahaan,
+            'kotaKabupaten'=>$kotaKabupaten
         ]);
     }
 
     public function searchCompanyNonLogin(Request $request){
-        if ($request->has('search')) {
-            $perusahaan = userCompanyModels::whereHas('user', function($query) use ($request) {
-                                $query->where('nama_lengkap', 'LIKE', '%' . $request->search . '%');
-                            })
-                            ->with(['user', 'detailalamat', 'lowongan'])
-                            ->paginate(3);
-        } else {
-            $perusahaan = userCompanyModels::with(['user', 'detailalamat', 'lowongan'])
-                            ->paginate(3);
+        $kotaKabupaten = detailAlamatCompany::select('kota_kabupaten')->distinct()->get();
+    
+        $query = userCompanyModels::query();
+
+        // Apply filters based on the request
+        if ($request->has('search') && !empty($request->search) && $request->has('area_kota') && !empty($request->area_kota)) {
+            // Both search and area_kota are provided
+            $query->whereHas('user', function($query) use ($request) {
+                $query->where('nama_lengkap', 'LIKE', '%' . $request->search . '%');
+            })->whereHas('detailalamat', function($query) use ($request) {
+                $query->where('kota_kabupaten', $request->area_kota);
+            });
+        } elseif ($request->has('search') && !empty($request->search)) {
+            // Only search is provided
+            $query->whereHas('user', function($query) use ($request) {
+                $query->where('nama_lengkap', 'LIKE', '%' . $request->search . '%');
+            });
+        } elseif ($request->has('area_kota') && !empty($request->area_kota)) {
+            // Only area_kota is provided
+            $query->whereHas('detailalamat', function($query) use ($request) {
+                $query->where('kota_kabupaten', $request->area_kota);
+            });
         }
+        // Fetch results with pagination
+        $perusahaan = $query->with(['user', 'detailalamat', 'lowongan'])->paginate(5);
+
         
         return view('main.perusahaanNonLogin.listPerusahaanNonLogin', [
-            'perusahaan' => $perusahaan
+            'perusahaan' => $perusahaan,
+            'kotaKabupaten' => $kotaKabupaten // Kirim data kota/kabupaten ke view
         ]);
     }
 

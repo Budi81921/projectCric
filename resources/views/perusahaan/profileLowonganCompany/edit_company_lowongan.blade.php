@@ -26,7 +26,7 @@
             <a href="/company/profile/lowongan" class="back-link">
                 <i class="bi bi-arrow-left"></i>
             </a>
-            <h5> Buat Lowongan</h5>
+            <h5> Edit Lowongan</h5>
         </div>
 
         <div class="c-lowongan-box">
@@ -43,26 +43,36 @@
                     </a>
                 </div>
             </div>
-            <form method="POST" action="/company/profile/lowongan/create/proses">
+            @if(session('success'))
+                <div class="alert alert-success">
+                {{ session('success') }}
+                </div>
+            @elseif(session('error'))
+                <div class="alert alert-danger">
+                {{ session('error') }}
+                </div>
+            @endif
+    
+            <form method="POST" action="/company/profile/lowongan/edit/proses">
               @csrf
+              <input type="hidden" name="id" value="{{ Crypt::encrypt($jobs->id) }}">
               <div class="general-form">
                 <div class="mb-3">
                     <label for="formGroupExampleInput" class="form-label">Nama Pekerjaan</label>
-                    <input value="{{ old('title_lowongan') }}" name="title_lowongan"type="text" class="form-control @error('title_lowongan') is-invalid @enderror" id="validationDefault01" required>
+                    <input value="{{ $jobs->title_lowongan }}" name="title_lowongan"type="text" class="form-control @error('title_lowongan') is-invalid @enderror" id="validationDefault01" required>
                     @error('title_lowongan')
                         <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
-                </div>
+                    @enderror</div>
                 <div class="mb-3">
                     <label for="validationTextarea" class="form-label">Deskripsi Pekerjaan</label>
-                    <textarea name="deskripsiPekerjaan" class="form-control @error('deskripsiPekerjaan') is-invalid @enderror" id="validationTextarea" required>{{ old('deskripsiPekerjaan') }}</textarea>
+                    <textarea name="deskripsiPekerjaan" class="form-control @error('deskripsiPekerjaan') is-invalid @enderror" id="validationTextarea" required>{{ $jobs->deskripsiPekerjaan }}</textarea>
                     @error('deskripsiPekerjaan')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="mb-3">
                     <label for="validationTextarea" class="form-label">Kualifikasi</label>
-                    <textarea name="kualifikasi" class="form-control @error('kualifikasi') is-invalid @enderror" id="validationTextarea" required>{{ old('kualifikasi') }}</textarea>
+                    <textarea name="kualifikasi" class="form-control @error('kualifikasi') is-invalid @enderror" id="validationTextarea" required>{{ $jobs->kualifikasi }}</textarea>
                     @error('kualifikasi')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -72,12 +82,11 @@
               <div class="general-form">
                 <div class="mb-3">
                     <label for="formGroupExampleInput" class="form-label">Kategori Pekerjaan</label>
-                    <select name="fkKategoriPekerjaan" class="form-select @error('fkKategoriPekerjaan') is-invalid @enderror" id="kategoriPekerjaan" required>
-                        <option value="" selected>Pilih Kategori Pekerjaan</option>
+                    <select name="fkKategoriPekerjaan" class="form-select" id="kategoriPekerjaan" required>
                         @foreach($kategoriPekerjaan as $kategori)
-                            <option value="{{ $kategori->id }}">
-                                {{ $kategori->namaKategoriPekerjaan }}
-                            </option>
+                        <option value="{{ $kategori->id }}" {{ old('fkKategoriPekerjaan', $jobs->fkKategoriPekerjaan) == $kategori->id ? 'selected' : '' }}>
+                            {{ $kategori->namaKategoriPekerjaan }}
+                        </option>
                         @endforeach
                         @error('fkKategoriPekerjaan')
                             <div class="invalid-feedback">{{ $message }}</div>
@@ -86,12 +95,11 @@
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Tipe Pekerjaan</label>
-                    <select name="tipePekerjaan" class="form-select @error('tipePekerjaan') is-invalid @enderror" aria-label="Default select example" required>
-                        <option value="" selected></option>
-                        <option value="Full_Time" {{ old('tipePekerjaan') == 'Full_Time' ? 'selected' : '' }}>Full Time</option>
-                        <option value="Parti_Time" {{ old('tipePekerjaan') == 'Parti_Time' ? 'selected' : '' }}>Part Time</option>
-                        <option value="Freelance" {{ old('tipePekerjaan') == 'Freelance' ? 'selected' : '' }}>Freelance</option>
-                        <option value="Internship" {{ old('tipePekerjaan') == 'Internship' ? 'selected' : '' }}>Internship</option>
+                    <select name="tipePekerjaan" class="form-select" aria-label="Default select example" required>
+                        <option value="Full_Time" {{ old('tipePekerjaan', $jobs->tipePekerjaan) == 'Full_Time' ? 'selected' : '' }}>Full Time</option>
+                        <option value="Part_Time" {{ old('tipePekerjaan', $jobs->tipePekerjaan) == 'Part_Time' ? 'selected' : '' }}>Part Time</option>
+                        <option value="Freelance" {{ old('tipePekerjaan', $jobs->tipePekerjaan) == 'Freelance' ? 'selected' : '' }}>Freelance</option>
+                        <option value="Internship" {{ old('tipePekerjaan', $jobs->tipePekerjaan) == 'Internship' ? 'selected' : '' }}>Internship</option>
                         @error('tipePekerjaan')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
@@ -99,11 +107,10 @@
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Lokasi Kerja</label>
-                    <select name="lokasi" class="form-select @error('lokasi') is-invalid @enderror" aria-label="Default select example" required>
-                        <option value="" selected></option>
-                        <option value="WFO" {{ old('lokasi') == 'WFO' ? 'selected' : '' }}>di Kantor</option>
-                        <option value="WFH" {{ old('lokasi') == 'WFH' ? 'selected' : '' }}>di Rumah</option>
-                        <option value="Hybrid" {{ old('lokasi') == 'Hybrid' ? 'selected' : '' }}>Hybrid</option>
+                    <select name="lokasi" class="form-select" aria-label="Default select example" required>
+                        <option value="WFO" {{ old('lokasi', $jobs->lokasi) == 'WFO' ? 'selected' : '' }}>di Kantor</option>
+                        <option value="WFH" {{ old('lokasi', $jobs->lokasi) == 'WFH' ? 'selected' : '' }}>di Rumah</option>
+                        <option value="Hybrid" {{ old('lokasi', $jobs->lokasi) == 'Hybrid' ? 'selected' : '' }}>Hybrid</option>
                         @error('lokasi')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
@@ -111,28 +118,28 @@
                 </div>
                 <div class="mb-3">
                     <label for="formGroupExampleInput" class="form-label">Minimal Gaji</label>
-                    <input value="{{ old('gaji_minimal') }}" name="gaji_minimal" type="text" class="form-control @error('gaji_minimal') is-invalid @enderror" id="validationDefault01" required>
+                    <input value="{{$jobs->gaji_minimal}}" name="gaji_minimal" type="text" class="form-control @error('gaji_minimal') is-invalid @enderror" id="validationDefault01" required>
                     @error('gaji_minimal')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="mb-3">
                     <label for="formGroupExampleInput" class="form-label">Maksimal Gaji</label>
-                    <input value="{{ old('gaji_maximal') }}" name="gaji_maximal" type="text" class="form-control @error('gaji_maximal') is-invalid @enderror" id="validationDefault01" required>
+                    <input value="{{$jobs->gaji_maximal}}" name="gaji_maximal" type="text" class="form-control @error('gaji_maximal') is-invalid @enderror" id="validationDefault01" required>
                     @error('gaji_maximal')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="mb-3">
                     <label for="formGroupExampleInput" class="form-label">Pendidikan</label>
-                    <input value="{{ old('pendidikan') }}" name="pendidikan" type="text" class="form-control @error('pendidikan') is-invalid @enderror" id="validationDefault01" required>
+                    <input value="{{$jobs->pendidikan}}" name="pendidikan" type="text" class="form-control @error('pendidikan') is-invalid @enderror" id="validationDefault01" required>
                     @error('pendidikan')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="mb-3">
                     <label for="formGroupExampleInput" class="form-label">Pengalaman</label>
-                    <input value="{{ old('pengalaman') }}" name="pengalaman"type="text" class="form-control @error('pengalaman') is-invalid @enderror" id="validationDefault01" required>
+                    <input value="{{$jobs->pengalaman}}"name="pengalaman"type="text" class="form-control @error('pengalaman') is-invalid @enderror" id="validationDefault01" required>
                     @error('pengalaman')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror

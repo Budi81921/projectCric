@@ -16,6 +16,8 @@ class Lowongan extends Model
         'tipePekerjaan',
         'fkKategoriPekerjaan',
         'kualifikasi',
+        'minimal_gaji',
+        'maximal_gaji',
         'lokasi',
         'pendidikan',
         'pengalaman'

@@ -35,10 +35,10 @@
                             <h6> {{ $lowongan->title_lowongan }}</h6>
                         </div>
                         @foreach ( $detailLowongansByLowongan[$lowongan->id] as $detail)
-                        <div class="candidate"> <a href="../HTML/company-detailpelamar.html">
+                        <div class="candidate"> <a href="{{ url('/company/profile/detail/'.encrypt($detail->id)) }}">
                             <div class="info-candidate">
                                 <div class="profil-candidate">
-                                    <img src="../IMAGE/profil.png" alt="foto profil">
+                                    <img src="{{ asset('storage/userCandidate/' . $detail->userCandidate->id . '/fotoProfileCandidate/' . $detail->userCandidate->fotoProfilCandidate) }}" alt="foto profil">
                                 </div>
                                 <div class="info">
                                     <h6>{{ $detail->userCandidate->users->nama_lengkap }}</h6>
@@ -49,12 +49,23 @@
                             </div></a>
                             <div class="status-candidate">
                                 @if($detail->status == 'proses')
-                                    <button class="btn btn-primary change-status" data-id="{{ $detail->id }}" data-status="diterima">Terima</button>
-                                    <button class="btn btn-primary change-status" data-id="{{ $detail->id }}" data-status="ditolak">Tolak</button>
+                                <form action="/company/profile/lowongan/changestatus/proses" method="POST">
+                                    @csrf
+                                    @method('PUT')
+                                    <input type="hidden" name="id" value="{{ Crypt::encrypt($detail->id) }}">
+                                    <div class="status-candidate">
+                                        <button name="status" value="diterima" {{ $detail->status == 'diterima' ? 'selected' : '' }} class="btn btn-primary" id="acc-status" type="submit">Terima</button>
+                                        <button name="status" value="ditolak" {{ $detail->status == 'ditolak' ? 'selected' : '' }} class="btn btn-primary" id="rej-status" type="submit">Tolak</button>
+                                    </div>    
+                                </form>     
                                 @elseif($detail->status == 'diterima')
-                                    <button class="btn btn-success" disabled>Diterima</button>
+                                    <div class="status-candidate">
+                                        <div class="terima">Terima</div>
+                                    </div>
                                 @elseif($detail->status == 'ditolak')
-                                    <button class="btn btn-danger" disabled>Ditolak</button>
+                                    <div class="status-candidate">
+                                        <div class="tolak">Tolak</div>
+                                    </div>
                                 @endif
                             </div>
                         </div>
@@ -82,12 +93,12 @@
 
   @include('layout.footer')
   <!-- End Footer -->
-    <script>
+    {{-- <script>
         $(document).on('click', '.change-status', function() {
             var id = $(this).data('id');
             var status = $(this).data('status');
             $.ajax({
-                url: "{{ route('company.pelamar.changestatus) }}",
+                url: "{{ route('company.pelamar.changestatus') }}",
                 method: 'POST',
                 data: {
                     _token: "{{ csrf_token() }}",
@@ -104,7 +115,7 @@
                 }
             });
         });
-    </script>
+    </script> --}}
   <script>
     function loadCoverImage(event) {
         const coverImage = document.getElementById('cover-image');

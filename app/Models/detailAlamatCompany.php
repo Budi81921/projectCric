@@ -18,10 +18,7 @@ class detailAlamatCompany extends Model
        'kecamatan',
        'kelurahan',
        'kode_pos',
-    //    'provinsi_id ',
-    //    'kabupaten_kota_id',
-    //    'kecamatan_id',
-    //    'kelurahan_id' 
+   
     ];
     
 

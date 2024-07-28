@@ -15,11 +15,19 @@
   <!--PROFIL PERUSAHAAN  -->
     <div class="profil-company">
       <div class="background-company">
-        <img src="/img/background.jpg" alt="background">
+        @if($perusahaan->background_profil_company === null)
+            <div class="logo-perusahaan"><img src="/img/logo_circ-removebg-preview.png" alt="background"></div>
+          @else
+            <div class="logo-perusahaan"><img src="{{ asset('storage/userCompany/' . $perusahaan->id . '/fotoProfileCompany/' . $perusahaan->background_profil_company) }}" alt="background"></div>
+          @endif  
       </div>
       <div class="logo-profil">
         <div class="logo">
-          <img src="img/img/logo_circ-removebg-preview.png" alt="logo">
+          @if($perusahaan->foto_profil_company == null)
+            <div class="logo-perusahaan"><img src="/img/logo_circ-removebg-preview.png" alt=""></div>
+          @else
+            <div class="logo-perusahaan"><img src="{{ asset('storage/userCompany/' . $perusahaan->id . '/fotoProfileCompany/' . $perusahaan->foto_profil_company) }}" alt=""></div>
+          @endif  
         </div>
         <div class="profil">
             <div class="nama">
@@ -41,7 +49,11 @@
     <div class="content-lowongan">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item active" aria-current="page">Showing {{ $lowongan->firstItem() }} - {{ $lowongan->lastItem() }} of {{ $lowongan->total() }} results</li>
+            @if($lowongan->count() === 0)
+              <li class="breadcrumb-item active" aria-current="page">Showing 0 of {{ $lowongan->total() }} results</li>
+            @else
+              <li class="breadcrumb-item active" aria-current="page">Showing {{ $lowongan->firstItem() }} - {{ $lowongan->lastItem() }} of {{ $lowongan->total() }} results</li>
+            @endif  
           </ol>
         </nav>
         <!--SECTION 1 -->
@@ -66,8 +78,20 @@
                   <div class="btn-apply">
                     <a href="#" class="btn btn-primary-blue" id="apply">LAMAR</a>
                   </div>
+                  @php
+                      $bookmarked = session()->get('bookmarked', []);
+                  @endphp
                   <div class="bookmark" id="bookmarkIcon">
-                    <a href="#"><i class="bi bi-bookmark"></i></a>
+                      <form action="{{ route('wishlist.toggleBookmark', $lowongan1->id) }}" method="POST" class="bookmark" id="bookmarkForm-{{ $lowongan1->id }}">
+                          @csrf
+                          <button type="submit" class="bookmark-button" id="bookmarkButton-{{ $lowongan1->id }}">
+                              @if(in_array($lowongan1->id, $bookmarked))
+                                  <i class="bi bi-bookmark-fill bookmarked" id="bookmarkIcon-{{ $lowongan1->id }}"></i>
+                              @else
+                                  <i class="bi bi-bookmark" id="bookmarkIcon-{{ $lowongan1->id }}"></i>
+                              @endif
+                          </button>
+                      </form>
                   </div>
               </div>
             </div>

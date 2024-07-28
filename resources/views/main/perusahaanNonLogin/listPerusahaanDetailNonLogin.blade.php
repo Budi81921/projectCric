@@ -17,11 +17,19 @@
   <!--PROFIL PERUSAHAAN  -->
     <div class="profil-company">
       <div class="background-company">
-        <img src="/img/background.jpg" alt="background">
+        @if($perusahaan->background_profil_company === null)
+          <div class="logo-perusahaan"><img src="/img/logo_circ-removebg-preview.png" alt="background"></div>
+        @else
+          <div class="logo-perusahaan"><img src="{{ asset('storage/userCompany/' . $perusahaan->id . '/fotoProfileCompany/' . $perusahaan->background_profil_company) }}" alt="background"></div>
+        @endif  
       </div>
       <div class="logo-profil">
         <div class="logo">
-          <img src="/img/logo_circ-removebg-preview.png" alt="logo">
+          @if($perusahaan->foto_profil_company == null)
+            <div class="logo-perusahaan"><img src="/img/logo_circ-removebg-preview.png" alt=""></div>
+          @else
+            <div class="logo-perusahaan"><img src="{{ asset('storage/userCompany/' . $perusahaan->id . '/fotoProfileCompany/' . $perusahaan->foto_profil_company) }}" alt=""></div>
+          @endif  
         </div>
         <div class="profil">
             <div class="nama">

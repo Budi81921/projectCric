@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('detail_lowongan', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('fklowongankerja');
-            $table->foreign('fklowongankerja')->references('id')->on('lowonganKerja');
+            $table->foreign('fklowongankerja')->references('id')->on('lowonganKerja')->onDelete('cascade');
             $table->unsignedBigInteger('fkusercandidate');
             $table->foreign('fkusercandidate')->references('id')->on('userCandidate');
             $table->set('status',['diterima','proses','ditolak']);

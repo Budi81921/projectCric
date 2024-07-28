@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perusahaan - Profil</title>
-    <link rel="stylesheet" href="/companycss/company-profil.css">
+    <link rel="stylesheet" href="/companycss/company-profil(nonpreview-profil).css">
     <link rel="stylesheet" href="/css-bootstrap/bootstrap.css">
     <script src="/js-bootstrap/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -21,28 +21,49 @@
       <div class="biodata-company">
         <h5>Profil</h5>
         <div class="biodata">
-          <div class="container mt-5" id="foto-perusahaan">
+        {{-- <form method="POST" action="/company/profile/update" enctype="multipart/form-data">
+          @csrf --}}
+          {{-- <div class="container mt-5" id="foto-perusahaan">
             <div class="cover-container">
                 
               <!-- Gambar Cover -->
-                <img id="cover-image" src="cover-placeholder.jpg" alt="Background">
-                <input name="background_profil_company" type="file" id="cover-input" accept="image/*" onchange="loadCoverImage(event)">
+                <img id="cover-image" src="{{ asset('storage/userCandidate/' . Auth::user()->company->id . '/fotoProfileCompany/' . Auth::user()->company->background_profil_company) }}" alt="Background">
+                <input name="background_profil_company" type="file" id="cover-input" accept="image/*" >
                 <button class="btn btn-sm btn-outline-primary edit-cover-btn" id="button-edit" onclick="document.getElementById('cover-input').click()">Edit Cover</button>
                 
                 <!-- Gambar Profil -->
                 <div class="profile-pic-container">
                     <img id="profile-image" src="{{ asset('storage/userCandidate/' . Auth::user()->company->id . '/fotoProfileCompany/' . Auth::user()->company->foto_profil_company) }}" alt="Foto Profil" class="foto-profil">
-                    <input name="foto_profil_company" type="file" id="profile-input" accept="image/*" onchange="loadProfileImage(event)">
+                    <input name="foto_profil_company" type="file" id="profile-input" accept="image/*" >
                     <button class="btn btn-sm btn-outline-primary edit-photo-btn" id="button-edit"
                      onclick="document.getElementById('profile-input').click()">Edit Foto</button>
                 </div>
 
-              </div>
-          </div>
+            </div>
+          </div> --}}
 
           <div class="isi-biodata">
-            <form method="POST" action="/company/profile/update">
+            <form method="POST" action="/company/profile/update" enctype="multipart/form-data">
               @csrf
+              <div class="mb-3">
+                <label for="formFileMultiple" class="form-label">Logo Perusahaan : 
+                  @if($companyProfile->foto_profil_company ==! null)
+                    <a href="{{ url('storage/userCompany/' . Auth::user()->company->id . '/fotoProfileCompany/' . Auth::user()->company->foto_profil_company) }}" target="_blank">{{ $companyProfile->foto_profil_company }}</a>
+                  @endif
+                </label>
+                <input name="foto_profil_company" type="file" class="form-control" id="fileInput" aria-label="file example" >
+                <div class="invalid-feedback">Mohon masukan file yang sesuai.</div>
+              </div>
+              <div class="mb-3">
+                <label for="formFileMultiple" class="form-label">Background Perusahaan : 
+                  @if($companyProfile->background_profil_company ==! null)
+                    <a href="{{ url('storage/userCompany/' . Auth::user()->company->id . '/fotoProfileCompany/' . Auth::user()->company->background_profil_company) }}" target="_blank">{{ $companyProfile->background_profil_company }}</a>
+                  @endif
+                </label>
+                <input name="background_profil_company" type="file" class="form-control" id="fileInput" aria-label="file example" >
+                <div class="invalid-feedback">Mohon masukan file yang sesuai.</div>
+              </div>
+            
               <div class="mb-3">
                 <label for="formGroupExampleInput" class="form-label">Nama Perusahaan</label>
                 <input  value ="{{ $id->nama_lengkap }}" name="nama_perusahaan" type="text" class="form-control" id="validationDefault01" required>
@@ -138,7 +159,9 @@
               </div>
             </form>
           </div>
+        
         </div>
+      
       </div>
   </div>
   </div>

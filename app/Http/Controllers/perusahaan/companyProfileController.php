@@ -50,7 +50,7 @@ class companyProfileController extends Controller
         ]);
 
         if($validator->fails()){
-            Log::error('Registration failed due to validation errors.', ['errors' => $validator->errors()]);
+            Log::error('profile update failed due to validation errors.', ['errors' => $validator->errors()]);
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
@@ -59,7 +59,7 @@ class companyProfileController extends Controller
             if ($request->hasFile('foto_profil_company')) {
                 $fotoProfileCompany = $request->file('foto_profil_company');
                 $fotoProfileCompanyName = $fotoProfileCompany->getClientOriginalName();
-                Storage::delete("public/userCompany/{$usercompany->id}/fotoProfileCompany/" . $companyProfile->fotoProfilCandidate);
+                Storage::delete("public/userCompany/{$usercompany->id}/fotoProfileCompany/" . $companyProfile->foto_profil_company);
                 $fotoProfileCompany->storeAs("public/userCompany/{$usercompany->id}/fotoProfileCompany", $fotoProfileCompanyName);
                 Log::info("File uploaded: " . $fotoProfileCompanyName);
                 $usercompany->foto_profil_company = $fotoProfileCompanyName;
@@ -68,7 +68,7 @@ class companyProfileController extends Controller
             if ($request->hasFile('background_profil_company')) {
                 $backgroundProfileCompany = $request->file('background_profil_company');
                 $backgroundProfileCompanyName = $backgroundProfileCompany->getClientOriginalName();
-                Storage::delete("public/userCompany/{$usercompany->id}/backgroundProfileCompany/" . $companyProfile->fotoProfilCandidate);
+                Storage::delete("public/userCompany/{$usercompany->id}/fotoProfileCompany/" . $companyProfile->background_profil_company);
                 $backgroundProfileCompany->storeAs("public/userCompany/{$usercompany->id}/fotoProfileCompany", $backgroundProfileCompanyName);
                 Log::info("File uploaded: " . $backgroundProfileCompanyName);
                 $usercompany->background_profil_company = $backgroundProfileCompanyName;
