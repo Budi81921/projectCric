@@ -369,7 +369,7 @@
                                                 <div class="isi1">Minimal Pengalaman</div>
                                                 <div class="isi2">{{ $selectedLowongan->pengalaman}}</div>
                                               </li>
-                                            </ul> 
+                                            </ul>
                                         </div>
                                         <div class="button">
                                             <div class="lamar">
@@ -595,7 +595,7 @@
                                         </div>
                                         <div class="job-info">
                                             <h5 class="job-title">{{$lowongan->title_lowongan}}</h5>
-                                            <h5 class="company-name" style="color: #1259a0">{{$lowongan->company}}</h5>
+                                            <h5 class="company-name" style="color: #1259a0"></h5>
                                             <p class="company-loc">{{$lowongan->fkusercompany}}</p>
                                             <hr>
                                             <div class="info1">
@@ -647,7 +647,7 @@
                                         </div>
                                         <div class="judul">
                                             <h5>{{ $selectedLowongan->title_lowongan }}</h5>
-                                            <h5 style="color: #004080;">{{ $selectedLowongan->company }}</h5>
+                                            <h5 style="color: #004080;"></h5>
                                             <p>{{ $selectedLowongan->fkusercompany }}</p>
                                             <hr>
                                         </div>
@@ -672,7 +672,7 @@
                                                 <div class="isi1">Minimal Pengalaman</div>
                                                 <div class="isi2">{{ $selectedLowongan->pengalaman}}</div>
                                               </li>
-                                            </ul> 
+                                            </ul>
                                         </div>
                                         <div class="button">
                                             <div class="lamar">

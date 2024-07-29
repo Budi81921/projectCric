@@ -63,7 +63,7 @@
   <!-- END NAVIGASI BAR -->
 @endauth
 
-@guest
+@guest()
 <nav class="navbar navbar-expand-lg" id="myNavbar">
   <div class="container-fluid">
     <a class="navbar-brand" href="/">
@@ -117,7 +117,7 @@
                                   <input name="email" type="email" class="form-control @error('email') is-invalid @enderror" id="exampleFormControlInput1" value="{{ old('email') }}">
                                   @error('email')
                                     <div class="invalid-feedback">{{ $message }}</div>
-                                  @enderror 
+                                  @enderror
                               </div>
                               <!-- password input -->
                               <div class="mb-3">
@@ -152,7 +152,7 @@
                                 <input name="email2" type="email" class="form-control @error('email2') is-invalid @enderror" id="exampleFormControlInput1" value="{{ old('email2') }}">
                                 @error('email2')
                                   <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror 
+                                @enderror
                             </div>
                             <!-- password input -->
                             <div class="mb-3">

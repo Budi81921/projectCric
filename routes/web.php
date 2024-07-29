@@ -34,6 +34,8 @@ Route::group(['middleware'=>['guest','preventBack']],function(){
 
     //home
     Route::get('/', [HomeController::class, 'nonregis'])->name('homenonlogin');
+    Route::get('/lowongan', [lowonganController::class, 'index'])->name('lowongan');
+    Route::get('/lowongan/search', [lowonganController::class, 'search'])->name('search');
 
     //registrasi user candidate
     Route::controller(registrationController::class)->group(function(){
@@ -55,9 +57,9 @@ Route::group(['middleware'=>['guest','preventBack']],function(){
         Route::get("/loginCandidate","index")->name('login.index');
         Route::post("/loginCandidate","authentication")->name('login.process');
     });
-    
+
     Route::post('/login/company', [loginPerusahaanController::class, 'loginCompany'])->name('login.company');
-    
+
     Route::controller(listPerusahaanController::class)->group(function(){
         Route::get("/listPerusahaanNonLogin","indexnonlogin")->name('list.perusahaan.nonlogin');
         Route::get("/listPerusahaanNonLogin/search","searchCompanyNonLogin")->name('list.search.perusahaan.nonlogin');
@@ -111,22 +113,17 @@ Route::group(['middleware'=>['auth','checkrole:company','preventBack']],function
     Route::controller(companyLowonganController::class)->group(function(){
         Route::get("/company/profile/lowongan","index")->name('company.lowongan.index');
         Route::get("/company/profile/lowongan/create","createLowonganindex")->name('company.lowongan.create');
-        Route::post("/company/profile/lowongan/create/proses","createLowonganProses")->name('company.lowongan.proses');
-        Route::get("/company/profile/lowongan/edit/{id}","editLowonganindex")->name('company.lowongan.edit');
-        Route::post("/company/profile/lowongan/edit/proses/","editLowonganProses")->name('company.lowongan.edit.proses');
-        Route::delete("/company/profile/lowongan/delete/{id}","deleteLowongan")->name('company.lowongan.delete');
+
     });
 
     Route::controller(companyPelamarController::class)->group(function(){
         Route::get("/company/profile/pelamar","index")->name('company.pelamar.index');
         Route::get("/company/profile/lowongan/changestatus","changeStatus")->name('company.pelamar.changestatus');
-        Route::put("/company/profile/lowongan/changestatus/proses","changeStatus")->name('company.pelamar.changestatus');
-        Route::get("/company/profile/detail/{id}","detailPelamar")->name('company.pelamar.detail');
+
     });
 
 });
 
 
-Route::get('/lowongan', [lowonganController::class, 'index'])->middleware('auth')->name('lowongan');
-Route::get('/lowongan/search', [lowonganController::class, 'search'])->name('search');
+
 
